@@ -159,3 +159,25 @@ train/val/test схеме (пункт 9), которая, в свою очере
 
 **Согласно правилу проекта — дальше в масштабную реализацию не переходим.**
 Ждём подтверждения перехода к Phase 4.
+
+## Addendum после Phase 4 (архитектура)
+
+Пользователь явно указал не блокировать разработку сетевыми ограничениями
+(п.13 выше остаётся `REQUIRES LIVE VERIFICATION`, но Phase 4 спроектирована
+так, чтобы не зависеть от точных цифр — см. `docs/architecture.md`, раздел 1
+и `src/config.py`, где границы данных — параметры, а не константы).
+
+Архитектура Phase 4 **подтвердила**, а не изменила, выводы Phase 2-3:
+OpenDota остаётся основным источником (формализовано в ADR-001), собственный
+walk-forward Elo — в ADR-003 (реализован как переиспользуемый компонент
+`RatingEngine` в `src/ratings/engine.py`, используется идентично в training/
+backtesting/serving), walk-forward валидация без random split — в ADR-005.
+Дополнительно приняты: PostgreSQL с JSONB для raw-слоя без object storage на
+MVP (ADR-002), scikit-learn + CatBoost как ML-стек (ADR-004).
+
+Ничего из выводов Phase 2-3 не пересмотрено — Phase 4 добавила схему БД
+(`docs/database-design.md`), стратегию identity resolution
+(`docs/team-identity.md`, ранее не проработанную детально), дизайн pipeline
+(`docs/data-pipeline.md`) и API (`docs/api.md`), не изменив базовых
+решений. Полный список открытых вопросов для `scripts/verify_data_source.py`
+(п.13) остаётся актуальным без изменений.
