@@ -34,6 +34,16 @@ def _parse_int(value: Optional[str], default: int) -> int:
     return int(value) if value else default
 
 
+def _parse_float(value: Optional[str], default: float) -> float:
+    return float(value) if value else default
+
+
+def _parse_bool(value: Optional[str], default: bool) -> bool:
+    if value is None or value == "":
+        return default
+    return value.strip().lower() in ("1", "true", "yes", "on")
+
+
 @dataclass(frozen=True)
 class Settings:
     # --- Границы данных (Phase 4, раздел 1 запроса пользователя) ---
@@ -50,8 +60,12 @@ class Settings:
     test_start: Optional[date] = None
 
     # --- Источники данных ---
-    opendota_api_key: Optional[str] = None          # секрет, только из окружения
+    opendota_base_url: str = "https://api.opendota.com/api"
+    opendota_api_key: Optional[str] = None           # секрет, только из окружения; MVP обязан работать и без него
     opendota_rate_limit_per_min: int = 55            # ниже подтверждённого лимита 60/мин без ключа
+    request_timeout_seconds: float = 20.0
+    max_retries: int = 4
+    raw_data_enabled: bool = True                    # писать ли каждый сырой ответ в raw_responses
     contact_email: Optional[str] = None              # для Liquipedia User-Agent (ToS), НЕ хардкодится
 
     # --- База данных ---
@@ -101,8 +115,14 @@ def load_settings(env: Optional[dict] = None) -> Settings:
         train_start=_parse_date(source.get("TRAIN_START")),
         validation_start=_parse_date(source.get("VALIDATION_START")),
         test_start=_parse_date(source.get("TEST_START")),
+        opendota_base_url=source.get("OPENDOTA_BASE_URL") or "https://api.opendota.com/api",
         opendota_api_key=source.get("OPENDOTA_API_KEY") or None,
-        opendota_rate_limit_per_min=_parse_int(source.get("OPENDOTA_RATE_LIMIT_PER_MIN"), 55),
+        opendota_rate_limit_per_min=_parse_int(
+            source.get("OPENDOTA_RATE_LIMIT_PER_MIN") or source.get("RATE_LIMIT"), 55
+        ),
+        request_timeout_seconds=_parse_float(source.get("REQUEST_TIMEOUT"), 20.0),
+        max_retries=_parse_int(source.get("MAX_RETRIES"), 4),
+        raw_data_enabled=_parse_bool(source.get("RAW_DATA_ENABLED"), True),
         contact_email=source.get("CONTACT_EMAIL") or None,
         database_url=source.get("DATABASE_URL") or None,
         backtest_retrain_interval_days=_parse_int(source.get("BACKTEST_RETRAIN_INTERVAL_DAYS"), 90),
@@ -119,6 +139,12 @@ if __name__ == "__main__":
         "TEST_START": "2024-01-01",
     })
     print("OK:", ok)
+
+    # OPENDOTA_API_KEY отсутствует — MVP обязан не падать без него (Phase 5, раздел 4).
+    without_key = load_settings({})
+    assert without_key.opendota_api_key is None
+    assert without_key.opendota_base_url == "https://api.opendota.com/api"
+    print("OK: конфигурация валидна без OPENDOTA_API_KEY")
 
     try:
         load_settings({

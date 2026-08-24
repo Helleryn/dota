@@ -1,0 +1,15 @@
+# Phase 5 — реальные зависимости для ingestion/DB/ML pipeline.
+# Версии зафиксированы по фактически протестированным в этой среде (2026-08-24).
+
+sqlalchemy>=2.0,<3.0
+alembic>=1.13,<2.0
+psycopg[binary]>=3.1,<4.0
+pydantic>=2.6,<3.0
+pydantic-settings>=2.2,<3.0
+httpx>=0.27,<1.0
+pandas>=2.2
+scikit-learn>=1.4
+
+# dev/test
+pytest>=8.0
+pytest-mock>=3.12

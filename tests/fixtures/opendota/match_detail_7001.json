@@ -1,0 +1,227 @@
+{
+  "match_id": 7001,
+  "start_time": 1704067200,
+  "duration": 1800,
+  "radiant_win": false,
+  "leagueid": 5000,
+  "radiant_team_id": 100,
+  "dire_team_id": 200,
+  "radiant_team": {
+    "team_id": 100,
+    "name": "Team Alpha",
+    "tag": "ALP"
+  },
+  "dire_team": {
+    "team_id": 200,
+    "name": "Team Beta",
+    "tag": "BET"
+  },
+  "league": {
+    "leagueid": 5000,
+    "name": "Alpha League 2024",
+    "tier": "premium"
+  },
+  "series_id": 9000,
+  "series_type": 1,
+  "patch": 55,
+  "picks_bans": [
+    {
+      "is_pick": false,
+      "hero_id": 99,
+      "team": 1,
+      "order": 0
+    },
+    {
+      "is_pick": false,
+      "hero_id": 60,
+      "team": 0,
+      "order": 1
+    },
+    {
+      "is_pick": true,
+      "hero_id": 16,
+      "team": 1,
+      "order": 2
+    },
+    {
+      "is_pick": true,
+      "hero_id": 41,
+      "team": 0,
+      "order": 3
+    },
+    {
+      "is_pick": true,
+      "hero_id": 110,
+      "team": 0,
+      "order": 4
+    },
+    {
+      "is_pick": true,
+      "hero_id": 20,
+      "team": 1,
+      "order": 5
+    }
+  ],
+  "players": [
+    {
+      "account_id": 111111,
+      "player_slot": 0,
+      "hero_id": 41,
+      "kills": 8,
+      "deaths": 2,
+      "assists": 10,
+      "gold_per_min": 620,
+      "xp_per_min": 700,
+      "last_hits": 150,
+      "denies": 8,
+      "level": 22,
+      "hero_damage": 15000,
+      "tower_damage": 3000,
+      "hero_healing": 0
+    },
+    {
+      "account_id": 111112,
+      "player_slot": 1,
+      "hero_id": 110,
+      "kills": 5,
+      "deaths": 3,
+      "assists": 12,
+      "gold_per_min": 580,
+      "xp_per_min": 650,
+      "last_hits": 150,
+      "denies": 8,
+      "level": 22,
+      "hero_damage": 15000,
+      "tower_damage": 3000,
+      "hero_healing": 0
+    },
+    {
+      "account_id": 111113,
+      "player_slot": 2,
+      "hero_id": 101,
+      "kills": 3,
+      "deaths": 4,
+      "assists": 15,
+      "gold_per_min": 500,
+      "xp_per_min": 550,
+      "last_hits": 150,
+      "denies": 8,
+      "level": 22,
+      "hero_damage": 15000,
+      "tower_damage": 3000,
+      "hero_healing": 0
+    },
+    {
+      "account_id": 111114,
+      "player_slot": 3,
+      "hero_id": 22,
+      "kills": 10,
+      "deaths": 1,
+      "assists": 5,
+      "gold_per_min": 700,
+      "xp_per_min": 750,
+      "last_hits": 150,
+      "denies": 8,
+      "level": 22,
+      "hero_damage": 15000,
+      "tower_damage": 3000,
+      "hero_healing": 0
+    },
+    {
+      "account_id": null,
+      "player_slot": 4,
+      "hero_id": 5,
+      "kills": 2,
+      "deaths": 5,
+      "assists": 20,
+      "gold_per_min": 400,
+      "xp_per_min": 420,
+      "last_hits": 150,
+      "denies": 8,
+      "level": 22,
+      "hero_damage": 15000,
+      "tower_damage": 3000,
+      "hero_healing": 0
+    },
+    {
+      "account_id": 222111,
+      "player_slot": 128,
+      "hero_id": 16,
+      "kills": 4,
+      "deaths": 6,
+      "assists": 8,
+      "gold_per_min": 550,
+      "xp_per_min": 600,
+      "last_hits": 150,
+      "denies": 8,
+      "level": 22,
+      "hero_damage": 15000,
+      "tower_damage": 3000,
+      "hero_healing": 0
+    },
+    {
+      "account_id": 222112,
+      "player_slot": 129,
+      "hero_id": 20,
+      "kills": 2,
+      "deaths": 7,
+      "assists": 6,
+      "gold_per_min": 480,
+      "xp_per_min": 500,
+      "last_hits": 150,
+      "denies": 8,
+      "level": 22,
+      "hero_damage": 15000,
+      "tower_damage": 3000,
+      "hero_healing": 0
+    },
+    {
+      "account_id": 222113,
+      "player_slot": 130,
+      "hero_id": 94,
+      "kills": 6,
+      "deaths": 5,
+      "assists": 9,
+      "gold_per_min": 520,
+      "xp_per_min": 560,
+      "last_hits": 150,
+      "denies": 8,
+      "level": 22,
+      "hero_damage": 15000,
+      "tower_damage": 3000,
+      "hero_healing": 0
+    },
+    {
+      "account_id": 222114,
+      "player_slot": 131,
+      "hero_id": 13,
+      "kills": 3,
+      "deaths": 8,
+      "assists": 4,
+      "gold_per_min": 450,
+      "xp_per_min": 470,
+      "last_hits": 150,
+      "denies": 8,
+      "level": 22,
+      "hero_damage": 15000,
+      "tower_damage": 3000,
+      "hero_healing": 0
+    },
+    {
+      "account_id": 222115,
+      "player_slot": 132,
+      "hero_id": 18,
+      "kills": 1,
+      "deaths": 6,
+      "assists": 11,
+      "gold_per_min": 400,
+      "xp_per_min": 430,
+      "last_hits": 150,
+      "denies": 8,
+      "level": 22,
+      "hero_damage": 15000,
+      "tower_damage": 3000,
+      "hero_healing": 0
+    }
+  ]
+}

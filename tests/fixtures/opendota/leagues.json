@@ -1,0 +1,16 @@
+[
+  {
+    "leagueid": 5000,
+    "ticket": null,
+    "banner": null,
+    "tier": "premium",
+    "name": "Alpha League 2024"
+  },
+  {
+    "leagueid": 5001,
+    "ticket": null,
+    "banner": null,
+    "tier": "amateur",
+    "name": "Open Qualifier 2024"
+  }
+]

@@ -5,10 +5,32 @@
 
 ## Статус проекта
 
-**PHASE 0-4 завершены** (repository inspection, research, data feasibility, feature catalog,
-architecture). Проект находится в исследовательско-архитектурной стадии: до реализации
-production-пайплайна зафиксированы источники данных, риски утечки данных, схема БД и полная
-архитектура — см. `docs/`. Итоговый отчёт по Phase 2+3: [`docs/research-summary.md`](docs/research-summary.md).
+**PHASE 0-5 завершены.** Реальный (не только спроектированный) pipeline
+`OpenDota → Raw → Normalized → PostgreSQL → RatingEngine → Feature Set 0 →
+Dataset` работает и проверен сквозным прогоном — см.
+[`reports/phase5-summary.md`](reports/phase5-summary.md). Сеть к
+`api.opendota.com` недоступна из текущей среды разработки
+([`docs/environment-constraints.md`](docs/environment-constraints.md)), поэтому
+Phase 5 выполнена и проверена в offline fixture mode — код идентичен тому,
+что выполнится против живого API, но фактические цифры (объём, историческая
+глубина) не подтверждены. Итоговый отчёт по Phase 2+3:
+[`docs/research-summary.md`](docs/research-summary.md).
+
+## Быстрый старт (воспроизвести весь pipeline)
+
+```bash
+pip install -r requirements.txt
+cp .env.example .env   # заполнить DATABASE_URL реальными данными локальной PostgreSQL
+
+alembic upgrade head                                     # схема БД (docs/database-design.md)
+python3 -m src.ingestion.run_opendota --source fixtures --since 2024-01-01 --until 2025-01-01 --limit 100
+python3 scripts/build_dataset.py                          # Feature Set 0 (docs/dataset-schema.md)
+python3 scripts/sanity_check_dataset.py                   # shape/missing/class balance/sanity-fit
+python3 -m pytest tests/                                  # 45 тестов, включая leakage-аудит
+```
+
+Замените `--source fixtures` на `--source live` в среде с доступом к
+`api.opendota.com` — остальные шаги не меняются.
 
 ## Документация
 
@@ -39,24 +61,38 @@ production-пайплайна зафиксированы источники да
 - [`docs/costs.md`](docs/costs.md) — оценка стоимости MVP/production.
 - [`docs/decisions/`](docs/decisions/) — Architecture Decision Records (ADR-001..005).
 
-Вспомогательный код (прототипы/скелеты, не полная production-реализация):
+### Реализация (Phase 5)
 
-- [`scripts/verify_data_source.py`](scripts/verify_data_source.py) — автономный скрипт для запуска
-  вне этой среды: проверяет реальную доступность OpenDota API, формат ответа, rate limits и
-  историческую глубину данных.
-- [`scripts/elo_prototype.py`](scripts/elo_prototype.py) — прототип leakage-safe walk-forward Elo.
-- [`src/config.py`](src/config.py) — конфигурация (`DATA_START_DATE`, `TRAIN_START` и т.д.),
-  runnable, с валидацией порядка time-based split.
-- [`src/datasources/base.py`](src/datasources/base.py) — абстрактный интерфейс `DataSource`.
-- [`src/ratings/engine.py`](src/ratings/engine.py) — `RatingEngine`, тот же walk-forward Elo как
-  переиспользуемый компонент (training/backtesting/serving — один код).
-- [`src/models/base.py`](src/models/base.py) — `BasePredictionModel` + референсная реализация `EloRuleModel`.
-- [`src/backtesting/engine.py`](src/backtesting/engine.py) — `BacktestEngine`, интеграционная демонстрация
-  полного цикла `RatingEngine` + модель на синтетических данных.
+- [`reports/phase5-summary.md`](reports/phase5-summary.md) — что реально загружено, какие проблемы
+  обнаружены реальным прогоном, ответы на все контрольные вопросы фазы.
+- [`reports/data-quality-report.md`](reports/data-quality-report.md) — количественный data quality
+  отчёт (дубли, пропуски, coverage by year/patch/tournament).
+- [`reports/team-identity-issues.md`](reports/team-identity-issues.md) — что реально проверено/не
+  проверено по identity resolution на этой фазе.
+- [`docs/dataset-schema.md`](docs/dataset-schema.md) — схема первого реального ML-датасета (Feature Set 0).
+- [`src/datasources/opendota.py`](src/datasources/opendota.py) — `OpenDotaSource`: HTTP-клиент с
+  retry/backoff/rate-limit ([`src/datasources/http_client.py`](src/datasources/http_client.py)),
+  пагинация, извлечение draft/player-level данных.
+- [`src/datasources/opendota_fixtures.py`](src/datasources/opendota_fixtures.py) — offline fixture mode
+  (сеть к OpenDota недоступна из этой среды, см. `docs/environment-constraints.md`).
+- [`src/normalization/`](src/normalization/) — normalize/validate/enrich (patch resolution из
+  вендоренного `dotaconstants`).
+- [`src/repositories/`](src/repositories/) — идемпотентный upsert-слой (raw/match/ingestion_run).
+- [`src/ingestion/run_opendota.py`](src/ingestion/run_opendota.py) — CLI ingestion pipeline с
+  checkpoint-based incremental sync.
+- [`src/datasets/`](src/datasets/) — `DatasetBuilder` + Feature Set 0 (walk-forward Elo/recent form
+  через `RatingEngine`, `src/ratings/engine.py`).
+- [`migrations/`](migrations/) — Alembic-миграции, единственный источник схемы —
+  [`src/db/schema.py`](src/db/schema.py) (SQLAlchemy Core).
+- [`tests/`](tests/) — 45 тестов (unit/integration/leakage), включая
+  [`tests/leakage/`](tests/leakage/) — адверсариальные проверки отсутствия утечки данных на
+  РЕАЛЬНОМ коде пайплайна, не только на изолированных прототипах.
 
-Все `.py`-файлы выше запускаются напрямую (`python3 <path>` или
-`python3 -m <module>`) и содержат self-test/демонстрацию — не только код,
-но и проверку заявленных гарантий (в первую очередь — отсутствия утечки данных).
+Прототипы предыдущих фаз ([`scripts/verify_data_source.py`](scripts/verify_data_source.py),
+[`scripts/elo_prototype.py`](scripts/elo_prototype.py), [`src/models/base.py`](src/models/base.py),
+[`src/backtesting/engine.py`](src/backtesting/engine.py)) остаются актуальными — Phase 5 их не заменила,
+а построила поверх них ([`RatingEngine`](src/ratings/engine.py) используется и в
+[`src/datasets/feature_set_0.py`](src/datasets/feature_set_0.py), и в `BacktestEngine`).
 
 ## Принцип разработки
 

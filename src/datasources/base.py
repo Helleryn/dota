@@ -27,6 +27,8 @@ class RawMatch:
     duration_seconds: int
     radiant_team_id: Optional[int]
     dire_team_id: Optional[int]
+    radiant_team_name: Optional[str]
+    dire_team_name: Optional[str]
     radiant_win: bool
     league_id: Optional[int]
     league_tier: Optional[str]  # 'premium' | 'professional' | ...
@@ -60,6 +62,25 @@ class RawPlayerMatch:
     assists: int
     gold_per_min: int
     xp_per_min: int
+
+
+@dataclass(frozen=True)
+class RawResponseRecord:
+    """
+    Один сырой HTTP-ответ источника + метаданные запроса — то, что
+    записывается в raw_responses (docs/database-design.md, ADR-002).
+    Адаптеры (OpenDotaSource и т.д.) сообщают об этом через callback
+    on_raw_response, сами не пишут в БД — сохраняет принцип "domain-логика
+    не зависит от конкретного хранилища" (docs/architecture.md).
+    """
+
+    source: str
+    endpoint: str
+    request_params: dict
+    fetched_at: datetime
+    http_status: int
+    response_body: object  # уже распарсенный JSON (dict/list), не строка
+    content_hash: str  # sha256 от нормализованного тела ответа — для дедупликации
 
 
 @dataclass(frozen=True)
