@@ -5,28 +5,35 @@
 
 ## Статус проекта
 
-**PHASE 0-5 завершены.** Реальный (не только спроектированный) pipeline
+**PHASE 0-5 завершены, включая PHASE 5 LIVE.** Реальный pipeline
 `OpenDota → Raw → Normalized → PostgreSQL → RatingEngine → Feature Set 0 →
-Dataset` работает и проверен сквозным прогоном — см.
-[`reports/phase5-summary.md`](reports/phase5-summary.md). Сеть к
-`api.opendota.com` недоступна из текущей среды разработки
-([`docs/environment-constraints.md`](docs/environment-constraints.md)), поэтому
-Phase 5 выполнена и проверена в offline fixture mode — код идентичен тому,
-что выполнится против живого API, но фактические цифры (объём, историческая
-глубина) не подтверждены. Итоговый отчёт по Phase 2+3:
-[`docs/research-summary.md`](docs/research-summary.md).
+Dataset` проверен и офлайн (fixtures, [`reports/phase5-summary.md`](reports/phase5-summary.md)),
+и на живом `api.opendota.com` — сеть была доступна в этой сессии
+(ограничение [`docs/environment-constraints.md`](docs/environment-constraints.md)
+относилось к КОНКРЕТНОЙ прошлой среде выполнения, не к архитектуре).
+Загружено и проверено ~1265 реальных pro/premium/excluded-tier матчей,
+включая leakage-аудит на реальных данных и обнаруженные/исправленные
+операционные сбои — итоговый отчёт:
+[`reports/phase5-live-summary.md`](reports/phase5-live-summary.md), а также
+[`reports/live-data-verification.md`](reports/live-data-verification.md),
+[`reports/live-data-quality-100.md`](reports/live-data-quality-100.md),
+[`reports/real-data-leakage-audit.md`](reports/real-data-leakage-audit.md).
+Итоговый отчёт по Phase 2+3: [`docs/research-summary.md`](docs/research-summary.md).
 
 ## Быстрый старт (воспроизвести весь pipeline)
 
 ```bash
 pip install -r requirements.txt
-cp .env.example .env   # заполнить DATABASE_URL реальными данными локальной PostgreSQL
+cp .env.example .env   # заполнить DATABASE_URL и TEST_DATABASE_URL (ОБЯЗАНЫ отличаться — см. .env.example) реальными данными локальной PostgreSQL
 
 alembic upgrade head                                     # схема БД (docs/database-design.md)
 python3 -m src.ingestion.run_opendota --source fixtures --since 2024-01-01 --until 2025-01-01 --limit 100
+# ИЛИ, при наличии сети к api.opendota.com (см. reports/live-data-verification.md):
+# python3 -m src.ingestion.run_opendota --source live --since <узкий диапазон> --limit 100
 python3 scripts/build_dataset.py                          # Feature Set 0 (docs/dataset-schema.md)
 python3 scripts/sanity_check_dataset.py                   # shape/missing/class balance/sanity-fit
-python3 -m pytest tests/                                  # 45 тестов, включая leakage-аудит
+python3 scripts/real_data_leakage_audit.py                 # adversarial leakage-аудит на реальных данных из БД
+python3 -m pytest tests/                                  # 45 тестов, включая leakage-аудит (fixture-based)
 ```
 
 Замените `--source fixtures` на `--source live` в среде с доступом к

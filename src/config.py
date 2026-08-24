@@ -70,6 +70,13 @@ class Settings:
 
     # --- База данных ---
     database_url: Optional[str] = None               # секрет, только из окружения
+    # Отдельная БД для integration-тестов (tests/integration/test_database.py).
+    # НЕ считается взаимозаменяемой с database_url: тесты очищают
+    # matches/teams в autouse-фикстуре, и на живых данных (Phase 5 live)
+    # это реально стёрло 942 загруженных матча, когда тесты по ошибке были
+    # запущены против той же БД, что и ingestion (см. reports/live-data-verification.md).
+    # Без TEST_DATABASE_URL DB-тесты пропускаются, а не тихо переиспользуют database_url.
+    test_database_url: Optional[str] = None
 
     # --- Backtesting ---
     backtest_retrain_interval_days: int = 90         # см. docs/backtesting.md, подбирается эмпирически в Phase 8
@@ -125,6 +132,7 @@ def load_settings(env: Optional[dict] = None) -> Settings:
         raw_data_enabled=_parse_bool(source.get("RAW_DATA_ENABLED"), True),
         contact_email=source.get("CONTACT_EMAIL") or None,
         database_url=source.get("DATABASE_URL") or None,
+        test_database_url=source.get("TEST_DATABASE_URL") or None,
         backtest_retrain_interval_days=_parse_int(source.get("BACKTEST_RETRAIN_INTERVAL_DAYS"), 90),
     )
     settings.validate()

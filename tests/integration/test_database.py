@@ -4,8 +4,16 @@ test_match_insert, test_duplicate_match_is_safe (Phase 5, раздел 20).
 Запускается ПРОТИВ РЕАЛЬНОЙ PostgreSQL (не мока) — в этой среде разработки
 поднят локальный кластер (docs/environment-constraints.md: сеть к внешним
 источникам заблокирована, но локальная БД полностью доступна и это
-качественно более сильная проверка, чем sqlite/мок). Если DATABASE_URL
+качественно более сильная проверка, чем sqlite/мок). Если TEST_DATABASE_URL
 недоступен (например, CI без Postgres), тесты пропускаются, а не падают.
+
+Намеренно используется ОТДЕЛЬНАЯ БД (TEST_DATABASE_URL), не DATABASE_URL:
+autouse-фикстура ниже очищает matches/teams перед и после каждого теста —
+на Phase 5 live (реальный OpenDota ingestion) это буквально стёрло 942 уже
+загруженных матча, когда тесты были запущены против той же БД, что и
+ingestion (см. reports/live-data-verification.md, раздел "Инциденты").
+Без TEST_DATABASE_URL тесты пропускаются, а НЕ падают обратно на
+database_url — иначе это та же дыра под другим именем.
 """
 
 from datetime import datetime, timezone
@@ -21,7 +29,7 @@ from src.repositories import match_repository as repo
 settings = load_settings()
 
 try:
-    _engine = make_engine(settings) if settings.database_url else None
+    _engine = make_engine(settings, use_test_database=True) if settings.test_database_url else None
     if _engine is not None:
         with _engine.connect():
             pass
@@ -29,12 +37,12 @@ try:
 except Exception:
     DB_AVAILABLE = False
 
-pytestmark = pytest.mark.skipif(not DB_AVAILABLE, reason="DATABASE_URL недоступен в этой среде")
+pytestmark = pytest.mark.skipif(not DB_AVAILABLE, reason="TEST_DATABASE_URL недоступен в этой среде")
 
 
 @pytest.fixture
 def engine():
-    return make_engine(settings)
+    return make_engine(settings, use_test_database=True)
 
 
 @pytest.fixture(autouse=True)

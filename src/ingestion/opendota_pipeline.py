@@ -76,6 +76,32 @@ def run_ingestion(
 
     result = IngestionResult(run_id=run_id)
 
+    try:
+        return _run_ingestion_body(engine, source, since, until, limit, result)
+    except Exception as e:
+        # Персистентная ошибка ДО обработки отдельных матчей (например,
+        # /leagues не отвечает после исчерпания retry, см.
+        # reports/live-data-verification.md, раздел "Инциденты") раньше
+        # роняла процесс необработанным traceback, оставляя ingestion_runs
+        # в статусе 'running' навсегда — checkpoint для следующего запуска
+        # не терялся (он читается только из 'succeeded' прогонов), но сам
+        # факт сбоя не был виден без чтения логов. docs/data-pipeline.md
+        # прямо требует "записать в ingestion_runs.error и остановить run,
+        # не пропускать молча" — это применимо и к ошибкам ДО per-match
+        # цикла, не только внутри него.
+        with engine.begin() as conn:
+            run_repo.finish_run(conn, run_id, status="failed", records_fetched=0, checkpoint=None, error=str(e))
+        raise
+
+
+def _run_ingestion_body(
+    engine: Engine,
+    source: DataSource,
+    since: datetime,
+    until: datetime,
+    limit: Optional[int],
+    result: IngestionResult,
+) -> IngestionResult:
     def on_raw(record):
         with engine.begin() as conn:
             inserted = raw_repo.save_raw_response(conn, record)
@@ -194,7 +220,7 @@ def run_ingestion(
 
     with engine.begin() as conn:
         run_repo.finish_run(
-            conn, run_id, status="succeeded", records_fetched=result.matches_upserted, checkpoint=result.checkpoint
+            conn, result.run_id, status="succeeded", records_fetched=result.matches_upserted, checkpoint=result.checkpoint
         )
 
     return result
