@@ -59,6 +59,12 @@ def parse_args(argv=None) -> argparse.Namespace:
     parser.add_argument("--since", type=str, default="2021-01-01")
     parser.add_argument("--until", type=str, default=None)
     parser.add_argument("--cap-per-year", type=int, default=50000, help="safety cap, не должен реально сработать")
+    parser.add_argument(
+        "--with-draft-players", action="store_true",
+        help="Phase 7: bulk-загрузка picks_bans/player_matches вместе с матчами "
+             "(OpenDotaExplorerSource(fetch_draft_and_players=True)) — медленнее "
+             "(~56 матчей/сек вместо ~166), но не требует отдельного прохода.",
+    )
     return parser.parse_args(argv)
 
 
@@ -82,6 +88,7 @@ def main(argv=None) -> int:
             timeout_seconds=settings.request_timeout_seconds,
             max_retries=settings.max_retries,
             rate_limit_per_min=settings.opendota_rate_limit_per_min,
+            fetch_draft_and_players=args.with_draft_players,
         )
         try:
             result = run_ingestion(engine, source, since=y_since, until=y_until, limit=args.cap_per_year)

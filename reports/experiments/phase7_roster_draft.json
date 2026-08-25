@@ -1,0 +1,329 @@
+{
+  "experiment_id": "phase7_2026-08-25T08:41:14.704960+00:00",
+  "git_commit": "9d6e90dcf7aeca8aedbd856b82b43989da2bb9f6",
+  "timestamp": "2026-08-25T08:41:14.704960+00:00",
+  "dataset_version": "continuous_2021_2026",
+  "baseline_feature_version": "elo_k16_form3",
+  "roster_eval_set_n": 111230,
+  "draft_eval_set_n": 110170,
+  "roster_ablation": {
+    "Baseline (Elo+Form3)": {
+      "n": 16685,
+      "accuracy": 0.6027569673359304,
+      "balanced_accuracy": 0.602611196536569,
+      "log_loss": 0.6606057754517237,
+      "brier_score": 0.2342791391617385,
+      "roc_auc": 0.6418341195211934
+    },
+    "+ Roster Stability": {
+      "n": 16685,
+      "accuracy": 0.6028169014084507,
+      "balanced_accuracy": 0.602719096447113,
+      "log_loss": 0.6606137180936104,
+      "brier_score": 0.2342827569612295,
+      "roc_auc": 0.641830911511054
+    },
+    "+ Roster Age": {
+      "n": 16685,
+      "accuracy": 0.6029967036260114,
+      "balanced_accuracy": 0.6028762098226221,
+      "log_loss": 0.6606017198070474,
+      "brier_score": 0.23427635453510617,
+      "roc_auc": 0.6418624449560125
+    },
+    "+ Player Continuity": {
+      "n": 16685,
+      "accuracy": 0.6012586155229248,
+      "balanced_accuracy": 0.6011256145137629,
+      "log_loss": 0.6606261734396462,
+      "brier_score": 0.23428735294079694,
+      "roc_auc": 0.6416293319501583
+    },
+    "+ All Roster": {
+      "n": 16685,
+      "accuracy": 0.6014384177404855,
+      "balanced_accuracy": 0.6013285391372059,
+      "log_loss": 0.6606062340633364,
+      "brier_score": 0.23427267266432608,
+      "roc_auc": 0.641827998407676
+    }
+  },
+  "draft_ablation": {
+    "DRAFT-0: Baseline": {
+      "n": 16526,
+      "accuracy": 0.6037758683286942,
+      "balanced_accuracy": 0.6036392761404479,
+      "log_loss": 0.6599539871076494,
+      "brier_score": 0.23396816813280566,
+      "roc_auc": 0.643361994816471
+    },
+    "DRAFT-1: + Hero Strength": {
+      "n": 16526,
+      "accuracy": 0.6084957037395619,
+      "balanced_accuracy": 0.6086383577155783,
+      "log_loss": 0.6572545827670562,
+      "brier_score": 0.2326985374754684,
+      "roc_auc": 0.6498187166543155
+    },
+    "DRAFT-2: + Team-Hero History": {
+      "n": 16526,
+      "accuracy": 0.6066198717172939,
+      "balanced_accuracy": 0.6066790513269305,
+      "log_loss": 0.6567672865723875,
+      "brier_score": 0.23247909523649812,
+      "roc_auc": 0.6501771281475992
+    },
+    "DRAFT-3: + Pick Popularity": {
+      "n": 16526,
+      "accuracy": 0.6072854895316471,
+      "balanced_accuracy": 0.607399026633852,
+      "log_loss": 0.6567308095867425,
+      "brier_score": 0.2324656944948753,
+      "roc_auc": 0.650020905015632
+    },
+    "DRAFT-4: + Matchup Interaction": {
+      "n": 16526,
+      "accuracy": 0.6074670216628343,
+      "balanced_accuracy": 0.6076065812707481,
+      "log_loss": 0.6565220261301795,
+      "brier_score": 0.23236946365140604,
+      "roc_auc": 0.650442069676895
+    },
+    "DRAFT-1b: + Hero Strength (patch-scoped)": {
+      "n": 16526,
+      "accuracy": 0.6059542539029408,
+      "balanced_accuracy": 0.6061339051730428,
+      "log_loss": 0.6583746160584046,
+      "brier_score": 0.23324470224933447,
+      "roc_auc": 0.6472808788399367
+    }
+  },
+  "mode_a": {
+    "features": [
+      "elo_difference",
+      "form_3_difference",
+      "roster_stability_diff",
+      "player_continuity_diff"
+    ],
+    "metrics_on_roster_set": {
+      "n": 16685,
+      "accuracy": 0.6011387473778843,
+      "balanced_accuracy": 0.6010097665063486,
+      "log_loss": 0.6606311826515803,
+      "brier_score": 0.23428955835114568,
+      "roc_auc": 0.6416275984738272
+    },
+    "baseline_on_same_set": {
+      "n": 16685,
+      "accuracy": 0.6027569673359304,
+      "balanced_accuracy": 0.602611196536569,
+      "log_loss": 0.6606057754517237,
+      "brier_score": 0.2342791391617385,
+      "roc_auc": 0.6418341195211934
+    }
+  },
+  "mode_b": {
+    "features": [
+      "elo_difference",
+      "form_3_difference",
+      "hero_strength_diff",
+      "team_hero_experience_diff",
+      "team_hero_winrate_diff",
+      "matchup_advantage"
+    ],
+    "metrics_on_draft_set": {
+      "n": 16526,
+      "accuracy": 0.6077090645044173,
+      "balanced_accuracy": 0.6077535233851147,
+      "log_loss": 0.6565527540954263,
+      "brier_score": 0.23238024856054335,
+      "roc_auc": 0.6506221771337778
+    },
+    "baseline_on_same_set": {
+      "n": 16526,
+      "accuracy": 0.6037758683286942,
+      "balanced_accuracy": 0.6036392761404479,
+      "log_loss": 0.6599539871076494,
+      "brier_score": 0.23396816813280566,
+      "roc_auc": 0.643361994816471
+    }
+  },
+  "statistical_tests": {
+    "roster_vs_baseline_accuracy_diff": {
+      "point_diff": -0.0016182199580461187,
+      "ci_low": -0.0037271238772455775,
+      "ci_high": 0.0005394066526820396,
+      "n_blocks": 835,
+      "block_size": 20,
+      "n_bootstrap": 2000
+    },
+    "roster_vs_baseline_logloss_diff": {
+      "point_diff": 2.5407199856553042e-05,
+      "ci_low": -0.00030570210030758383,
+      "ci_high": 0.0003625473340486067,
+      "n_blocks": 835,
+      "block_size": 20,
+      "n_bootstrap": 2000
+    },
+    "roster_vs_baseline_mcnemar": {
+      "a_correct_b_wrong": 139,
+      "b_correct_a_wrong": 166,
+      "n_discordant": 305,
+      "p_value": 0.13642149474780105
+    },
+    "draft_vs_baseline_accuracy_diff": {
+      "point_diff": 0.003933196175723075,
+      "ci_low": -0.0006071200965217015,
+      "ci_high": 0.008715055064746504,
+      "n_blocks": 827,
+      "block_size": 20,
+      "n_bootstrap": 2000
+    },
+    "draft_vs_baseline_logloss_diff": {
+      "point_diff": -0.0034012330122230594,
+      "ci_low": -0.004464962558948191,
+      "ci_high": -0.0023164997379121013,
+      "n_blocks": 827,
+      "block_size": 20,
+      "n_bootstrap": 2000
+    },
+    "draft_vs_baseline_mcnemar": {
+      "a_correct_b_wrong": 810,
+      "b_correct_a_wrong": 745,
+      "n_discordant": 1555,
+      "p_value": 0.1045620096824438
+    }
+  },
+  "temporal_stability": [
+    {
+      "year": 2022,
+      "n": 22502,
+      "baseline": {
+        "n": 22502,
+        "accuracy": 0.579015198649009,
+        "balanced_accuracy": 0.5816205537957186,
+        "log_loss": 0.6719512920287972,
+        "brier_score": 0.2396507497525119,
+        "roc_auc": 0.6201686199507384
+      },
+      "mode_b": {
+        "n": 22502,
+        "accuracy": 0.5826593191716292,
+        "balanced_accuracy": 0.5851825696526048,
+        "log_loss": 0.6687073507946855,
+        "brier_score": 0.2381286513822873,
+        "roc_auc": 0.6274581110973063
+      }
+    },
+    {
+      "year": 2023,
+      "n": 28539,
+      "baseline": {
+        "n": 28539,
+        "accuracy": 0.5816251445390518,
+        "balanced_accuracy": 0.5816319383330854,
+        "log_loss": 0.6681823995080804,
+        "brier_score": 0.23799326880822744,
+        "roc_auc": 0.6205021735492099
+      },
+      "mode_b": {
+        "n": 28539,
+        "accuracy": 0.5883878201758996,
+        "balanced_accuracy": 0.5883937154518211,
+        "log_loss": 0.6643444357326245,
+        "brier_score": 0.236205139065384,
+        "roc_auc": 0.6289760717019246
+      }
+    },
+    {
+      "year": 2024,
+      "n": 23538,
+      "baseline": {
+        "n": 23538,
+        "accuracy": 0.5792335797433936,
+        "balanced_accuracy": 0.5792062765333434,
+        "log_loss": 0.6713240565290163,
+        "brier_score": 0.23933913626480408,
+        "roc_auc": 0.6153777614118714
+      },
+      "mode_b": {
+        "n": 23538,
+        "accuracy": 0.5857337071968731,
+        "balanced_accuracy": 0.5857461431084483,
+        "log_loss": 0.6679131919425192,
+        "brier_score": 0.23771170912531928,
+        "roc_auc": 0.6245012327628909
+      }
+    },
+    {
+      "year": 2025,
+      "n": 17100,
+      "baseline": {
+        "n": 17100,
+        "accuracy": 0.6008187134502924,
+        "balanced_accuracy": 0.6006718045700845,
+        "log_loss": 0.6627530771882412,
+        "brier_score": 0.23529756413522912,
+        "roc_auc": 0.6373310037910385
+      },
+      "mode_b": {
+        "n": 17100,
+        "accuracy": 0.6027485380116959,
+        "balanced_accuracy": 0.602784180188015,
+        "log_loss": 0.6593276901605275,
+        "brier_score": 0.23371194155079547,
+        "roc_auc": 0.6440118254161145
+      }
+    },
+    {
+      "year": 2026,
+      "n": 3948,
+      "baseline": {
+        "n": 3948,
+        "accuracy": 0.6200607902735562,
+        "balanced_accuracy": 0.6192733244972051,
+        "log_loss": 0.648499665649258,
+        "brier_score": 0.2285423329178885,
+        "roc_auc": 0.6677630360332919
+      },
+      "mode_b": {
+        "n": 3948,
+        "accuracy": 0.6238601823708206,
+        "balanced_accuracy": 0.6235737336483604,
+        "log_loss": 0.644204703129208,
+        "brier_score": 0.22651487296286635,
+        "roc_auc": 0.6773010636283558
+      }
+    }
+  ],
+  "patch_stability": [
+    {
+      "patch_id": 57,
+      "n": 2629,
+      "baseline_acc": 0.6131608976797261,
+      "mode_b_acc": 0.6108786610878661
+    },
+    {
+      "patch_id": 58,
+      "n": 9735,
+      "baseline_acc": 0.5956856702619414,
+      "mode_b_acc": 0.6008217770929636
+    },
+    {
+      "patch_id": 59,
+      "n": 1934,
+      "baseline_acc": 0.6178903826266805,
+      "mode_b_acc": 0.6246122026887281
+    },
+    {
+      "patch_id": 60,
+      "n": 2228,
+      "baseline_acc": 0.6157989228007181,
+      "mode_b_acc": 0.6193895870736086
+    }
+  ],
+  "error_analysis": {
+    "flips_correct": 810,
+    "flips_incorrect": 745
+  }
+}

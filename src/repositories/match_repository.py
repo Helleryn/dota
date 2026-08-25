@@ -97,9 +97,15 @@ def upsert_match_players(conn: Connection, match_id: int, players: Iterable) -> 
     и позиции в списке (Steam API кодирует slot 0-4 radiant, 128-132 dire —
     мы не храним точный исходный slot, только is_radiant + порядковый номер
     в пределах команды, этого достаточно для наших целей: identity игрока
-    даёт account_id, не player_slot)."""
+    даёт account_id, не player_slot).
+
+    Один multi-row INSERT на матч (не по строке, Phase 7) — тот же upsert
+    (ON CONFLICT DO UPDATE), просто без N отдельных round-trips к БД. Стало
+    узким местом при bulk-backfill picks_bans/roster на многолетнем
+    диапазоне (~10 игроков/матч × сотни тысяч матчей)."""
     radiant_slot = 0
     dire_slot = 128
+    rows = []
     for player in players:
         if player.is_radiant:
             slot = radiant_slot
@@ -107,45 +113,54 @@ def upsert_match_players(conn: Connection, match_id: int, players: Iterable) -> 
         else:
             slot = dire_slot
             dire_slot += 1
+        rows.append({
+            "match_id": match_id,
+            "player_slot": slot,
+            "account_id": player.account_id,
+            "is_radiant": player.is_radiant,
+            "hero_id": player.hero_id,
+            "kills": player.kills,
+            "deaths": player.deaths,
+            "assists": player.assists,
+            "gold_per_min": player.gold_per_min,
+            "xp_per_min": player.xp_per_min,
+        })
 
-        stmt = pg_insert(match_players).values(
-            match_id=match_id,
-            player_slot=slot,
-            account_id=player.account_id,
-            is_radiant=player.is_radiant,
-            hero_id=player.hero_id,
-            kills=player.kills,
-            deaths=player.deaths,
-            assists=player.assists,
-            gold_per_min=player.gold_per_min,
-            xp_per_min=player.xp_per_min,
-        )
-        stmt = stmt.on_conflict_do_update(
-            index_elements=["match_id", "player_slot"],
-            set_={
-                "account_id": stmt.excluded.account_id,
-                "hero_id": stmt.excluded.hero_id,
-                "kills": stmt.excluded.kills,
-                "deaths": stmt.excluded.deaths,
-                "assists": stmt.excluded.assists,
-                "gold_per_min": stmt.excluded.gold_per_min,
-                "xp_per_min": stmt.excluded.xp_per_min,
-            },
-        )
-        conn.execute(stmt)
+    if not rows:
+        return
+
+    stmt = pg_insert(match_players).values(rows)
+    stmt = stmt.on_conflict_do_update(
+        index_elements=["match_id", "player_slot"],
+        set_={
+            "account_id": stmt.excluded.account_id,
+            "hero_id": stmt.excluded.hero_id,
+            "kills": stmt.excluded.kills,
+            "deaths": stmt.excluded.deaths,
+            "assists": stmt.excluded.assists,
+            "gold_per_min": stmt.excluded.gold_per_min,
+            "xp_per_min": stmt.excluded.xp_per_min,
+        },
+    )
+    conn.execute(stmt)
 
 
 def upsert_picks_bans(conn: Connection, match_id: int, picks: Iterable) -> None:
-    """picks — Iterable[RawPickBan]."""
-    for pb in picks:
-        stmt = pg_insert(picks_bans).values(
-            match_id=match_id, ord=pb.order, is_pick=pb.is_pick, hero_id=pb.hero_id, team=pb.team
-        )
-        stmt = stmt.on_conflict_do_update(
-            index_elements=["match_id", "ord"],
-            set_={"is_pick": stmt.excluded.is_pick, "hero_id": stmt.excluded.hero_id, "team": stmt.excluded.team},
-        )
-        conn.execute(stmt)
+    """picks — Iterable[RawPickBan]. Один multi-row INSERT на матч (Phase 7,
+    см. upsert_match_players) — тот же upsert, меньше round-trips."""
+    rows = [
+        {"match_id": match_id, "ord": pb.order, "is_pick": pb.is_pick, "hero_id": pb.hero_id, "team": pb.team}
+        for pb in picks
+    ]
+    if not rows:
+        return
+
+    stmt = pg_insert(picks_bans).values(rows)
+    stmt = stmt.on_conflict_do_update(
+        index_elements=["match_id", "ord"],
+        set_={"is_pick": stmt.excluded.is_pick, "hero_id": stmt.excluded.hero_id, "team": stmt.excluded.team},
+    )
+    conn.execute(stmt)
 
 
 def sync_heroes(conn: Connection, heroes_data: dict) -> int:
