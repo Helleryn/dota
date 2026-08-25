@@ -35,8 +35,20 @@ class DatasetBuildResult:
 
 
 def _load_pro_matches(engine: Engine) -> list:
-    """Только матчи с league_tier из PRO_LEAGUE_TIERS, отсортированные по
-    start_time — та же выборка, что использовалась бы для тренировки."""
+    """
+    Только матчи с league_tier из PRO_LEAGUE_TIERS, отсортированные по
+    start_time — та же выборка, что использовалась бы для тренировки.
+
+    Tie-breaker: `match_id` ASC при равном `start_time` (Phase 6.5, раздел
+    10 задания). На непрерывном 2021-2026 датасете реально встречается 192
+    группы матчей с идентичным `start_time` (одна и та же секунда —
+    разрешение таймстампа OpenDota) — без вторичного детерминированного
+    ключа порядок таких матчей внутри группы не гарантирован Postgres между
+    прогонами (может отличаться при повторном запросе), что ломает
+    воспроизводимость walk-forward Elo/recent-form. `match_id` — не имеет
+    отношения к исходу матча, назначается OpenDota независимо от него, т.е.
+    не вносит утечку, только детерминированность.
+    """
     with engine.connect() as conn:
         rows = conn.execute(
             select(
@@ -50,7 +62,7 @@ def _load_pro_matches(engine: Engine) -> list:
             .where(leagues.c.tier.in_(PRO_LEAGUE_TIERS))
             .where(matches.c.radiant_team_id.is_not(None))
             .where(matches.c.dire_team_id.is_not(None))
-            .order_by(matches.c.start_time.asc())
+            .order_by(matches.c.start_time.asc(), matches.c.match_id.asc())
         ).all()
     return rows
 

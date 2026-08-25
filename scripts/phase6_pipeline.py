@@ -70,7 +70,11 @@ def section(title: str) -> None:
 def load_and_prepare_dataset(engine) -> pd.DataFrame:
     result = build_dataset(engine, persist=False)
     df = result.dataframe.copy()
-    df = df.sort_values("as_of_timestamp").reset_index(drop=True)
+    # match_id как tie-breaker (Phase 6.5, раздел 10) — _load_pro_matches
+    # уже сортирует так на уровне SQL; пересортировка здесь на pandas-стороне
+    # использует тот же вторичный ключ ради детерминированности, даже если
+    # порядок строк из БД когда-то изменится.
+    df = df.sort_values(["as_of_timestamp", "match_id"]).reset_index(drop=True)
     df["target"] = df["radiant_win"].astype(int)
     df["days_since_last_match_difference"] = (
         df["radiant_days_since_last_match"] - df["dire_days_since_last_match"]
