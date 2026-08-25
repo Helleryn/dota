@@ -61,8 +61,20 @@ class UncertaintyRow:
     hero_games_min: float          # затухающие игры самого редкого из 10 героев
     rare_heroes_count: int
     # --- переходы игроков (PART M) ---
-    transferred_players_total: int  # игрок в этом матче в ДРУГОЙ команде, чем раньше
+    # ВНИМАНИЕ: две следующие величины опираются на `team_id` и потому
+    # ЗАГРЯЗНЕНЫ фрагментацией идентичности команд (Phase 10: 7838 team_id,
+    # медиана 3 матча). Замер Phase 13: пики ровно на 5 и 10 «переходах»
+    # (3471 и 1224 матча) — это смена team_id целиком, а не переход игроков.
+    # Оставлены для сопоставимости и как документированный дефект.
+    transferred_players_total: int
     days_since_transfer_min: Optional[float]
+    # --- переход БЕЗ опоры на team_id (устойчиво к фрагментации) ---
+    # «Переход» определяется через смену ПАРТНЁРОВ: если у игрока сменилось
+    # больше половины четвёрки, это смена окружения независимо от того, под
+    # каким team_id команда записана.
+    teammate_churn_max: float        # макс. по сторонам доля сменившихся партнёров
+    teammate_churn_mean: float
+    players_with_new_teammates: int  # сколько игроков сменили >половины партнёров
     radiant_win: bool
 
 
@@ -96,6 +108,7 @@ def build_uncertainty_features(
     roster_since: Dict[int, float] = {}             # ts начала текущего состава
     player_team: Dict[int, int] = {}                # последняя команда игрока
     player_team_since: Dict[int, float] = {}        # с какого момента он в ней
+    player_mates: Dict[int, frozenset] = {}         # партнёры игрока в прошлом матче
     heroes = _HeroDecay(hero_half_life_days)
 
     rows: List[UncertaintyRow] = []
@@ -132,6 +145,21 @@ def build_uncertainty_features(
             if st is not None:
                 since_transfer.append((ts - st) / 86400.0)
 
+        churn_by_side, new_mates = [], 0
+        for s_ in (True, False):
+            vals = []
+            for p in sides[s_]:
+                mates = frozenset(q.account_id for q in sides[s_] if q.account_id != p.account_id)
+                prev = player_mates.get(p.account_id)
+                if prev is None or not prev:
+                    vals.append(0.0)      # нет истории — не выдумываем смену
+                    continue
+                ch = 1.0 - len(mates & prev) / len(prev)
+                vals.append(ch)
+                if ch > 0.5:
+                    new_mates += 1
+            churn_by_side.append(sum(vals) / len(vals) if vals else 0.0)
+
         rows.append(UncertaintyRow(
             match_id=m.match_id,
             as_of_timestamp=m.start_time,
@@ -147,6 +175,9 @@ def build_uncertainty_features(
             rare_heroes_count=int(sum(1 for g in hg if g < NEW_HERO_THRESHOLD)),
             transferred_players_total=transferred,
             days_since_transfer_min=float(min(since_transfer)) if since_transfer else None,
+            teammate_churn_max=float(max(churn_by_side)) if churn_by_side else 0.0,
+            teammate_churn_mean=float(sum(churn_by_side) / len(churn_by_side)) if churn_by_side else 0.0,
+            players_with_new_teammates=int(new_mates),
             radiant_win=m.radiant_win,
         ))
 
@@ -167,6 +198,8 @@ def build_uncertainty_features(
             if player_team.get(p.account_id) != cur_team:
                 player_team_since[p.account_id] = ts
             player_team[p.account_id] = cur_team
+            player_mates[p.account_id] = frozenset(
+                q.account_id for q in sides[bool(p.is_radiant)] if q.account_id != p.account_id)
             heroes.observe(p.hero_id, ts)
 
     return rows
@@ -179,6 +212,7 @@ UNCERTAINTY_COLUMNS: Tuple[str, ...] = (
     "roster_matches_together_min", "roster_age_days_min",
     "hero_games_min", "rare_heroes_count",
     "transferred_players_total", "days_since_transfer_min",
+    "teammate_churn_max", "teammate_churn_mean", "players_with_new_teammates",
 )
 
 

@@ -179,3 +179,63 @@ def test_all_columns_present_in_feature_dict():
     for c in UNCERTAINTY_COLUMNS:
         assert c in d
         assert isinstance(d[c], float)
+
+
+# ---------- PART M: переход БЕЗ опоры на team_id ----------
+
+def test_teammate_churn_is_zero_for_stable_roster():
+    rows = build_uncertainty_features(_matches(6))
+    assert rows[-1].teammate_churn_max == pytest.approx(0.0)
+    assert rows[-1].players_with_new_teammates == 0
+
+
+def test_teammate_churn_detects_player_moving_to_new_environment():
+    """Игрок 1 уходит к совершенно новым партнёрам. У него самого смена
+    окружения полная, у четверых новичков истории нет вовсе, поэтому
+    средняя по пятёрке доля = 1/5. Счётчик игроков со сменившимся
+    окружением обязан показать ровно одного."""
+    ms = _matches(6, rad_team=1, dire_team=2)
+    moved = M(6, BASE + timedelta(days=6), 1, 2, True,
+              _players(rad_accs=(1, 301, 302, 303, 304)))
+    rows = build_uncertainty_features(ms + [moved])
+    assert rows[-1].players_with_new_teammates == 1
+    assert rows[-1].teammate_churn_max == pytest.approx(0.2)
+
+
+def test_teammate_churn_is_high_when_whole_five_regroups():
+    """Две устоявшиеся пятёрки меняются половинами: у КАЖДОГО игрока
+    сменилось больше половины партнёров. Здесь величина обязана быть большой."""
+    a = [M(i, BASE + timedelta(days=i), 1, 2, True,
+           _players(rad_accs=(1, 2, 3, 4, 5), dire_accs=(11, 12, 13, 14, 15)))
+         for i in range(8)]
+    mixed = M(8, BASE + timedelta(days=8), 1, 2, True,
+              _players(rad_accs=(1, 2, 13, 14, 15), dire_accs=(11, 12, 3, 4, 5)))
+    rows = build_uncertainty_features(a + [mixed])
+    assert rows[-1].teammate_churn_max > 0.5
+    # У двоих оставшихся на стороне сменилось 3 партнёра из 4 (0.75 > 0.5),
+    # у троих пришедших — ровно 2 из 4 (0.5, порог строгий). Итого по 2 на
+    # сторону. Число проверяется точно, чтобы тест ловил смену семантики.
+    assert rows[-1].players_with_new_teammates == 4
+
+
+def test_teammate_churn_ignores_pure_team_id_change():
+    """КЛЮЧЕВОЙ ТЕСТ. Та же пятёрка играет под ДРУГИМ team_id —
+    ровно та фрагментация идентичности, что нашла Phase 10. Величина,
+    опирающаяся на team_id, объявит пять переходов; устойчивая обязана
+    показать ноль."""
+    ms = _matches(6, rad_team=1, dire_team=2)
+    renamed = M(6, BASE + timedelta(days=6), 777, 2, True, _players())
+    rows = build_uncertainty_features(ms + [renamed])
+    last = rows[-1]
+    assert last.transferred_players_total == 5, "контроль: team_id-версия обязана ошибиться"
+    assert last.teammate_churn_max == pytest.approx(0.0), \
+        "устойчивая величина не должна реагировать на переименование команды"
+    assert last.players_with_new_teammates == 0
+
+
+def test_teammate_churn_result_independent():
+    ms = _matches(8)
+    base = _snap(build_uncertainty_features(ms))
+    flipped = [M(m.match_id, m.start_time, m.radiant_team_id, m.dire_team_id,
+                 not m.radiant_win, m.players) for m in ms]
+    assert base == _snap(build_uncertainty_features(flipped))
