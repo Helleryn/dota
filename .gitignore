@@ -9,3 +9,6 @@ venv/
 data/raw/
 data/processed/
 *.log
+
+# Кэш признаков Phase 12: производные данные, пересчитываются из БД
+reports/experiments/cache/
