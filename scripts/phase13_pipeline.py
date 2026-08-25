@@ -415,11 +415,14 @@ def main(argv=None) -> int:
     # Нижний дециль показывает accuracy ниже 50%. Это либо реальная
     # инверсия порядка, либо шум — без интервала утверждать нельзя.
     low = dec == 0
-    a_low, ci_low = block_bootstrap_metric(y_val[low], p_val[low], accuracy_metric,
-                                           block_size=BLOCK_SIZE, seed=RANDOM_SEED)
-    print(f"  Нижний дециль уверенности: accuracy={a_low:.4f}, 95% CI {ci_low}")
-    print(f"  {'Ниже 0.5 значимо' if ci_low[1] < 0.5 else 'Интервал включает 0.5 — инверсия не доказана'}")
-    payload["part_g_low_decile"] = {"accuracy": a_low, "ci": list(ci_low)}
+    bl = block_bootstrap_metric(y_val[low], p_val[low], accuracy_metric,
+                                block_size=BLOCK_SIZE, seed=RANDOM_SEED)
+    print(f"  Нижний дециль уверенности: accuracy={bl['point']:.4f}, "
+          f"95% CI [{bl['ci_low']:.4f}, {bl['ci_high']:.4f}]")
+    print("  " + ("Ниже 0.5 ЗНАЧИМО — порядок в этой зоне инвертирован"
+                  if bl["ci_high"] < 0.5 else
+                  "Интервал включает 0.5 — инверсия НЕ доказана, это шум"))
+    payload["part_g_low_decile"] = bl
     payload["part_g"] = {"deciles": part_g, "monotone": monotone}
 
     # =================== PART H — coverage-risk ===================
@@ -534,16 +537,16 @@ def main(argv=None) -> int:
     for c in ("team_matches_min", "elo_difference"):
         a = val.loc[early, c].abs().mean(); b = val.loc[~early, c].abs().mean()
         print(f"    {c:24s} первые 30 дней={a:9.2f}  остальное={b:9.2f}")
-    a_e, ci_e = block_bootstrap_metric(y_val[early], p_val[early], accuracy_metric,
-                                       block_size=BLOCK_SIZE, seed=RANDOM_SEED)
-    a_r, ci_r = block_bootstrap_metric(y_val[~early], p_val[~early], accuracy_metric,
-                                       block_size=BLOCK_SIZE, seed=RANDOM_SEED)
-    print(f"    accuracy первые 30 дней={a_e:.4f} CI {ci_e}")
-    print(f"    accuracy остальное     ={a_r:.4f} CI {ci_r}")
-    overlap = not (ci_e[1] < ci_r[0] or ci_r[1] < ci_e[0])
-    print(f"    интервалы {'ПЕРЕСЕКАЮТСЯ — эффект не доказан' if overlap else 'НЕ пересекаются — эффект есть'}")
-    payload["part_k"] = {"windows": part_k, "early_ci": list(ci_e), "rest_ci": list(ci_r),
-                         "overlap": overlap}
+    be = block_bootstrap_metric(y_val[early], p_val[early], accuracy_metric,
+                                block_size=BLOCK_SIZE, seed=RANDOM_SEED)
+    br = block_bootstrap_metric(y_val[~early], p_val[~early], accuracy_metric,
+                                block_size=BLOCK_SIZE, seed=RANDOM_SEED)
+    print(f"    accuracy первые 30 дней={be['point']:.4f} CI [{be['ci_low']:.4f}, {be['ci_high']:.4f}]")
+    print(f"    accuracy остальное     ={br['point']:.4f} CI [{br['ci_low']:.4f}, {br['ci_high']:.4f}]")
+    overlap = not (be["ci_high"] < br["ci_low"] or br["ci_high"] < be["ci_low"])
+    print("    интервалы " + ("ПЕРЕСЕКАЮТСЯ — эффект не доказан"
+                              if overlap else "НЕ пересекаются — эффект есть"))
+    payload["part_k"] = {"windows": part_k, "early": be, "rest": br, "overlap": overlap}
 
     # =================== PART L — смена состава ===================
     section("PART L — новизна состава")
@@ -694,16 +697,17 @@ def main(argv=None) -> int:
                           "coverage_test": float(sel.mean()), "n": int(sel.sum()), "accuracy": a})
             print(f"  {cov*100:8.1f}% {thr:9.4f} {sel.mean()*100:13.1f}% {sel.sum():7d} {a:8.4f}")
 
-        db, cb_ci = block_bootstrap_metric(y_test, p_test, accuracy_metric,
-                                           block_size=BLOCK_SIZE, seed=RANDOM_SEED)
-        print(f"\n  Accuracy на TEST со всеми матчами: {db:.4f}, 95% CI {cb_ci}")
+        bt = block_bootstrap_metric(y_test, p_test, accuracy_metric,
+                                    block_size=BLOCK_SIZE, seed=RANDOM_SEED)
+        print(f"\n  Accuracy на TEST со всеми матчами: {bt['point']:.4f}, "
+              f"95% CI [{bt['ci_low']:.4f}, {bt['ci_high']:.4f}]")
 
         payload["test"] = {
             "metrics": r_test, "calibration": cal_t,
             "abstention_mechanism": best_mech,
             "coverage_curve": cr_test,
             "coverage_fixed_thresholds": fixed,
-            "accuracy_ci": list(cb_ci),
+            "accuracy_ci": bt,
         }
         payload["test_accesses"] = TEST_ACCESS["n"]
 
