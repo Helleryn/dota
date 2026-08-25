@@ -9,6 +9,8 @@ pydantic-settings>=2.2,<3.0
 httpx>=0.27,<1.0
 pandas>=2.2
 scikit-learn>=1.4
+catboost>=1.2
+matplotlib>=3.8
 
 # dev/test
 pytest>=8.0

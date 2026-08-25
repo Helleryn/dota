@@ -1,0 +1,118 @@
+{
+  "experiment_id": "phase6_baseline_2026-08-25T06:06:35.027715+00:00",
+  "timestamp": "2026-08-25T06:06:35.027715+00:00",
+  "git_commit": "dfa0e4dfa0dbf747929adb25aa963a026e4ad8c4",
+  "dataset_version": "v0_baseline",
+  "dataset_n_rows": 2938,
+  "dataset_period": [
+    "2021-01-01 08:03:02+00:00",
+    "2026-07-09 09:05:35+00:00"
+  ],
+  "feature_set": [
+    "elo_difference",
+    "recent_winrate_difference",
+    "days_since_last_match_difference"
+  ],
+  "split_periods": {
+    "train_start": "2021-01-01 08:03:02+00:00",
+    "train_end": "2025-04-01 06:48:22+00:00",
+    "validation_start": "2025-04-01 07:06:48+00:00",
+    "validation_end": "2026-01-05 15:48:05+00:00",
+    "test_start": "2026-01-05 16:07:11+00:00",
+    "test_end": "2026-07-09 09:05:35+00:00"
+  },
+  "random_seed": 42,
+  "catboost_hyperparameters": {
+    "iterations": 300,
+    "depth": 4,
+    "learning_rate": 0.05,
+    "loss_function": "Logloss",
+    "random_seed": 42,
+    "verbose": false,
+    "allow_writing_files": false
+  },
+  "results": {
+    "random": {
+      "n": 441,
+      "accuracy": 0.5056689342403629,
+      "balanced_accuracy": 0.5,
+      "log_loss": 0.6931471805599453,
+      "brier_score": 0.25,
+      "roc_auc": 0.5
+    },
+    "majority": {
+      "n": 441,
+      "accuracy": 0.5056689342403629,
+      "balanced_accuracy": 0.5,
+      "log_loss": 0.693098038577951,
+      "brier_score": 0.2499754292396605,
+      "roc_auc": 0.5
+    },
+    "elo_only": {
+      "n": 441,
+      "accuracy": 0.5873015873015873,
+      "balanced_accuracy": 0.5874542312913975,
+      "log_loss": 0.6710987942669114,
+      "brier_score": 0.23901447577270554,
+      "roc_auc": 0.6206956843707574
+    },
+    "logreg_raw": {
+      "n": 441,
+      "accuracy": 0.5850340136054422,
+      "balanced_accuracy": 0.5841835685193566,
+      "log_loss": 0.6845670683827417,
+      "brier_score": 0.24537348404731155,
+      "roc_auc": 0.6087238244127207
+    },
+    "logreg_calibrated": {
+      "n": 441,
+      "accuracy": 0.564625850340136,
+      "balanced_accuracy": 0.5654441107499897,
+      "log_loss": 0.8353098533641836,
+      "brier_score": 0.24775314395498435,
+      "roc_auc": 0.596782819763854
+    },
+    "catboost_raw": {
+      "n": 441,
+      "accuracy": 0.5374149659863946,
+      "balanced_accuracy": 0.5382811535771588,
+      "log_loss": 0.7030052412326951,
+      "brier_score": 0.25414863896900336,
+      "roc_auc": 0.5399164849631792
+    },
+    "catboost_calibrated": {
+      "n": 441,
+      "accuracy": 0.4875283446712018,
+      "balanced_accuracy": 0.49291356399391123,
+      "log_loss": 0.697703269925522,
+      "brier_score": 0.2521428492364727,
+      "roc_auc": 0.5356995927099191
+    }
+  },
+  "ablation": {
+    "A: elo only": {
+      "n": 441,
+      "accuracy": 0.5873015873015873,
+      "balanced_accuracy": 0.5870942526844118,
+      "log_loss": 0.6761171939372733,
+      "brier_score": 0.24155525233564956,
+      "roc_auc": 0.6206956843707574
+    },
+    "B: elo + form": {
+      "n": 441,
+      "accuracy": 0.5873015873015873,
+      "balanced_accuracy": 0.5864771465010079,
+      "log_loss": 0.6815100454012522,
+      "brier_score": 0.2441998315024656,
+      "roc_auc": 0.6068930760686222
+    },
+    "C: elo + form + rest": {
+      "n": 441,
+      "accuracy": 0.5850340136054422,
+      "balanced_accuracy": 0.5841835685193566,
+      "log_loss": 0.6845670683827417,
+      "brier_score": 0.24537348404731155,
+      "roc_auc": 0.6087238244127207
+    }
+  }
+}
