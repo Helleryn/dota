@@ -1,0 +1,2465 @@
+{
+  "experiment_id": "phase10_2026-08-25T12:08:59.770816+00:00",
+  "git_commit": "f48bc67d5d92182e0d42bcbb230a23165ee52489",
+  "timestamp": "2026-08-25T12:08:59.770816+00:00",
+  "identity_stats": {
+    "n_links": 893,
+    "by_confidence": {
+      "MEDIUM": 627,
+      "HIGH": 266
+    },
+    "merged_source_ids": 893,
+    "n_source_ids": 7793,
+    "n_canonical_ids": 6900,
+    "reduction": 893
+  },
+  "links_sample": [
+    {
+      "pred": 8168204,
+      "src": 8262962,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 1.89,
+      "valid_from": "2021-01-08 06:53:05+00:00",
+      "name_pred": "team void ",
+      "name_src": "Assault"
+    },
+    {
+      "pred": 8261272,
+      "src": 7872640,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.04,
+      "valid_from": "2021-01-09 00:03:41+00:00",
+      "name_pred": "Byzantine Raiders",
+      "name_src": "Seattle Super Sonics"
+    },
+    {
+      "pred": 8261554,
+      "src": 7623629,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.05,
+      "valid_from": "2021-01-09 10:27:46+00:00",
+      "name_pred": "Army Geniuses Mansion ",
+      "name_src": "ARMY GENIUSES"
+    },
+    {
+      "pred": 8143029,
+      "src": 8262519,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 4.96,
+      "valid_from": "2021-01-10 15:19:06+00:00",
+      "name_pred": "ALBION ONLINE PLAYERS",
+      "name_src": "PARA PA PLAYERS"
+    },
+    {
+      "pred": 8214573,
+      "src": 8263717,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 2.01,
+      "valid_from": "2021-01-10 15:21:05+00:00",
+      "name_pred": "Looking For Org",
+      "name_src": "Lets gooo!!!"
+    },
+    {
+      "pred": 8262067,
+      "src": 4705141,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 4.97,
+      "valid_from": "2021-01-10 15:36:21+00:00",
+      "name_pred": "Team Test",
+      "name_src": "Team Wardens "
+    },
+    {
+      "pred": 8262109,
+      "src": 7201662,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.88,
+      "valid_from": "2021-01-11 15:18:43+00:00",
+      "name_pred": "Pavaga Rejects ",
+      "name_src": "NoCyberdogs"
+    },
+    {
+      "pred": 8261676,
+      "src": 8144223,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.04,
+      "valid_from": "2021-01-11 17:18:07+00:00",
+      "name_pred": "Ensis",
+      "name_src": "Ensis Academy"
+    },
+    {
+      "pred": 8262920,
+      "src": 8271032,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 4.92,
+      "valid_from": "2021-01-13 20:06:04+00:00",
+      "name_pred": "Aristotle ",
+      "name_src": "A-Team"
+    },
+    {
+      "pred": 8263304,
+      "src": 8271508,
+      "conf": "HIGH",
+      "overlap": 0.667,
+      "gap_days": 6.19,
+      "valid_from": "2021-01-20 03:15:27+00:00",
+      "name_pred": "DogChamp",
+      "name_src": "DogChamp"
+    },
+    {
+      "pred": 8254112,
+      "src": 7298091,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 13.0,
+      "valid_from": "2021-01-20 23:02:17+00:00",
+      "name_pred": "Omega Gaming",
+      "name_src": "Noping VPN"
+    },
+    {
+      "pred": 8273079,
+      "src": 8281703,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 3.69,
+      "valid_from": "2021-01-21 09:01:21+00:00",
+      "name_pred": "ShadowTilt",
+      "name_src": "Shadow Team"
+    },
+    {
+      "pred": 8197157,
+      "src": 8272343,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 13.74,
+      "valid_from": "2021-01-21 17:00:02+00:00",
+      "name_pred": "LosCHUPAPINGAS",
+      "name_src": "MadKings "
+    },
+    {
+      "pred": 8261993,
+      "src": 8282990,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 4.66,
+      "valid_from": "2021-01-22 08:13:30+00:00",
+      "name_pred": "netCil",
+      "name_src": "ZXC and pause"
+    },
+    {
+      "pred": 8261742,
+      "src": 8283018,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 11.76,
+      "valid_from": "2021-01-22 10:30:22+00:00",
+      "name_pred": "kapusta team",
+      "name_src": "Willow Gaming"
+    },
+    {
+      "pred": 7469922,
+      "src": 8272420,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 12.75,
+      "valid_from": "2021-01-23 19:59:14+00:00",
+      "name_pred": "Demon Slayers",
+      "name_src": "Jiang Hu"
+    },
+    {
+      "pred": 8283018,
+      "src": 8229827,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.04,
+      "valid_from": "2021-01-24 16:29:28+00:00",
+      "name_pred": "Willow Gaming",
+      "name_src": "grave's crew"
+    },
+    {
+      "pred": 8230653,
+      "src": 8282808,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 5.98,
+      "valid_from": "2021-02-02 17:33:04+00:00",
+      "name_pred": "Chicken Fighters",
+      "name_src": "high coast"
+    },
+    {
+      "pred": 8172168,
+      "src": 8291895,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 6.09,
+      "valid_from": "2021-02-02 20:08:00+00:00",
+      "name_pred": "mudgolems",
+      "name_src": "Tundra Esports"
+    },
+    {
+      "pred": 8261191,
+      "src": 8021232,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 27.85,
+      "valid_from": "2021-02-07 13:05:26+00:00",
+      "name_pred": "TOAD",
+      "name_src": "Pavaga Green"
+    },
+    {
+      "pred": 8143680,
+      "src": 8309339,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 0.95,
+      "valid_from": "2021-02-07 16:31:33+00:00",
+      "name_pred": "Aghnia ",
+      "name_src": "Anime lovers"
+    },
+    {
+      "pred": 8283005,
+      "src": 8309640,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 1.8,
+      "valid_from": "2021-02-09 03:25:51+00:00",
+      "name_pred": "Dream Maker",
+      "name_src": "Dream Maker"
+    },
+    {
+      "pred": 8309529,
+      "src": 8301785,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 0.89,
+      "valid_from": "2021-02-09 04:22:43+00:00",
+      "name_pred": "P1 Gaming",
+      "name_src": "P1 GAMING"
+    },
+    {
+      "pred": 8254145,
+      "src": 7408845,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 3.8,
+      "valid_from": "2021-02-10 05:20:35+00:00",
+      "name_pred": "Execration",
+      "name_src": "Execration"
+    },
+    {
+      "pred": 8263697,
+      "src": 8273348,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 0.89,
+      "valid_from": "2021-02-13 05:52:07+00:00",
+      "name_pred": "Good Game No Remorse",
+      "name_src": "Good Game No Remorse"
+    },
+    {
+      "pred": 8161113,
+      "src": 8310936,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 6.79,
+      "valid_from": "2021-02-14 14:24:01+00:00",
+      "name_pred": "Live to Win",
+      "name_src": "Wayfarers"
+    },
+    {
+      "pred": 5209335,
+      "src": 6569624,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.02,
+      "valid_from": "2021-02-16 17:15:47+00:00",
+      "name_pred": "Orginality",
+      "name_src": "Live"
+    },
+    {
+      "pred": 8272410,
+      "src": 8302158,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 7.06,
+      "valid_from": "2021-02-17 09:36:09+00:00",
+      "name_pred": "Item breaker",
+      "name_src": "Itembreaker"
+    },
+    {
+      "pred": 6209143,
+      "src": 8310994,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 6.82,
+      "valid_from": "2021-02-18 10:56:02+00:00",
+      "name_pred": "Gambit Esports",
+      "name_src": "Gambit-2"
+    },
+    {
+      "pred": 6406681,
+      "src": 8320390,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.89,
+      "valid_from": "2021-02-19 14:07:35+00:00",
+      "name_pred": "Imperial Pro Gaming",
+      "name_src": "Tequila"
+    },
+    {
+      "pred": 8271832,
+      "src": 7328525,
+      "conf": "HIGH",
+      "overlap": 0.667,
+      "gap_days": 0.95,
+      "valid_from": "2021-03-02 16:15:26+00:00",
+      "name_pred": "GALAXY TEAM",
+      "name_src": "Galaxy Team"
+    },
+    {
+      "pred": 8327583,
+      "src": 8327747,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 1.95,
+      "valid_from": "2021-03-03 16:07:34+00:00",
+      "name_pred": "Retards",
+      "name_src": "La Campanella"
+    },
+    {
+      "pred": 7683327,
+      "src": 8335896,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 2.01,
+      "valid_from": "2021-03-05 14:10:11+00:00",
+      "name_pred": "Team Chaos",
+      "name_src": "TeamChaos"
+    },
+    {
+      "pred": 4991618,
+      "src": 8328654,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 26.76,
+      "valid_from": "2021-03-09 03:04:36+00:00",
+      "name_pred": "Magic Flying Bears",
+      "name_src": "Shinigami"
+    },
+    {
+      "pred": 8021861,
+      "src": 8342919,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 17.62,
+      "valid_from": "2021-03-10 03:00:02+00:00",
+      "name_pred": "Vice eSports",
+      "name_src": "South Built Esports"
+    },
+    {
+      "pred": 7998370,
+      "src": 8336203,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 20.84,
+      "valid_from": "2021-03-10 03:13:40+00:00",
+      "name_pred": "Spade A",
+      "name_src": "Team Skadi"
+    },
+    {
+      "pred": 8159607,
+      "src": 8254195,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.91,
+      "valid_from": "2021-03-11 06:31:29+00:00",
+      "name_pred": "access",
+      "name_src": "Demon Slayer"
+    },
+    {
+      "pred": 8252786,
+      "src": 7960275,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 17.24,
+      "valid_from": "2021-03-16 00:07:47+00:00",
+      "name_pred": "Incubus Gaming",
+      "name_src": "Spirits"
+    },
+    {
+      "pred": 8351341,
+      "src": 8352551,
+      "conf": "HIGH",
+      "overlap": 0.667,
+      "gap_days": 0.99,
+      "valid_from": "2021-03-18 23:01:17+00:00",
+      "name_pred": "DOTA DE RUA ",
+      "name_src": "DOTA DE RUA "
+    },
+    {
+      "pred": 8169890,
+      "src": 5475274,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.06,
+      "valid_from": "2021-03-21 14:41:43+00:00",
+      "name_pred": "NoImprove",
+      "name_src": "EA"
+    },
+    {
+      "pred": 3516371,
+      "src": 8359972,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 3.05,
+      "valid_from": "2021-03-25 01:18:38+00:00",
+      "name_pred": "GANHEI SOU BOM PERDI SOU 7KAFFURTADO",
+      "name_src": "Anoobs Gaming"
+    },
+    {
+      "pred": 7781709,
+      "src": 8246472,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 1.03,
+      "valid_from": "2021-03-25 21:11:20+00:00",
+      "name_pred": "RONALDINHO EL MAGICO",
+      "name_src": "13212323"
+    },
+    {
+      "pred": 8342919,
+      "src": 8351014,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 15.95,
+      "valid_from": "2021-03-26 04:07:21+00:00",
+      "name_pred": "South Built Esports",
+      "name_src": "South Built Esports"
+    },
+    {
+      "pred": 8062461,
+      "src": 8301744,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 0.04,
+      "valid_from": "2021-03-26 10:38:32+00:00",
+      "name_pred": "Your soul is mine",
+      "name_src": "Your Soul Is Mine"
+    },
+    {
+      "pred": 8351318,
+      "src": 8359606,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.05,
+      "valid_from": "2021-03-27 22:16:59+00:00",
+      "name_pred": "f\u00e9rias com ex",
+      "name_src": "Alpha Wolves"
+    },
+    {
+      "pred": 6187657,
+      "src": 8360138,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 24.69,
+      "valid_from": "2021-03-29 04:23:16+00:00",
+      "name_pred": "Plae8 Neon",
+      "name_src": "Neon Esports"
+    },
+    {
+      "pred": 8261114,
+      "src": 4817649,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 1.13,
+      "valid_from": "2021-04-07 10:45:20+00:00",
+      "name_pred": "SPAWN.496",
+      "name_src": "496 Gaming"
+    },
+    {
+      "pred": 6406681,
+      "src": 8352473,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 32.07,
+      "valid_from": "2021-04-09 12:09:38+00:00",
+      "name_pred": "Imperial Pro Gaming",
+      "name_src": "Fantastic Five"
+    },
+    {
+      "pred": 7960275,
+      "src": 8375259,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 14.75,
+      "valid_from": "2021-04-12 19:00:24+00:00",
+      "name_pred": "Spirits",
+      "name_src": "Infinity"
+    },
+    {
+      "pred": 8382624,
+      "src": 8382625,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 0.05,
+      "valid_from": "2021-04-13 18:24:08+00:00",
+      "name_pred": "Starx",
+      "name_src": "StarX"
+    },
+    {
+      "pred": 8367632,
+      "src": 8383734,
+      "conf": "HIGH",
+      "overlap": 0.667,
+      "gap_days": 5.83,
+      "valid_from": "2021-04-14 12:11:40+00:00",
+      "name_pred": "potn9ki-",
+      "name_src": "potn9ki-"
+    },
+    {
+      "pred": 8335639,
+      "src": 8376696,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 6.88,
+      "valid_from": "2021-04-15 12:55:14+00:00",
+      "name_pred": "Prosti Esli",
+      "name_src": "One Move"
+    },
+    {
+      "pred": 8375749,
+      "src": 8383109,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 8.69,
+      "valid_from": "2021-04-15 18:38:40+00:00",
+      "name_pred": "APU GAMING",
+      "name_src": "APU Gaming"
+    },
+    {
+      "pred": 8261234,
+      "src": 8384158,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 2.9,
+      "valid_from": "2021-04-17 18:58:23+00:00",
+      "name_pred": "CREEPWAVE",
+      "name_src": "Into The Breach"
+    },
+    {
+      "pred": 8375019,
+      "src": 8376426,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 9.95,
+      "valid_from": "2021-04-17 22:04:45+00:00",
+      "name_pred": "CQ hustlers",
+      "name_src": "B8"
+    },
+    {
+      "pred": 8230653,
+      "src": 8390848,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 84.67,
+      "valid_from": "2021-04-22 10:03:03+00:00",
+      "name_pred": "Chicken Fighters",
+      "name_src": "ITB.Shuffle"
+    },
+    {
+      "pred": 8367645,
+      "src": 8118966,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 1.17,
+      "valid_from": "2021-04-22 14:03:55+00:00",
+      "name_pred": "Mafiozniki",
+      "name_src": "\u043a\u0432\u043e\u0442\u0438\u043a\u0438"
+    },
+    {
+      "pred": 7575310,
+      "src": 8392523,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.07,
+      "valid_from": "2021-04-24 07:24:06+00:00",
+      "name_pred": "devil",
+      "name_src": "Not Last Place"
+    },
+    {
+      "pred": 8384939,
+      "src": 8384946,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.09,
+      "valid_from": "2021-04-24 07:51:48+00:00",
+      "name_pred": "Emo uurd",
+      "name_src": "emo"
+    },
+    {
+      "pred": 2626264,
+      "src": 8318713,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.1,
+      "valid_from": "2021-04-24 10:55:10+00:00",
+      "name_pred": "Dual.R Gaming",
+      "name_src": "WS DOGS"
+    },
+    {
+      "pred": 7575310,
+      "src": 8382433,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.21,
+      "valid_from": "2021-04-24 13:29:48+00:00",
+      "name_pred": "devil",
+      "name_src": "Aurora"
+    },
+    {
+      "pred": 4914765,
+      "src": 8353997,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 3.94,
+      "valid_from": "2021-04-27 19:33:08+00:00",
+      "name_pred": "Olympos Gaming",
+      "name_src": "Olympos Gaming"
+    },
+    {
+      "pred": 7575310,
+      "src": 8398759,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 4.94,
+      "valid_from": "2021-04-29 06:56:00+00:00",
+      "name_pred": "devil",
+      "name_src": "Not Last Place"
+    },
+    {
+      "pred": 8392570,
+      "src": 8263043,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 0.17,
+      "valid_from": "2021-04-29 10:15:43+00:00",
+      "name_pred": "Latea",
+      "name_src": "Latea"
+    },
+    {
+      "pred": 8367632,
+      "src": 5405093,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 28.67,
+      "valid_from": "2021-05-21 11:35:10+00:00",
+      "name_pred": "potn9ki-",
+      "name_src": "potn9ki-"
+    },
+    {
+      "pred": 6378559,
+      "src": 8406852,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 6.91,
+      "valid_from": "2021-05-23 12:07:17+00:00",
+      "name_pred": "Devil Eyes",
+      "name_src": "goldway"
+    },
+    {
+      "pred": 8327125,
+      "src": 8392561,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 12.01,
+      "valid_from": "2021-05-25 15:24:57+00:00",
+      "name_pred": "Digital Era",
+      "name_src": "lowkees"
+    },
+    {
+      "pred": 8367632,
+      "src": 7733312,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 32.88,
+      "valid_from": "2021-05-25 16:39:39+00:00",
+      "name_pred": "potn9ki-",
+      "name_src": "123"
+    },
+    {
+      "pred": 8138959,
+      "src": 8359617,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.92,
+      "valid_from": "2021-05-26 15:07:35+00:00",
+      "name_pred": "LFT",
+      "name_src": "."
+    },
+    {
+      "pred": 7851888,
+      "src": 8443731,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 6.88,
+      "valid_from": "2021-06-12 10:38:31+00:00",
+      "name_pred": "CZC.eSuba",
+      "name_src": "eSuba"
+    },
+    {
+      "pred": 8131972,
+      "src": 8448801,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 83.97,
+      "valid_from": "2021-06-13 13:46:44+00:00",
+      "name_pred": "Hawks.Blessed",
+      "name_src": "Sunset 87.1"
+    },
+    {
+      "pred": 8421230,
+      "src": 8442340,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 0.05,
+      "valid_from": "2021-06-15 14:17:31+00:00",
+      "name_pred": "Deep Ravage",
+      "name_src": "Deep Ravage"
+    },
+    {
+      "pred": 8254387,
+      "src": 8442622,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 37.72,
+      "valid_from": "2021-06-24 15:02:37+00:00",
+      "name_pred": "Crewmates",
+      "name_src": "Interitus"
+    },
+    {
+      "pred": 6378559,
+      "src": 8194562,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 6.89,
+      "valid_from": "2021-06-27 12:15:01+00:00",
+      "name_pred": "Devil Eyes",
+      "name_src": "AdrenalineRush"
+    },
+    {
+      "pred": 8421230,
+      "src": 8465456,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 0.83,
+      "valid_from": "2021-07-04 12:06:34+00:00",
+      "name_pred": "Deep Ravage",
+      "name_src": "Deep Ravage"
+    },
+    {
+      "pred": 8273184,
+      "src": 8318368,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 2.99,
+      "valid_from": "2021-07-05 01:26:21+00:00",
+      "name_pred": "Team Visagerino",
+      "name_src": "444FOREVER"
+    },
+    {
+      "pred": 5100448,
+      "src": 8464200,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 1.82,
+      "valid_from": "2021-07-05 05:04:25+00:00",
+      "name_pred": "Giorno Giovanna",
+      "name_src": "Giorno Giovanna"
+    },
+    {
+      "pred": 8465456,
+      "src": 8469455,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 0.05,
+      "valid_from": "2021-07-06 09:41:07+00:00",
+      "name_pred": "Deep Ravage",
+      "name_src": "DEEP RAVAGE"
+    },
+    {
+      "pred": 7893914,
+      "src": 3008699,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.04,
+      "valid_from": "2021-07-07 01:51:16+00:00",
+      "name_pred": "TEAM SIDERAL",
+      "name_src": "Los Magikarps"
+    },
+    {
+      "pred": 7893914,
+      "src": 7355202,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 0.98,
+      "valid_from": "2021-07-08 00:24:46+00:00",
+      "name_pred": "TEAM SIDERAL",
+      "name_src": "0-900"
+    },
+    {
+      "pred": 8399485,
+      "src": 8470522,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 1.83,
+      "valid_from": "2021-07-09 13:45:15+00:00",
+      "name_pred": "king",
+      "name_src": "Herald ki Hawa"
+    },
+    {
+      "pred": 6378559,
+      "src": 7576418,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 20.97,
+      "valid_from": "2021-07-11 14:11:05+00:00",
+      "name_pred": "Devil Eyes",
+      "name_src": "Falcon eSports"
+    },
+    {
+      "pred": 7913999,
+      "src": 8084396,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 10.66,
+      "valid_from": "2021-07-11 17:44:59+00:00",
+      "name_pred": "Midas Club",
+      "name_src": "Havan Liberty"
+    },
+    {
+      "pred": 7913999,
+      "src": 7958190,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 14.81,
+      "valid_from": "2021-07-15 21:14:30+00:00",
+      "name_pred": "Midas Club",
+      "name_src": "eu vou estudo"
+    },
+    {
+      "pred": 7939974,
+      "src": 8475798,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 5.84,
+      "valid_from": "2021-07-18 03:41:20+00:00",
+      "name_pred": "GOJO",
+      "name_src": "GoJo"
+    },
+    {
+      "pred": 8475473,
+      "src": 8120269,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.09,
+      "valid_from": "2021-07-18 06:38:01+00:00",
+      "name_pred": "...",
+      "name_src": "Team Ok"
+    },
+    {
+      "pred": 8375466,
+      "src": 8482620,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 2.78,
+      "valid_from": "2021-07-26 07:06:57+00:00",
+      "name_pred": "Motivate. Viper Gaming",
+      "name_src": "M Y"
+    },
+    {
+      "pred": 8488432,
+      "src": 8488438,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 0.0,
+      "valid_from": "2021-07-26 08:25:56+00:00",
+      "name_pred": "Team Aster",
+      "name_src": "Team Aster"
+    },
+    {
+      "pred": 8254387,
+      "src": 8039920,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 70.98,
+      "valid_from": "2021-07-27 21:12:25+00:00",
+      "name_pred": "Crewmates",
+      "name_src": "Backstab Boys"
+    },
+    {
+      "pred": 8496219,
+      "src": 8496581,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.9,
+      "valid_from": "2021-08-07 10:37:27+00:00",
+      "name_pred": "Khan esports",
+      "name_src": "KHAN"
+    },
+    {
+      "pred": 8344657,
+      "src": 8463268,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 73.78,
+      "valid_from": "2021-08-07 10:41:28+00:00",
+      "name_pred": "Sweet Boys",
+      "name_src": "Sexy Dragons"
+    },
+    {
+      "pred": 8428184,
+      "src": 8496595,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 73.78,
+      "valid_from": "2021-08-07 10:44:47+00:00",
+      "name_pred": "tiltacionxxx",
+      "name_src": "Nolifer5"
+    },
+    {
+      "pred": 8169489,
+      "src": 8497614,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.04,
+      "valid_from": "2021-08-07 15:24:46+00:00",
+      "name_pred": "padjero esports",
+      "name_src": "Burning Fire Squad"
+    },
+    {
+      "pred": 8344223,
+      "src": 8223327,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.91,
+      "valid_from": "2021-08-08 10:36:02+00:00",
+      "name_pred": "ARCRED",
+      "name_src": "PLAYERSxD"
+    },
+    {
+      "pred": 8360733,
+      "src": 6850910,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.04,
+      "valid_from": "2021-08-08 11:57:22+00:00",
+      "name_pred": "Trident Clan",
+      "name_src": "yeahright"
+    },
+    {
+      "pred": 8430642,
+      "src": 8344439,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.05,
+      "valid_from": "2021-08-08 13:26:26+00:00",
+      "name_pred": "AZM",
+      "name_src": "may"
+    },
+    {
+      "pred": 7234600,
+      "src": 8500965,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 1.91,
+      "valid_from": "2021-08-09 15:00:02+00:00",
+      "name_pred": "Betrayed",
+      "name_src": "It's coming rome"
+    },
+    {
+      "pred": 8496030,
+      "src": 8508749,
+      "conf": "HIGH",
+      "overlap": 0.667,
+      "gap_days": 2.0,
+      "valid_from": "2021-08-20 22:35:08+00:00",
+      "name_pred": "Furia Jovem",
+      "name_src": "furia jovem "
+    },
+    {
+      "pred": 8344518,
+      "src": 8502214,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 69.78,
+      "valid_from": "2021-08-21 12:04:23+00:00",
+      "name_pred": "Sazka.BRUTE",
+      "name_src": "L2P"
+    },
+    {
+      "pred": 8469455,
+      "src": 8513613,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 0.04,
+      "valid_from": "2021-08-26 15:12:30+00:00",
+      "name_pred": "DEEP RAVAGE",
+      "name_src": "Deep Ravage"
+    },
+    {
+      "pred": 8309640,
+      "src": 8469435,
+      "conf": "HIGH",
+      "overlap": 0.667,
+      "gap_days": 54.23,
+      "valid_from": "2021-08-27 11:10:58+00:00",
+      "name_pred": "Dream Maker",
+      "name_src": "Dream Maker"
+    },
+    {
+      "pred": 8253064,
+      "src": 7144591,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 1.91,
+      "valid_from": "2021-08-28 23:44:57+00:00",
+      "name_pred": "Fantasy Gaming",
+      "name_src": "Fantasy Gaming "
+    },
+    {
+      "pred": 2672298,
+      "src": 8514342,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 10.96,
+      "valid_from": "2021-09-01 22:28:49+00:00",
+      "name_pred": "NoPing Esports",
+      "name_src": "Infamous Uesports"
+    },
+    {
+      "pred": 8262234,
+      "src": 8069344,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 83.03,
+      "valid_from": "2021-09-04 12:16:07+00:00",
+      "name_pred": "TeamYoung",
+      "name_src": "Team Young"
+    },
+    {
+      "pred": 8494941,
+      "src": 8526121,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 2.81,
+      "valid_from": "2021-09-07 16:25:58+00:00",
+      "name_pred": "The Tribute",
+      "name_src": "Kiba Arms"
+    },
+    {
+      "pred": 8496030,
+      "src": 8526896,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.73,
+      "valid_from": "2021-09-09 21:02:31+00:00",
+      "name_pred": "Furia Jovem",
+      "name_src": "FG"
+    },
+    {
+      "pred": 8533155,
+      "src": 8533458,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 0.06,
+      "valid_from": "2021-09-22 15:44:11+00:00",
+      "name_pred": "Team Flamingos",
+      "name_src": "Team Flamingos"
+    },
+    {
+      "pred": 8273184,
+      "src": 8539380,
+      "conf": "HIGH",
+      "overlap": 0.667,
+      "gap_days": 0.93,
+      "valid_from": "2021-09-24 00:26:43+00:00",
+      "name_pred": "Team Visagerino",
+      "name_src": "Team visagerino "
+    },
+    {
+      "pred": 8359478,
+      "src": 8538804,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 19.87,
+      "valid_from": "2021-09-25 08:05:28+00:00",
+      "name_pred": "Royale 5",
+      "name_src": "Rectify"
+    },
+    {
+      "pred": 8449479,
+      "src": 8475494,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.05,
+      "valid_from": "2021-09-26 14:27:28+00:00",
+      "name_pred": "Team GL",
+      "name_src": "GL"
+    },
+    {
+      "pred": 8039920,
+      "src": 8533605,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.05,
+      "valid_from": "2021-09-27 01:09:54+00:00",
+      "name_pred": "Backstab Boys",
+      "name_src": "Amigos do grig\u00e3o"
+    },
+    {
+      "pred": 8169775,
+      "src": 8550748,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.05,
+      "valid_from": "2021-10-13 07:21:38+00:00",
+      "name_pred": "Geek Fam",
+      "name_src": "Team Mongolia"
+    },
+    {
+      "pred": 6380314,
+      "src": 8180376,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 17.05,
+      "valid_from": "2021-10-24 16:57:45+00:00",
+      "name_pred": "Zenith",
+      "name_src": "One By One"
+    },
+    {
+      "pred": 8482814,
+      "src": 8571960,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.77,
+      "valid_from": "2021-10-26 05:00:28+00:00",
+      "name_pred": "Ragdoll",
+      "name_src": "Team Orca"
+    },
+    {
+      "pred": 8062847,
+      "src": 8572181,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 34.81,
+      "valid_from": "2021-10-29 09:02:12+00:00",
+      "name_pred": "Galaxy Racer Esports",
+      "name_src": "UD VESSUWAN"
+    },
+    {
+      "pred": 7298091,
+      "src": 8574375,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 33.03,
+      "valid_from": "2021-10-30 01:16:41+00:00",
+      "name_pred": "Noping VPN",
+      "name_src": "ThunderCoast"
+    },
+    {
+      "pred": 7391077,
+      "src": 8581305,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 24.6,
+      "valid_from": "2021-11-04 00:32:29+00:00",
+      "name_pred": "Thunder Awaken",
+      "name_src": "Lava BestPc"
+    },
+    {
+      "pred": 7407260,
+      "src": 3321343,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 2.0,
+      "valid_from": "2021-11-13 06:29:16+00:00",
+      "name_pred": "Team Saiyan",
+      "name_src": "Super SaiYan "
+    },
+    {
+      "pred": 8428953,
+      "src": 4287803,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 31.92,
+      "valid_from": "2021-11-13 17:31:27+00:00",
+      "name_pred": "Sinister 5",
+      "name_src": "Sinister5"
+    },
+    {
+      "pred": 8581305,
+      "src": 8597024,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 0.96,
+      "valid_from": "2021-11-14 02:12:42+00:00",
+      "name_pred": "Lava BestPc",
+      "name_src": "Lava BestPc"
+    },
+    {
+      "pred": 8335015,
+      "src": 8597178,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 4.06,
+      "valid_from": "2021-11-15 06:44:23+00:00",
+      "name_pred": "Team Mystery",
+      "name_src": "Team Mystery"
+    },
+    {
+      "pred": 7653080,
+      "src": 8193371,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 3.83,
+      "valid_from": "2021-11-16 09:21:50+00:00",
+      "name_pred": "Yangon Galacticos",
+      "name_src": "Myanmar"
+    },
+    {
+      "pred": 8261197,
+      "src": 8193681,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 2.92,
+      "valid_from": "2021-11-17 07:07:44+00:00",
+      "name_pred": "Motivate.Trust Gaming",
+      "name_src": "Team Thailand"
+    },
+    {
+      "pred": 8549812,
+      "src": 8598411,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 0.96,
+      "valid_from": "2021-11-17 07:07:44+00:00",
+      "name_pred": "GAGAK",
+      "name_src": "Team Malaysia"
+    },
+    {
+      "pred": 8525778,
+      "src": 8598451,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.04,
+      "valid_from": "2021-11-17 08:56:38+00:00",
+      "name_pred": "Polaris Esports",
+      "name_src": "Philippines"
+    },
+    {
+      "pred": 8583282,
+      "src": 8598250,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 1.06,
+      "valid_from": "2021-11-17 11:46:09+00:00",
+      "name_pred": "New Blood",
+      "name_src": "Team Cambodia"
+    },
+    {
+      "pred": 8590229,
+      "src": 8599096,
+      "conf": "HIGH",
+      "overlap": 0.667,
+      "gap_days": 0.9,
+      "valid_from": "2021-11-18 15:13:59+00:00",
+      "name_pred": "SO SMISLOM",
+      "name_src": "So Smislom"
+    },
+    {
+      "pred": 8526653,
+      "src": 8580985,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 62.74,
+      "valid_from": "2021-11-20 06:04:05+00:00",
+      "name_pred": "ARAR",
+      "name_src": "Team Renewal"
+    },
+    {
+      "pred": 8335015,
+      "src": 8597183,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 9.03,
+      "valid_from": "2021-11-20 06:10:20+00:00",
+      "name_pred": "Team Mystery",
+      "name_src": "Summit Gaming"
+    },
+    {
+      "pred": 8405569,
+      "src": 8597594,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 31.99,
+      "valid_from": "2021-11-20 06:15:00+00:00",
+      "name_pred": "Ground Zero",
+      "name_src": "GrindSky Esports"
+    },
+    {
+      "pred": 6947300,
+      "src": 8599699,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 40.88,
+      "valid_from": "2021-11-20 10:05:18+00:00",
+      "name_pred": "Lutea",
+      "name_src": "Slovakia Rejects"
+    },
+    {
+      "pred": 4299978,
+      "src": 8550343,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 73.56,
+      "valid_from": "2021-11-21 17:04:18+00:00",
+      "name_pred": "Meraki Gaming",
+      "name_src": "Dreamers"
+    },
+    {
+      "pred": 8113549,
+      "src": 8591484,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 0.05,
+      "valid_from": "2021-11-22 21:55:59+00:00",
+      "name_pred": "Hippomaniacs",
+      "name_src": "Hippomaniacs"
+    },
+    {
+      "pred": 8469435,
+      "src": 8598039,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 2.91,
+      "valid_from": "2021-11-23 07:36:34+00:00",
+      "name_pred": "Dream Maker",
+      "name_src": "Dream Maker"
+    },
+    {
+      "pred": 8600057,
+      "src": 8606358,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 0.8,
+      "valid_from": "2021-11-23 12:44:04+00:00",
+      "name_pred": "Kiba Arms",
+      "name_src": "KIBA ARMS"
+    },
+    {
+      "pred": 8352568,
+      "src": 8374853,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 2.04,
+      "valid_from": "2021-11-23 19:10:35+00:00",
+      "name_pred": "Team Toxic",
+      "name_src": "Bia fecha porta"
+    },
+    {
+      "pred": 5055770,
+      "src": 8597898,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 8.91,
+      "valid_from": "2021-11-23 20:00:08+00:00",
+      "name_pred": "Gorillaz-Pride",
+      "name_src": "Zkr"
+    },
+    {
+      "pred": 8261234,
+      "src": 8605863,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 1.03,
+      "valid_from": "2021-11-24 18:04:04+00:00",
+      "name_pred": "CREEPWAVE",
+      "name_src": "Cloud9"
+    },
+    {
+      "pred": 5184391,
+      "src": 5635538,
+      "conf": "HIGH",
+      "overlap": 0.667,
+      "gap_days": 0.97,
+      "valid_from": "2021-11-26 13:18:13+00:00",
+      "name_pred": "EYE gaming",
+      "name_src": "EYE Gaming"
+    },
+    {
+      "pred": 8125069,
+      "src": 8545488,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 57.05,
+      "valid_from": "2021-11-26 14:20:52+00:00",
+      "name_pred": "qwerty",
+      "name_src": "cybercats"
+    },
+    {
+      "pred": 6378559,
+      "src": 8194491,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.04,
+      "valid_from": "2021-11-28 15:06:52+00:00",
+      "name_pred": "Devil Eyes",
+      "name_src": "FAnAti SlYJA"
+    },
+    {
+      "pred": 8261114,
+      "src": 8605296,
+      "conf": "HIGH",
+      "overlap": 0.667,
+      "gap_days": 27.01,
+      "valid_from": "2021-11-29 11:00:30+00:00",
+      "name_pred": "SPAWN.496",
+      "name_src": "Spawn.496"
+    },
+    {
+      "pred": 5635538,
+      "src": 8606458,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 0.05,
+      "valid_from": "2021-11-29 16:11:01+00:00",
+      "name_pred": "EYE Gaming",
+      "name_src": "EYE"
+    },
+    {
+      "pred": 8272008,
+      "src": 8606351,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.04,
+      "valid_from": "2021-12-01 11:00:09+00:00",
+      "name_pred": "Crocodile",
+      "name_src": "Crocodile Gaming"
+    },
+    {
+      "pred": 5184391,
+      "src": 8607589,
+      "conf": "HIGH",
+      "overlap": 0.667,
+      "gap_days": 6.97,
+      "valid_from": "2021-12-02 13:15:58+00:00",
+      "name_pred": "EYE gaming",
+      "name_src": "EYE-gaming"
+    },
+    {
+      "pred": 8597509,
+      "src": 8606828,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 9.64,
+      "valid_from": "2021-12-03 19:56:20+00:00",
+      "name_pred": "Teletubbies",
+      "name_src": "Wildcard"
+    },
+    {
+      "pred": 5635538,
+      "src": 8608286,
+      "conf": "HIGH",
+      "overlap": 0.667,
+      "gap_days": 0.75,
+      "valid_from": "2021-12-04 13:41:50+00:00",
+      "name_pred": "EYE Gaming",
+      "name_src": "EYE.Gaming"
+    },
+    {
+      "pred": 8599297,
+      "src": 8607159,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 11.64,
+      "valid_from": "2021-12-05 19:55:08+00:00",
+      "name_pred": "team 1",
+      "name_src": "Nexus Titans"
+    },
+    {
+      "pred": 5348195,
+      "src": 8078570,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.07,
+      "valid_from": "2021-12-12 14:48:53+00:00",
+      "name_pred": "BoneCrashers",
+      "name_src": "Ember Spirit"
+    },
+    {
+      "pred": 1689423,
+      "src": 8642728,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 0.82,
+      "valid_from": "2022-01-03 10:18:06+00:00",
+      "name_pred": "Nature is not for a weak",
+      "name_src": "Nature is not for a weak"
+    },
+    {
+      "pred": 8204512,
+      "src": 8642714,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 2.84,
+      "valid_from": "2022-01-05 04:12:58+00:00",
+      "name_pred": "Neptune Gaming",
+      "name_src": "Violet"
+    },
+    {
+      "pred": 8634653,
+      "src": 8649748,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 16.12,
+      "valid_from": "2022-01-16 11:05:22+00:00",
+      "name_pred": "Forest",
+      "name_src": "Rice Field"
+    },
+    {
+      "pred": 8375459,
+      "src": 5525525,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.04,
+      "valid_from": "2022-01-18 09:02:56+00:00",
+      "name_pred": "rush b!",
+      "name_src": "  "
+    },
+    {
+      "pred": 5055770,
+      "src": 8660941,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 5.07,
+      "valid_from": "2022-01-26 00:27:08+00:00",
+      "name_pred": "Gorillaz-Pride",
+      "name_src": "Los Amayitos"
+    },
+    {
+      "pred": 7121518,
+      "src": 8661276,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 6.14,
+      "valid_from": "2022-01-26 21:08:44+00:00",
+      "name_pred": "Unknown Team",
+      "name_src": "Fusion Gaming"
+    },
+    {
+      "pred": 8533458,
+      "src": 8533158,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 0.03,
+      "valid_from": "2022-01-28 14:51:11+00:00",
+      "name_pred": "Team Flamingos",
+      "name_src": "Team Flamingos"
+    },
+    {
+      "pred": 8597183,
+      "src": 8667523,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 2.81,
+      "valid_from": "2022-01-31 04:18:10+00:00",
+      "name_pred": "Summit Gaming",
+      "name_src": "summit gaming"
+    },
+    {
+      "pred": 8538804,
+      "src": 8638425,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 74.82,
+      "valid_from": "2022-02-03 03:22:29+00:00",
+      "name_pred": "Rectify",
+      "name_src": "Kinkalow"
+    },
+    {
+      "pred": 8668438,
+      "src": 8456322,
+      "conf": "HIGH",
+      "overlap": 0.667,
+      "gap_days": 0.8,
+      "valid_from": "2022-02-04 03:08:00+00:00",
+      "name_pred": "team Scorpion",
+      "name_src": " Team Scorpion"
+    },
+    {
+      "pred": 8261197,
+      "src": 7667536,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.05,
+      "valid_from": "2022-02-05 06:30:49+00:00",
+      "name_pred": "Motivate.Trust Gaming",
+      "name_src": "MOTIVADE.TRUST GAMING"
+    },
+    {
+      "pred": 8575105,
+      "src": 8613607,
+      "conf": "HIGH",
+      "overlap": 0.667,
+      "gap_days": 71.0,
+      "valid_from": "2022-02-06 12:08:45+00:00",
+      "name_pred": "NVMV",
+      "name_src": "NVMV"
+    },
+    {
+      "pred": 8668613,
+      "src": 8680998,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 0.04,
+      "valid_from": "2022-02-20 07:27:08+00:00",
+      "name_pred": "Team Predator",
+      "name_src": "Team Predator"
+    },
+    {
+      "pred": 8668524,
+      "src": 8668525,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 1.01,
+      "valid_from": "2022-02-22 03:50:49+00:00",
+      "name_pred": "Anonymous Esports",
+      "name_src": "Anonymous Esports"
+    },
+    {
+      "pred": 6683422,
+      "src": 8159737,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 20.0,
+      "valid_from": "2022-02-23 14:54:03+00:00",
+      "name_pred": "Universitas Indonesia",
+      "name_src": "UIUIUIUIUIUIUIUIUIUI"
+    },
+    {
+      "pred": 8674793,
+      "src": 8661332,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 0.04,
+      "valid_from": "2022-02-26 13:07:15+00:00",
+      "name_pred": "Team 9",
+      "name_src": "STARS"
+    },
+    {
+      "pred": 8589493,
+      "src": 8237558,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 1.95,
+      "valid_from": "2022-03-02 02:03:13+00:00",
+      "name_pred": "DE A TOBI ARMANI",
+      "name_src": "Safas o te Avanzo"
+    },
+    {
+      "pred": 8252662,
+      "src": 7542071,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 33.96,
+      "valid_from": "2022-03-08 11:42:33+00:00",
+      "name_pred": "BINUS University",
+      "name_src": "BINUS"
+    },
+    {
+      "pred": 8668460,
+      "src": 8701453,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.04,
+      "valid_from": "2022-03-15 07:10:57+00:00",
+      "name_pred": "Blacklist Rivalry ",
+      "name_src": "RSG"
+    },
+    {
+      "pred": 8597116,
+      "src": 2520702,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 27.9,
+      "valid_from": "2022-03-26 13:06:01+00:00",
+      "name_pred": "Chokky+4",
+      "name_src": "Marfel Gaming"
+    },
+    {
+      "pred": 8642714,
+      "src": 8707099,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 1.95,
+      "valid_from": "2022-03-27 05:16:03+00:00",
+      "name_pred": "Violet",
+      "name_src": "Mars"
+    },
+    {
+      "pred": 6683422,
+      "src": 8301881,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 26.87,
+      "valid_from": "2022-04-13 11:42:52+00:00",
+      "name_pred": "Universitas Indonesia",
+      "name_src": "ui.esports"
+    },
+    {
+      "pred": 8137666,
+      "src": 8718238,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 28.98,
+      "valid_from": "2022-04-14 12:01:36+00:00",
+      "name_pred": "Unpam e-Sports",
+      "name_src": "UNIVERSITAS PAMULANG"
+    },
+    {
+      "pred": 7118032,
+      "src": 8721219,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 18.79,
+      "valid_from": "2022-04-19 12:00:03+00:00",
+      "name_pred": "Winstrike Team",
+      "name_src": "Darkside"
+    },
+    {
+      "pred": 8534805,
+      "src": 7586761,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 1.13,
+      "valid_from": "2022-04-21 09:09:12+00:00",
+      "name_pred": "The Apes E-Sport",
+      "name_src": "unknown"
+    },
+    {
+      "pred": 8707402,
+      "src": 8717555,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 27.05,
+      "valid_from": "2022-04-22 16:25:55+00:00",
+      "name_pred": "ADU MEKANIK",
+      "name_src": "BOCIL KEMATIAN"
+    },
+    {
+      "pred": 5528440,
+      "src": 8722789,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.05,
+      "valid_from": "2022-04-23 16:09:21+00:00",
+      "name_pred": "GIZMO ESPORT",
+      "name_src": "Party 5"
+    },
+    {
+      "pred": 8620831,
+      "src": 8724829,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 4.06,
+      "valid_from": "2022-04-25 18:10:29+00:00",
+      "name_pred": "Rune Eaters",
+      "name_src": "HF"
+    },
+    {
+      "pred": 1883502,
+      "src": 8724984,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 4.04,
+      "valid_from": "2022-04-27 13:59:59+00:00",
+      "name_pred": "Virtus.pro",
+      "name_src": "Virtus.pro"
+    },
+    {
+      "pred": 8690729,
+      "src": 8725576,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 1.06,
+      "valid_from": "2022-04-28 05:43:48+00:00",
+      "name_pred": "LT Gaming",
+      "name_src": "Light Gaming"
+    },
+    {
+      "pred": 8714982,
+      "src": 8574177,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 1.0,
+      "valid_from": "2022-04-30 16:03:37+00:00",
+      "name_pred": "Chipsbl",
+      "name_src": "Elephant"
+    },
+    {
+      "pred": 8376696,
+      "src": 8726557,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 6.9,
+      "valid_from": "2022-04-30 17:26:28+00:00",
+      "name_pred": "One Move",
+      "name_src": "GIGACHADS"
+    },
+    {
+      "pred": 8125069,
+      "src": 8721838,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.08,
+      "valid_from": "2022-04-30 18:08:20+00:00",
+      "name_pred": "qwerty",
+      "name_src": "Cigarette"
+    },
+    {
+      "pred": 7819028,
+      "src": 8728920,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 17.82,
+      "valid_from": "2022-05-04 19:57:43+00:00",
+      "name_pred": "4 Zoomers",
+      "name_src": "nouns"
+    },
+    {
+      "pred": 7121518,
+      "src": 8729655,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.04,
+      "valid_from": "2022-05-07 00:31:55+00:00",
+      "name_pred": "Unknown Team",
+      "name_src": "Fusion Gaming"
+    },
+    {
+      "pred": 8497676,
+      "src": 8732591,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 0.04,
+      "valid_from": "2022-05-14 08:16:00+00:00",
+      "name_pred": "SKY",
+      "name_src": "SKY"
+    },
+    {
+      "pred": 6429833,
+      "src": 8740796,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 6.97,
+      "valid_from": "2022-05-22 13:35:18+00:00",
+      "name_pred": "Team Predators",
+      "name_src": "Fight me "
+    },
+    {
+      "pred": 8168128,
+      "src": 8736661,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 21.87,
+      "valid_from": "2022-05-23 06:18:00+00:00",
+      "name_pred": "UD VESSUWAN",
+      "name_src": "Made in Philippines"
+    },
+    {
+      "pred": 8606358,
+      "src": 8737467,
+      "conf": "HIGH",
+      "overlap": 1.0,
+      "gap_days": 0.03,
+      "valid_from": "2022-05-24 16:12:55+00:00",
+      "name_pred": "KIBA ARMS",
+      "name_src": "KIBA ARMS"
+    },
+    {
+      "pred": 8690621,
+      "src": 8732994,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 84.12,
+      "valid_from": "2022-05-24 19:02:42+00:00",
+      "name_pred": "Ekipa e Kosoves",
+      "name_src": "Illyrians"
+    },
+    {
+      "pred": 8685893,
+      "src": 8737524,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 84.1,
+      "valid_from": "2022-05-24 19:37:13+00:00",
+      "name_pred": "TeamGladiators ",
+      "name_src": "NOSTRVM"
+    },
+    {
+      "pred": 8583224,
+      "src": 8740668,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 78.88,
+      "valid_from": "2022-05-25 01:07:44+00:00",
+      "name_pred": "7:3",
+      "name_src": "Lagoon Company"
+    },
+    {
+      "pred": 8681412,
+      "src": 8741396,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 16.7,
+      "valid_from": "2022-05-25 11:59:57+00:00",
+      "name_pred": "Yet Another Team",
+      "name_src": "YNT"
+    },
+    {
+      "pred": 8742178,
+      "src": 8656160,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.04,
+      "valid_from": "2022-05-27 22:33:33+00:00",
+      "name_pred": "Futuros Egresados",
+      "name_src": "Mat"
+    },
+    {
+      "pred": 7959640,
+      "src": 8746305,
+      "conf": "HIGH",
+      "overlap": 0.667,
+      "gap_days": 3.84,
+      "valid_from": "2022-06-04 02:19:24+00:00",
+      "name_pred": "CHAMP",
+      "name_src": "CHAMP "
+    },
+    {
+      "pred": 8642728,
+      "src": 8741737,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 1.62,
+      "valid_from": "2022-06-04 05:25:50+00:00",
+      "name_pred": "Nature is not for a weak",
+      "name_src": "Team Sphinxx"
+    },
+    {
+      "pred": 8724984,
+      "src": 8747056,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.91,
+      "valid_from": "2022-06-04 15:05:17+00:00",
+      "name_pred": "Virtus.pro",
+      "name_src": "Virtus.pro2"
+    },
+    {
+      "pred": 7979735,
+      "src": 8722431,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 0.05,
+      "valid_from": "2022-06-05 13:30:03+00:00",
+      "name_pred": "\u041f\u0435\u043b\u044c\u043c\u0435\u043d\u043d\u0430\u044f",
+      "name_src": "BABADZAKI"
+    },
+    {
+      "pred": 8642728,
+      "src": 8750317,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 3.89,
+      "valid_from": "2022-06-06 11:50:13+00:00",
+      "name_pred": "Nature is not for a weak",
+      "name_src": "Team Sphinx"
+    },
+    {
+      "pred": 8272008,
+      "src": 8750069,
+      "conf": "MEDIUM",
+      "overlap": 1.0,
+      "gap_days": 9.91,
+      "valid_from": "2022-06-13 08:53:28+00:00",
+      "name_pred": "Crocodile",
+      "name_src": "Gorilla"
+    },
+    {
+      "pred": 8740677,
+      "src": 8759999,
+      "conf": "MEDIUM",
+      "overlap": 0.667,
+      "gap_days": 0.94,
+      "valid_from": "2022-06-19 06:29:39+00:00",
+      "name_pred": "Supernova",
+      "name_src": "ARES GAMING"
+    }
+  ],
+  "n_total": 110130,
+  "n_train": 77091,
+  "n_val": 16519,
+  "n_test": 16520,
+  "val_results": {
+    "A: Phase 9 (source id)": {
+      "n": 16519,
+      "accuracy": 0.6034263575276954,
+      "balanced_accuracy": 0.6034316998796541,
+      "log_loss": 0.6535024533606103,
+      "brier_score": 0.2311822521599771,
+      "roc_auc": 0.6532575284217845
+    },
+    "B: + canonical Team Elo": {
+      "n": 16519,
+      "accuracy": 0.6043949391609662,
+      "balanced_accuracy": 0.6043950345405218,
+      "log_loss": 0.65364633441897,
+      "brier_score": 0.23125678402092265,
+      "roc_auc": 0.6528963558007975
+    },
+    "C: + canonical Elo \u0438 five_vs_team": {
+      "n": 16519,
+      "accuracy": 0.6040317210484896,
+      "balanced_accuracy": 0.604039351778556,
+      "log_loss": 0.6534862414275312,
+      "brier_score": 0.23116499110599728,
+      "roc_auc": 0.6534357546059698
+    },
+    "D: Phase 9 + TeamxHero (source)": {
+      "n": 16519,
+      "accuracy": 0.6063926387795872,
+      "balanced_accuracy": 0.6064045135114153,
+      "log_loss": 0.6535731225558924,
+      "brier_score": 0.23119471321646756,
+      "roc_auc": 0.6534353588083901
+    },
+    "E: canonical + TeamxHero (canonical)": {
+      "n": 16519,
+      "accuracy": 0.6062715660754283,
+      "balanced_accuracy": 0.6062826811527409,
+      "log_loss": 0.6535579913903556,
+      "brier_score": 0.23117178720675324,
+      "roc_auc": 0.6537089135725851
+    }
+  },
+  "test_results": {
+    "A: Phase 9 (source id)": {
+      "n": 16520,
+      "accuracy": 0.6306295399515739,
+      "balanced_accuracy": 0.6307994721134482,
+      "log_loss": 0.638539133605207,
+      "brier_score": 0.2242009899983987,
+      "roc_auc": 0.6822000826893345
+    },
+    "B: + canonical Team Elo": {
+      "n": 16520,
+      "accuracy": 0.6292978208232446,
+      "balanced_accuracy": 0.6294467727280604,
+      "log_loss": 0.6385673165542474,
+      "brier_score": 0.22421117299035134,
+      "roc_auc": 0.682321993630201
+    },
+    "C: + canonical Elo \u0438 five_vs_team": {
+      "n": 16520,
+      "accuracy": 0.6303874092009685,
+      "balanced_accuracy": 0.6305766754306875,
+      "log_loss": 0.6385412115806395,
+      "brier_score": 0.22419289774910328,
+      "roc_auc": 0.6823638239458119
+    },
+    "D: Phase 9 + TeamxHero (source)": {
+      "n": 16520,
+      "accuracy": 0.6286319612590799,
+      "balanced_accuracy": 0.6287704230353665,
+      "log_loss": 0.6387604010463658,
+      "brier_score": 0.22429106556352835,
+      "roc_auc": 0.6819841085589271
+    },
+    "E: canonical + TeamxHero (canonical)": {
+      "n": 16520,
+      "accuracy": 0.6290556900726392,
+      "balanced_accuracy": 0.6292200585797549,
+      "log_loss": 0.6387560355832114,
+      "brier_score": 0.2242755508210191,
+      "roc_auc": 0.6822078149153349
+    },
+    "CatBoost A: Phase 9 (source id)": {
+      "n": 16520,
+      "accuracy": 0.6277845036319613,
+      "balanced_accuracy": 0.6280591902927375,
+      "log_loss": 0.637814013323791,
+      "brier_score": 0.22387211476322474,
+      "roc_auc": 0.6834580879824907
+    },
+    "CatBoost E: canonical + TeamxHero (canonical)": {
+      "n": 16520,
+      "accuracy": 0.6296610169491526,
+      "balanced_accuracy": 0.6300258093487483,
+      "log_loss": 0.6379366320468431,
+      "brier_score": 0.22393679627723928,
+      "roc_auc": 0.6832882137649732
+    }
+  },
+  "statistics": {
+    "B: + canonical Team Elo": {
+      "acc": {
+        "point_diff": -0.0013317191283293006,
+        "ci_low": -0.0029661016949152907,
+        "ci_high": 0.0002421307506053072,
+        "n_blocks": 826,
+        "block_size": 20,
+        "n_bootstrap": 2000
+      },
+      "ll": {
+        "point_diff": 2.8182949040389538e-05,
+        "ci_low": -0.0002488225847184666,
+        "ci_high": 0.00030045882795102504,
+        "n_blocks": 826,
+        "block_size": 20,
+        "n_bootstrap": 2000
+      },
+      "mcnemar": {
+        "a_correct_b_wrong": 82,
+        "b_correct_a_wrong": 104,
+        "n_discordant": 186,
+        "p_value": 0.1233799293456844
+      }
+    },
+    "C: + canonical Elo \u0438 five_vs_team": {
+      "acc": {
+        "point_diff": -0.00024213075060541822,
+        "ci_low": -0.0015133171912832255,
+        "ci_high": 0.0009685230024213398,
+        "n_blocks": 826,
+        "block_size": 20,
+        "n_bootstrap": 2000
+      },
+      "ll": {
+        "point_diff": 2.0779754325017663e-06,
+        "ci_low": -0.00010645259187067879,
+        "ci_high": 0.00012112543014003988,
+        "n_blocks": 826,
+        "block_size": 20,
+        "n_bootstrap": 2000
+      },
+      "mcnemar": {
+        "a_correct_b_wrong": 51,
+        "b_correct_a_wrong": 55,
+        "n_discordant": 106,
+        "p_value": 0.7709189909371139
+      }
+    },
+    "D: Phase 9 + TeamxHero (source)": {
+      "acc": {
+        "point_diff": -0.001997578692493951,
+        "ci_low": -0.003631961259079941,
+        "ci_high": -0.00042221549636796136,
+        "n_blocks": 826,
+        "block_size": 20,
+        "n_bootstrap": 2000
+      },
+      "ll": {
+        "point_diff": 0.00022126744115880115,
+        "ci_low": 5.8949163885244074e-05,
+        "ci_high": 0.00038711508214956937,
+        "n_blocks": 826,
+        "block_size": 20,
+        "n_bootstrap": 2000
+      },
+      "mcnemar": {
+        "a_correct_b_wrong": 72,
+        "b_correct_a_wrong": 105,
+        "n_discordant": 177,
+        "p_value": 0.01591992565241908
+      }
+    },
+    "E: canonical + TeamxHero (canonical)": {
+      "acc": {
+        "point_diff": -0.0015738498789347188,
+        "ci_low": -0.003208232445520598,
+        "ci_high": 0.0001815980629539249,
+        "n_blocks": 826,
+        "block_size": 20,
+        "n_bootstrap": 2000
+      },
+      "ll": {
+        "point_diff": 0.00021690197800439126,
+        "ci_low": 2.3566486472714757e-05,
+        "ci_high": 0.00041960026134546795,
+        "n_blocks": 826,
+        "block_size": 20,
+        "n_bootstrap": 2000
+      },
+      "mcnemar": {
+        "a_correct_b_wrong": 92,
+        "b_correct_a_wrong": 118,
+        "n_discordant": 210,
+        "p_value": 0.08425386654908261
+      }
+    }
+  },
+  "walk_forward": [
+    {
+      "year": 2022,
+      "n": 22500,
+      "A: Phase 9 (source id)": {
+        "n": 22500,
+        "accuracy": 0.5960888888888889,
+        "balanced_accuracy": 0.5982565878264267,
+        "log_loss": 0.6616012776136618,
+        "brier_score": 0.23476544500478042,
+        "roc_auc": 0.643878296204956
+      },
+      "B: + canonical Team Elo": {
+        "n": 22500,
+        "accuracy": 0.596,
+        "balanced_accuracy": 0.5981647520288327,
+        "log_loss": 0.661533465193466,
+        "brier_score": 0.23473326883448778,
+        "roc_auc": 0.6440038655032594
+      },
+      "C: + canonical Elo \u0438 five_vs_team": {
+        "n": 22500,
+        "accuracy": 0.596,
+        "balanced_accuracy": 0.5981647520288327,
+        "log_loss": 0.6615441571541069,
+        "brier_score": 0.23473829106175093,
+        "roc_auc": 0.6439829135587389
+      },
+      "D: Phase 9 + TeamxHero (source)": {
+        "n": 22500,
+        "accuracy": 0.5956,
+        "balanced_accuracy": 0.5977714779399634,
+        "log_loss": 0.6615270995993779,
+        "brier_score": 0.234721215454094,
+        "roc_auc": 0.6441199435469668
+      },
+      "E: canonical + TeamxHero (canonical)": {
+        "n": 22500,
+        "accuracy": 0.5954222222222222,
+        "balanced_accuracy": 0.5975906616305331,
+        "log_loss": 0.6614693205795773,
+        "brier_score": 0.2346950725137694,
+        "roc_auc": 0.6441930815730067
+      }
+    },
+    {
+      "year": 2023,
+      "n": 28535,
+      "A: Phase 9 (source id)": {
+        "n": 28535,
+        "accuracy": 0.59856316803925,
+        "balanced_accuracy": 0.5985772482035372,
+        "log_loss": 0.6566651318780813,
+        "brier_score": 0.23272838936844922,
+        "roc_auc": 0.6448258263237207
+      },
+      "B: + canonical Team Elo": {
+        "n": 28535,
+        "accuracy": 0.598493078675311,
+        "balanced_accuracy": 0.5985067406498583,
+        "log_loss": 0.6566434763630457,
+        "brier_score": 0.23271355299585772,
+        "roc_auc": 0.6448784349558299
+      },
+      "C: + canonical Elo \u0438 five_vs_team": {
+        "n": 28535,
+        "accuracy": 0.5992640616786402,
+        "balanced_accuracy": 0.5992773129265485,
+        "log_loss": 0.6566699612358934,
+        "brier_score": 0.23272714058536084,
+        "roc_auc": 0.6448053458505427
+      },
+      "D: Phase 9 + TeamxHero (source)": {
+        "n": 28535,
+        "accuracy": 0.598282810583494,
+        "balanced_accuracy": 0.5982991848830626,
+        "log_loss": 0.6565708112790525,
+        "brier_score": 0.2326757903304027,
+        "roc_auc": 0.6451148176395383
+      },
+      "E: canonical + TeamxHero (canonical)": {
+        "n": 28535,
+        "accuracy": 0.5987033467671281,
+        "balanced_accuracy": 0.5987180545269878,
+        "log_loss": 0.6565828220508504,
+        "brier_score": 0.2326762830491487,
+        "roc_auc": 0.645097471381253
+      }
+    },
+    {
+      "year": 2024,
+      "n": 23515,
+      "A: Phase 9 (source id)": {
+        "n": 23515,
+        "accuracy": 0.5989793748671061,
+        "balanced_accuracy": 0.5989920259480956,
+        "log_loss": 0.6579081231389162,
+        "brier_score": 0.23317356681086257,
+        "roc_auc": 0.6444370454025553
+      },
+      "B: + canonical Team Elo": {
+        "n": 23515,
+        "accuracy": 0.5994046353391452,
+        "balanced_accuracy": 0.5994173008552723,
+        "log_loss": 0.6579425718572582,
+        "brier_score": 0.23319185541755538,
+        "roc_auc": 0.6443756712615817
+      },
+      "C: + canonical Elo \u0438 five_vs_team": {
+        "n": 23515,
+        "accuracy": 0.5987667446310866,
+        "balanced_accuracy": 0.5987806273348705,
+        "log_loss": 0.6578380797024787,
+        "brier_score": 0.23313291813929946,
+        "roc_auc": 0.6446890598944339
+      },
+      "D: Phase 9 + TeamxHero (source)": {
+        "n": 23515,
+        "accuracy": 0.6002551562832235,
+        "balanced_accuracy": 0.6002614086997368,
+        "log_loss": 0.6579287919999264,
+        "brier_score": 0.2331654621748715,
+        "roc_auc": 0.6447171354532645
+      },
+      "E: canonical + TeamxHero (canonical)": {
+        "n": 23515,
+        "accuracy": 0.6005528386136508,
+        "balanced_accuracy": 0.6005662864088672,
+        "log_loss": 0.6578699330197589,
+        "brier_score": 0.23312720346091773,
+        "roc_auc": 0.6449665529016954
+      }
+    },
+    {
+      "year": 2025,
+      "n": 17092,
+      "A: Phase 9 (source id)": {
+        "n": 17092,
+        "accuracy": 0.6228644980107653,
+        "balanced_accuracy": 0.6229509113077625,
+        "log_loss": 0.6426425531560146,
+        "brier_score": 0.22614273902178028,
+        "roc_auc": 0.6741332066318004
+      },
+      "B: + canonical Team Elo": {
+        "n": 17092,
+        "accuracy": 0.6230400187222093,
+        "balanced_accuracy": 0.6231279687537141,
+        "log_loss": 0.6427685158775384,
+        "brier_score": 0.22619807847401482,
+        "roc_auc": 0.6740222879888302
+      },
+      "C: + canonical Elo \u0438 five_vs_team": {
+        "n": 17092,
+        "accuracy": 0.6230400187222093,
+        "balanced_accuracy": 0.6231279687537141,
+        "log_loss": 0.6426650242316087,
+        "brier_score": 0.2261466383233967,
+        "roc_auc": 0.6742011744415554
+      },
+      "D: Phase 9 + TeamxHero (source)": {
+        "n": 17092,
+        "accuracy": 0.6222209220688041,
+        "balanced_accuracy": 0.6222969283578047,
+        "log_loss": 0.6427596306572446,
+        "brier_score": 0.22618618742312907,
+        "roc_auc": 0.6740379064736359
+      },
+      "E: canonical + TeamxHero (canonical)": {
+        "n": 17092,
+        "accuracy": 0.6221624151649895,
+        "balanced_accuracy": 0.6222426815239559,
+        "log_loss": 0.6427327890071365,
+        "brier_score": 0.22616600773064777,
+        "roc_auc": 0.6742163545127523
+      }
+    },
+    {
+      "year": 2026,
+      "n": 3946,
+      "A: Phase 9 (source id)": {
+        "n": 3946,
+        "accuracy": 0.6591485048150025,
+        "balanced_accuracy": 0.6593023660067601,
+        "log_loss": 0.6170784359961005,
+        "brier_score": 0.21436316811595263,
+        "roc_auc": 0.7191581522613875
+      },
+      "B: + canonical Team Elo": {
+        "n": 3946,
+        "accuracy": 0.6594019260010137,
+        "balanced_accuracy": 0.6594680830516659,
+        "log_loss": 0.6168520457938385,
+        "brier_score": 0.21427097868725883,
+        "roc_auc": 0.7194576533075809
+      },
+      "C: + canonical Elo \u0438 five_vs_team": {
+        "n": 3946,
+        "accuracy": 0.6586416624429803,
+        "balanced_accuracy": 0.6586428456462257,
+        "log_loss": 0.6171142339691054,
+        "brier_score": 0.2143725691227355,
+        "roc_auc": 0.7191527442459359
+      },
+      "D: Phase 9 + TeamxHero (source)": {
+        "n": 3946,
+        "accuracy": 0.6576279776989357,
+        "balanced_accuracy": 0.6578285530339611,
+        "log_loss": 0.6172756242399989,
+        "brier_score": 0.21444133474452517,
+        "roc_auc": 0.7191975535168195
+      },
+      "E: canonical + TeamxHero (canonical)": {
+        "n": 3946,
+        "accuracy": 0.6558540293968576,
+        "balanced_accuracy": 0.6560880733944954,
+        "log_loss": 0.6173835157184394,
+        "brier_score": 0.21447651860363015,
+        "roc_auc": 0.7191674231450185
+      }
+    }
+  ],
+  "robustness": [
+    {
+      "bucket": "\u043c\u0430\u0442\u0447\u0438, \u0437\u0430\u0442\u0440\u043e\u043d\u0443\u0442\u044b\u0435 \u0441\u043b\u0438\u044f\u043d\u0438\u0435\u043c",
+      "n": 11101,
+      "A": 0.6420142329519863,
+      "C": 0.6416539050535988
+    },
+    {
+      "bucket": "\u043d\u0435 \u0437\u0430\u0442\u0440\u043e\u043d\u0443\u0442\u044b\u0435",
+      "n": 5419,
+      "A": 0.6073076213323492,
+      "C": 0.6073076213323492
+    }
+  ],
+  "test_access_count": 7,
+  "coefficients_E": {
+    "elo_difference_canon": 0.21045026104905878,
+    "form_3_difference": 0.09257414564702136,
+    "elo_mean_diff": 0.2592007401627143,
+    "five_vs_team_elo_diff_canon": 0.1043065993525024,
+    "hero_exp_decay_diff": 0.19674940489884987,
+    "team_hero_residual_canon_diff": 0.03533841748634799
+  }
+}
