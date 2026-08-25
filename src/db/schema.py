@@ -137,6 +137,13 @@ match_players = Table(
     Column("assists", Integer, nullable=True),
     Column("gold_per_min", Integer, nullable=True),
     Column("xp_per_min", Integer, nullable=True),
+    # Phase 11: линия из разбора реплея (1=safe, 2=mid, 3=off, 4=jungle).
+    # КРИТИЧНО: это POST-MATCH величина — она появляется только после игры.
+    # Использовать её для ТЕКУЩЕГО матча как признак запрещено; допустимо
+    # только характеризовать игрока по матчам СТРОГО РАНЬШЕ прогнозируемого
+    # (см. docs/features.md и reports/phase11-data-feasibility.md).
+    # Это линия, а не позиция 1-5: safelane содержит и керри, и хард-саппорта.
+    Column("lane_role", SmallInteger, nullable=True),
     Index("idx_match_players_account_id", "account_id"),
     Index("idx_match_players_hero_id", "hero_id"),
 )

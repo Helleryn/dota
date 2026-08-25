@@ -1,0 +1,496 @@
+{
+  "experiment_id": "phase11_2026-08-25T16:52:44.060147+00:00",
+  "git_commit": "4806ac6d925b72d121ebf536b0137c1aff7beb04",
+  "timestamp": "2026-08-25T16:52:44.060147+00:00",
+  "protocol": "selection on VALIDATION only; TEST touched once",
+  "test_access_count": 9,
+  "half_life_val": {
+    "7": {
+      "n": 16525,
+      "accuracy": 0.6049621785173979,
+      "balanced_accuracy": 0.6049631479144495,
+      "log_loss": 0.6533933818389198,
+      "brier_score": 0.23113184014177918,
+      "roc_auc": 0.6534886616573514
+    },
+    "14": {
+      "n": 16525,
+      "accuracy": 0.6064750378214826,
+      "balanced_accuracy": 0.6064787599710837,
+      "log_loss": 0.6534645067112141,
+      "brier_score": 0.2311515337507262,
+      "roc_auc": 0.6535826320951159
+    },
+    "30": {
+      "n": 16525,
+      "accuracy": 0.6072012102874432,
+      "balanced_accuracy": 0.6072011165123564,
+      "log_loss": 0.6535345465787674,
+      "brier_score": 0.23116397511239198,
+      "roc_auc": 0.6537804021465983
+    },
+    "60": {
+      "n": 16525,
+      "accuracy": 0.6090166414523449,
+      "balanced_accuracy": 0.6090173900241921,
+      "log_loss": 0.6535844670140032,
+      "brier_score": 0.23117147294687979,
+      "roc_auc": 0.6539368046974965
+    },
+    "90": {
+      "n": 16525,
+      "accuracy": 0.6089561270801815,
+      "balanced_accuracy": 0.6089526434404167,
+      "log_loss": 0.6535955583446251,
+      "brier_score": 0.2311698057395548,
+      "roc_auc": 0.6540216197925326
+    },
+    "180": {
+      "n": 16525,
+      "accuracy": 0.6089561270801815,
+      "balanced_accuracy": 0.6089557196355735,
+      "log_loss": 0.6535812642197543,
+      "brier_score": 0.23115463787429846,
+      "roc_auc": 0.6541781688289146
+    }
+  },
+  "best_half_life": 7,
+  "n_total": 110169,
+  "n_train": 77118,
+  "n_val": 16525,
+  "n_test": 16526,
+  "val_results": {
+    "E0: Phase 9 (\u043a\u043e\u043d\u0442\u0440\u043e\u043b\u044c)": {
+      "n": 16525,
+      "accuracy": 0.6049621785173979,
+      "balanced_accuracy": 0.6049631479144495,
+      "log_loss": 0.6533941686070501,
+      "brier_score": 0.23113220860270686,
+      "roc_auc": 0.653486684103322
+    },
+    "E1: + player_hero": {
+      "n": 16525,
+      "accuracy": 0.6049621785173979,
+      "balanced_accuracy": 0.6049631479144495,
+      "log_loss": 0.6533933818389198,
+      "brier_score": 0.23113184014177918,
+      "roc_auc": 0.6534886616573514
+    },
+    "E2: + player_role": {
+      "n": 16525,
+      "accuracy": 0.6055068078668684,
+      "balanced_accuracy": 0.6055097218753365,
+      "log_loss": 0.653231684078498,
+      "brier_score": 0.23106681731391712,
+      "roc_auc": 0.6537279310463531
+    },
+    "E3: + player_hero_role": {
+      "n": 16525,
+      "accuracy": 0.6055068078668684,
+      "balanced_accuracy": 0.6055089528265473,
+      "log_loss": 0.6533930361078344,
+      "brier_score": 0.23113401612708862,
+      "roc_auc": 0.653461268871908
+    },
+    "E4: + role_entropy": {
+      "n": 16525,
+      "accuracy": 0.6062934947049924,
+      "balanced_accuracy": 0.6062922107076494,
+      "log_loss": 0.6527174868948101,
+      "brier_score": 0.23082068989988036,
+      "roc_auc": 0.654751220040972
+    },
+    "E5: + meta-relative ph": {
+      "n": 16525,
+      "accuracy": 0.605748865355522,
+      "balanced_accuracy": 0.6057456367467625,
+      "log_loss": 0.6533379712845678,
+      "brier_score": 0.23110394195288603,
+      "roc_auc": 0.6536438483787352
+    },
+    "E6: \u0432\u0441\u0451, \u0447\u0442\u043e \u043f\u0440\u043e\u0448\u043b\u043e VAL": {
+      "n": 16525,
+      "accuracy": 0.6062934947049924,
+      "balanced_accuracy": 0.6062952869028062,
+      "log_loss": 0.6526143665436958,
+      "brier_score": 0.23077833317071003,
+      "roc_auc": 0.6549129107178302
+    }
+  },
+  "test_results": {
+    "E0: Phase 9 (\u043a\u043e\u043d\u0442\u0440\u043e\u043b\u044c)": {
+      "n": 16526,
+      "accuracy": 0.6306426237444027,
+      "balanced_accuracy": 0.6308210454419735,
+      "log_loss": 0.6386471273149136,
+      "brier_score": 0.22425201040442114,
+      "roc_auc": 0.682004831172865
+    },
+    "E1: + player_hero": {
+      "n": 16526,
+      "accuracy": 0.630582113034007,
+      "balanced_accuracy": 0.6307584828794109,
+      "log_loss": 0.6386457867185295,
+      "brier_score": 0.22425142289337904,
+      "roc_auc": 0.6820065172977056
+    },
+    "E2: + player_role": {
+      "n": 16526,
+      "accuracy": 0.6302795594820283,
+      "balanced_accuracy": 0.6304695104056481,
+      "log_loss": 0.6385727094294538,
+      "brier_score": 0.2242294818806964,
+      "roc_auc": 0.6819419020614239
+    },
+    "E3: + player_hero_role": {
+      "n": 16526,
+      "accuracy": 0.6303400701924241,
+      "balanced_accuracy": 0.6305082326291607,
+      "log_loss": 0.638645937409277,
+      "brier_score": 0.22425301504266432,
+      "roc_auc": 0.6819822371000014
+    },
+    "E4: + role_entropy": {
+      "n": 16526,
+      "accuracy": 0.6309451772963814,
+      "balanced_accuracy": 0.6310663106274776,
+      "log_loss": 0.6379515253752163,
+      "brier_score": 0.22394864135577794,
+      "roc_auc": 0.682902392080386
+    },
+    "E5: + meta-relative ph": {
+      "n": 16526,
+      "accuracy": 0.6301585380612368,
+      "balanced_accuracy": 0.630320544941473,
+      "log_loss": 0.638637556193112,
+      "brier_score": 0.22424980221173005,
+      "roc_auc": 0.6820100361669379
+    },
+    "E6: \u0432\u0441\u0451, \u0447\u0442\u043e \u043f\u0440\u043e\u0448\u043b\u043e VAL": {
+      "n": 16526,
+      "accuracy": 0.6315502844003389,
+      "balanced_accuracy": 0.6316561757445283,
+      "log_loss": 0.637916419376796,
+      "brier_score": 0.22393920191412184,
+      "roc_auc": 0.682863405941681
+    },
+    "CatBoost E0: Phase 9 (\u043a\u043e\u043d\u0442\u0440\u043e\u043b\u044c)": {
+      "n": 16526,
+      "accuracy": 0.6282221953285732,
+      "balanced_accuracy": 0.6284695317534549,
+      "log_loss": 0.6379968578321106,
+      "brier_score": 0.22396116430403537,
+      "roc_auc": 0.6830532855916616
+    },
+    "CatBoost E6: \u0432\u0441\u0451, \u0447\u0442\u043e \u043f\u0440\u043e\u0448\u043b\u043e VAL": {
+      "n": 16526,
+      "accuracy": 0.6294324095364879,
+      "balanced_accuracy": 0.6296095280891391,
+      "log_loss": 0.6373312642138667,
+      "brier_score": 0.2236500531614783,
+      "roc_auc": 0.6840106746071124
+    }
+  },
+  "statistics": {
+    "E1: + player_hero": {
+      "acc": {
+        "point_diff": -6.051071039570033e-05,
+        "ci_low": -0.00036275695284160303,
+        "ci_high": 0.00018168604651169762,
+        "n_blocks": 827,
+        "block_size": 20,
+        "n_bootstrap": 2000
+      },
+      "ll": {
+        "point_diff": -1.3405963841250923e-06,
+        "ci_low": -2.8193297481632353e-06,
+        "ci_high": 1.7074511289849557e-07,
+        "n_blocks": 827,
+        "block_size": 20,
+        "n_bootstrap": 2000
+      },
+      "mcnemar": {
+        "a_correct_b_wrong": 2,
+        "b_correct_a_wrong": 3,
+        "n_discordant": 5,
+        "p_value": 1.0
+      }
+    },
+    "E2: + player_role": {
+      "acc": {
+        "point_diff": -0.000363064262374424,
+        "ci_low": -0.001633789180684908,
+        "ci_high": 0.0009076606559360629,
+        "n_blocks": 827,
+        "block_size": 20,
+        "n_bootstrap": 2000
+      },
+      "ll": {
+        "point_diff": -7.441788545980987e-05,
+        "ci_low": -0.00019928381364248127,
+        "ci_high": 4.4817261374244156e-05,
+        "n_blocks": 827,
+        "block_size": 20,
+        "n_bootstrap": 2000
+      },
+      "mcnemar": {
+        "a_correct_b_wrong": 55,
+        "b_correct_a_wrong": 61,
+        "n_discordant": 116,
+        "p_value": 0.6426674253796113
+      }
+    },
+    "E3: + player_hero_role": {
+      "acc": {
+        "point_diff": -0.00030255355197861267,
+        "ci_low": -0.001088270858524809,
+        "ci_high": 0.0004232164449818887,
+        "n_blocks": 827,
+        "block_size": 20,
+        "n_bootstrap": 2000
+      },
+      "ll": {
+        "point_diff": -1.1899056365782812e-06,
+        "ci_low": -2.9985824153155872e-05,
+        "ci_high": 2.9388667927801552e-05,
+        "n_blocks": 827,
+        "block_size": 20,
+        "n_bootstrap": 2000
+      },
+      "mcnemar": {
+        "a_correct_b_wrong": 20,
+        "b_correct_a_wrong": 25,
+        "n_discordant": 45,
+        "p_value": 0.5514843298025198
+      }
+    },
+    "E4: + role_entropy": {
+      "acc": {
+        "point_diff": 0.0003025535519787237,
+        "ci_low": -0.002547168058408097,
+        "ci_high": 0.0030834340991535703,
+        "n_blocks": 827,
+        "block_size": 20,
+        "n_bootstrap": 2000
+      },
+      "ll": {
+        "point_diff": -0.0006956019396973101,
+        "ci_low": -0.0012443519497580518,
+        "ci_high": -0.000149108439426596,
+        "n_blocks": 827,
+        "block_size": 20,
+        "n_bootstrap": 2000
+      },
+      "mcnemar": {
+        "a_correct_b_wrong": 289,
+        "b_correct_a_wrong": 284,
+        "n_discordant": 573,
+        "p_value": 0.8673081151883938
+      }
+    },
+    "E5: + meta-relative ph": {
+      "acc": {
+        "point_diff": -0.0004840856831659357,
+        "ci_low": -0.0016929016327062757,
+        "ci_high": 0.0006656178143531477,
+        "n_blocks": 827,
+        "block_size": 20,
+        "n_bootstrap": 2000
+      },
+      "ll": {
+        "point_diff": -9.571121801554838e-06,
+        "ci_low": -8.203254341736799e-05,
+        "ci_high": 6.781692227700031e-05,
+        "n_blocks": 827,
+        "block_size": 20,
+        "n_bootstrap": 2000
+      },
+      "mcnemar": {
+        "a_correct_b_wrong": 45,
+        "b_correct_a_wrong": 53,
+        "n_discordant": 98,
+        "p_value": 0.4796924995674869
+      }
+    },
+    "E6: \u0432\u0441\u0451, \u0447\u0442\u043e \u043f\u0440\u043e\u0448\u043b\u043e VAL": {
+      "acc": {
+        "point_diff": 0.0009076606559361711,
+        "ci_low": -0.0019363427326636318,
+        "ci_high": 0.003808948004836668,
+        "n_blocks": 827,
+        "block_size": 20,
+        "n_bootstrap": 2000
+      },
+      "ll": {
+        "point_diff": -0.0007307079381175807,
+        "ci_low": -0.0012912196442357304,
+        "ci_high": -0.00018139368662792427,
+        "n_blocks": 827,
+        "block_size": 20,
+        "n_bootstrap": 2000
+      },
+      "mcnemar": {
+        "a_correct_b_wrong": 292,
+        "b_correct_a_wrong": 277,
+        "n_discordant": 569,
+        "p_value": 0.5573017910416631
+      }
+    }
+  },
+  "walk_forward": [
+    {
+      "year": 2022,
+      "n": 22502,
+      "E0: Phase 9 (\u043a\u043e\u043d\u0442\u0440\u043e\u043b\u044c)": {
+        "n": 22502,
+        "accuracy": 0.5967469558261488,
+        "balanced_accuracy": 0.5989054972791401,
+        "log_loss": 0.6615428104916612,
+        "brier_score": 0.23473998075870847,
+        "roc_auc": 0.6440568324801412
+      },
+      "E1: + player_hero": {
+        "n": 22502,
+        "accuracy": 0.5959914674251178,
+        "balanced_accuracy": 0.5981506573179043,
+        "log_loss": 0.661703919838604,
+        "brier_score": 0.2348127036993537,
+        "roc_auc": 0.6437533702484296
+      },
+      "E6: \u0432\u0441\u0451, \u0447\u0442\u043e \u043f\u0440\u043e\u0448\u043b\u043e VAL": {
+        "n": 22502,
+        "accuracy": 0.5985690160874589,
+        "balanced_accuracy": 0.6006049181995942,
+        "log_loss": 0.6602687376795964,
+        "brier_score": 0.23413455575723546,
+        "roc_auc": 0.6467883721503471
+      }
+    },
+    {
+      "year": 2023,
+      "n": 28538,
+      "E0: Phase 9 (\u043a\u043e\u043d\u0442\u0440\u043e\u043b\u044c)": {
+        "n": 28538,
+        "accuracy": 0.5983951222930829,
+        "balanced_accuracy": 0.5984086876099053,
+        "log_loss": 0.6566342116460457,
+        "brier_score": 0.2327146779025953,
+        "roc_auc": 0.644884626963738
+      },
+      "E1: + player_hero": {
+        "n": 28538,
+        "accuracy": 0.5984301632910505,
+        "balanced_accuracy": 0.5984436233281837,
+        "log_loss": 0.6566371969298482,
+        "brier_score": 0.23271607762594348,
+        "roc_auc": 0.6448867683911483
+      },
+      "E6: \u0432\u0441\u0451, \u0447\u0442\u043e \u043f\u0440\u043e\u0448\u043b\u043e VAL": {
+        "n": 28538,
+        "accuracy": 0.5980797533113743,
+        "balanced_accuracy": 0.5980917317955291,
+        "log_loss": 0.6561635167982913,
+        "brier_score": 0.2325016948456864,
+        "roc_auc": 0.6458174740005173
+      }
+    },
+    {
+      "year": 2024,
+      "n": 23538,
+      "E0: Phase 9 (\u043a\u043e\u043d\u0442\u0440\u043e\u043b\u044c)": {
+        "n": 23538,
+        "accuracy": 0.599838558925992,
+        "balanced_accuracy": 0.5998495018982636,
+        "log_loss": 0.6578567766710387,
+        "brier_score": 0.23314794112441073,
+        "roc_auc": 0.6445780695572889
+      },
+      "E1: + player_hero": {
+        "n": 23538,
+        "accuracy": 0.599413713994392,
+        "balanced_accuracy": 0.5994236608672814,
+        "log_loss": 0.6578689195623483,
+        "brier_score": 0.23315300232539674,
+        "roc_auc": 0.644573152757945
+      },
+      "E6: \u0432\u0441\u0451, \u0447\u0442\u043e \u043f\u0440\u043e\u0448\u043b\u043e VAL": {
+        "n": 23538,
+        "accuracy": 0.5992862605149121,
+        "balanced_accuracy": 0.5992939938220307,
+        "log_loss": 0.6573796703724375,
+        "brier_score": 0.2329300348189211,
+        "roc_auc": 0.6456850280868012
+      }
+    },
+    {
+      "year": 2025,
+      "n": 17100,
+      "E0: Phase 9 (\u043a\u043e\u043d\u0442\u0440\u043e\u043b\u044c)": {
+        "n": 17100,
+        "accuracy": 0.6226315789473684,
+        "balanced_accuracy": 0.6227142747561936,
+        "log_loss": 0.6426658344881088,
+        "brier_score": 0.22615254856924286,
+        "roc_auc": 0.6740893303356603
+      },
+      "E1: + player_hero": {
+        "n": 17100,
+        "accuracy": 0.6231578947368421,
+        "balanced_accuracy": 0.6232278561303091,
+        "log_loss": 0.6426737888780847,
+        "brier_score": 0.22615822589685572,
+        "roc_auc": 0.6740525921781451
+      },
+      "E6: \u0432\u0441\u0451, \u0447\u0442\u043e \u043f\u0440\u043e\u0448\u043b\u043e VAL": {
+        "n": 17100,
+        "accuracy": 0.6252046783625731,
+        "balanced_accuracy": 0.6252425279597362,
+        "log_loss": 0.6418126505481526,
+        "brier_score": 0.2257893124333505,
+        "roc_auc": 0.6752025758978305
+      }
+    },
+    {
+      "year": 2026,
+      "n": 3948,
+      "E0: Phase 9 (\u043a\u043e\u043d\u0442\u0440\u043e\u043b\u044c)": {
+        "n": 3948,
+        "accuracy": 0.6570415400202634,
+        "balanced_accuracy": 0.6572026450757794,
+        "log_loss": 0.6171009492686631,
+        "brier_score": 0.2143794816966381,
+        "roc_auc": 0.7190077775765409
+      },
+      "E1: + player_hero": {
+        "n": 3948,
+        "accuracy": 0.6565349544072948,
+        "balanced_accuracy": 0.6566948078142107,
+        "log_loss": 0.6170769474135622,
+        "brier_score": 0.2143697952479656,
+        "roc_auc": 0.7190208979921133
+      },
+      "E6: \u0432\u0441\u0451, \u0447\u0442\u043e \u043f\u0440\u043e\u0448\u043b\u043e VAL": {
+        "n": 3948,
+        "accuracy": 0.6578014184397163,
+        "balanced_accuracy": 0.6578257361839451,
+        "log_loss": 0.6167593351228311,
+        "brier_score": 0.214236379657407,
+        "roc_auc": 0.7190792967045632
+      }
+    }
+  ],
+  "val_winners": [
+    "player_role_strength_diff",
+    "role_entropy_diff"
+  ],
+  "player_hero_signal_coverage": 1.0,
+  "coefficients_E6": {
+    "elo_difference": 0.22275332677688578,
+    "form_3_difference": 0.09308294819534124,
+    "elo_mean_diff": 0.2690430019146028,
+    "five_vs_team_elo_diff": 0.12020189029782356,
+    "hero_exp_decay_diff": 0.18626451086827972,
+    "player_role_strength_diff": -0.013895817103970552,
+    "role_entropy_diff": 0.07973726083841387
+  }
+}
