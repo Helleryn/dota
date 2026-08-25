@@ -1,0 +1,240 @@
+{
+  "phase": 12,
+  "git_commit": "c35a12399edd561e8388f06664116a399d1d6267",
+  "run_timestamp": "2026-08-25T17:57:25.643838+00:00",
+  "n_matches": 116236,
+  "n_rows": 109754,
+  "draft_formats": {
+    "cm_pre_734": 57672,
+    "other": 448,
+    "cm_post_734": 58116
+  },
+  "validation": {
+    "E0: Phase 9 (контроль)": {
+      "n": 16463,
+      "accuracy": 0.6047500455567029,
+      "balanced_accuracy": 0.6047677086885674,
+      "log_loss": 0.6531898407431422,
+      "brier_score": 0.23105616840982338,
+      "roc_auc": 0.65361065699695
+    },
+    "E1 H1: + denied_comfort": {
+      "n": 16463,
+      "accuracy": 0.6029277774403207,
+      "balanced_accuracy": 0.6029509912991619,
+      "log_loss": 0.6531890138670079,
+      "brier_score": 0.2310667560962696,
+      "roc_auc": 0.653438801562497
+    },
+    "E2 H1: + denied_comfort_top": {
+      "n": 16463,
+      "accuracy": 0.60402113831015,
+      "balanced_accuracy": 0.6040379651147636,
+      "log_loss": 0.6531855433035153,
+      "brier_score": 0.23105611239302778,
+      "roc_auc": 0.6536049009320722
+    },
+    "E3 H2: + order_weighted_hero": {
+      "n": 16463,
+      "accuracy": 0.6045070764745186,
+      "balanced_accuracy": 0.6045247289550224,
+      "log_loss": 0.653194367581146,
+      "brier_score": 0.23105709837471367,
+      "roc_auc": 0.6536407804031437
+    },
+    "E4 H3: + last_pick_counter": {
+      "n": 16463,
+      "accuracy": 0.6062078600498086,
+      "balanced_accuracy": 0.6062312177020189,
+      "log_loss": 0.6531462500325612,
+      "brier_score": 0.2310359533446583,
+      "roc_auc": 0.6537332464197055
+    },
+    "E5 H4: + lane_composition": {
+      "n": 16463,
+      "accuracy": 0.60572192188544,
+      "balanced_accuracy": 0.605736410130072,
+      "log_loss": 0.6532519368684373,
+      "brier_score": 0.23108364999897626,
+      "roc_auc": 0.6535477387800939
+    },
+    "E6: все признаки Phase 12": {
+      "n": 16463,
+      "accuracy": 0.6043855919334264,
+      "balanced_accuracy": 0.6044096740736005,
+      "log_loss": 0.6532240726520204,
+      "brier_score": 0.2310841193528939,
+      "roc_auc": 0.6533339526268775
+    },
+    "E7: negative control (шум)": {
+      "n": 16463,
+      "accuracy": 0.6049930146388872,
+      "balanced_accuracy": 0.6050082753026059,
+      "log_loss": 0.6531850072750626,
+      "brier_score": 0.23105355546939574,
+      "roc_auc": 0.6536370758588248
+    }
+  },
+  "verdicts": {
+    "denied_comfort_diff": "REMOVE",
+    "denied_comfort_top_diff": "REMOVE",
+    "order_weighted_hero_strength_diff": "REMOVE",
+    "last_pick_counter_diff": "REMOVE",
+    "lane_composition": "REMOVE"
+  },
+  "final_features": [
+    "elo_difference",
+    "form_3_difference",
+    "elo_mean_diff",
+    "five_vs_team_elo_diff",
+    "hero_exp_decay_diff"
+  ],
+  "reveal_curve": [
+    {
+      "reveal": 0,
+      "accuracy": 0.6047500455567029,
+      "log_loss": 0.6531898407431422,
+      "roc_auc": 0.65361065699695
+    },
+    {
+      "reveal": 4,
+      "accuracy": 0.6039603960396039,
+      "log_loss": 0.653291712089806,
+      "roc_auc": 0.6530808333636634
+    },
+    {
+      "reveal": 8,
+      "accuracy": 0.6032314887930511,
+      "log_loss": 0.6531990317570111,
+      "roc_auc": 0.6532978960461178
+    },
+    {
+      "reveal": 12,
+      "accuracy": 0.6018344165704914,
+      "log_loss": 0.6532212438703052,
+      "roc_auc": 0.6531375527414204
+    },
+    {
+      "reveal": 16,
+      "accuracy": 0.6034137156046893,
+      "log_loss": 0.6533376625701589,
+      "roc_auc": 0.6529093764260097
+    },
+    {
+      "reveal": 20,
+      "accuracy": 0.6041426228512422,
+      "log_loss": 0.6531707186658758,
+      "roc_auc": 0.653170746048882
+    },
+    {
+      "reveal": null,
+      "accuracy": 0.6043855919334264,
+      "log_loss": 0.6532240726520204,
+      "roc_auc": 0.6533339526268775
+    }
+  ],
+  "calibration_ece_val": 0.00908753560830045,
+  "selective_val": [
+    {
+      "coverage": 1.0,
+      "threshold": 1.6497059579512197e-06,
+      "n": 16463,
+      "accuracy": 0.6047500455567029
+    },
+    {
+      "coverage": 0.8,
+      "threshold": 0.03369045030038845,
+      "n": 13170,
+      "accuracy": 0.6320425208807897
+    },
+    {
+      "coverage": 0.6,
+      "threshold": 0.07007318247320993,
+      "n": 9878,
+      "accuracy": 0.656711884996963
+    },
+    {
+      "coverage": 0.5,
+      "threshold": 0.09116187495792821,
+      "n": 8232,
+      "accuracy": 0.6715257531584062
+    },
+    {
+      "coverage": 0.3,
+      "threshold": 0.14100524779268406,
+      "n": 4939,
+      "accuracy": 0.7153269892690828
+    },
+    {
+      "coverage": 0.2,
+      "threshold": 0.17805980530025514,
+      "n": 3293,
+      "accuracy": 0.7461281506225327
+    }
+  ],
+  "test_accesses": 1,
+  "test": {
+    "phase9": {
+      "n": 16464,
+      "accuracy": 0.6301020408163265,
+      "balanced_accuracy": 0.6303602257867869,
+      "log_loss": 0.6389935970062302,
+      "brier_score": 0.2244063753078028,
+      "roc_auc": 0.6815633383878976
+    },
+    "phase12": {
+      "n": 16464,
+      "accuracy": 0.6301020408163265,
+      "balanced_accuracy": 0.6303602257867869,
+      "log_loss": 0.6389935970062302,
+      "brier_score": 0.2244063753078028,
+      "roc_auc": 0.6815633383878976
+    },
+    "paired_comparison": "не проводилось: набор признаков не изменился",
+    "selective": [
+      {
+        "coverage_val": 1.0,
+        "threshold_from_val": 1.6497059579512197e-06,
+        "coverage_test": 1.0,
+        "n": 16464,
+        "accuracy": 0.6301020408163265
+      },
+      {
+        "coverage_val": 0.8,
+        "threshold_from_val": 0.03369045030038845,
+        "coverage_test": 0.8200923226433431,
+        "n": 13502,
+        "accuracy": 0.6533846837505555
+      },
+      {
+        "coverage_val": 0.6,
+        "threshold_from_val": 0.07007318247320993,
+        "coverage_test": 0.6347789115646258,
+        "n": 10451,
+        "accuracy": 0.6780212419864128
+      },
+      {
+        "coverage_val": 0.5,
+        "threshold_from_val": 0.09116187495792821,
+        "coverage_test": 0.5413022351797862,
+        "n": 8912,
+        "accuracy": 0.6947935368043088
+      },
+      {
+        "coverage_val": 0.3,
+        "threshold_from_val": 0.14100524779268406,
+        "coverage_test": 0.3564139941690962,
+        "n": 5868,
+        "accuracy": 0.7350034083162917
+      },
+      {
+        "coverage_val": 0.2,
+        "threshold_from_val": 0.17805980530025514,
+        "coverage_test": 0.25431243926141883,
+        "n": 4187,
+        "accuracy": 0.7657033675662765
+      }
+    ],
+    "calibration_ece": 0.020658698475350405
+  }
+}
