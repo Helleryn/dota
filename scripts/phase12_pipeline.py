@@ -401,28 +401,48 @@ def main(argv=None) -> int:
         t_base = base_mdl.evaluate(test, test["target"])
         t_final = mdl_final.evaluate(test, test["target"])
         show("Phase 9 (контроль)", t_base)
-        show("Phase 12 финальный набор", t_final, t_base)
         y = test["target"].to_numpy()
         pb = base_mdl.predict_proba(test)[:, 1]
         pf = mdl_final.predict_proba(test)[:, 1]
-        da, ca = block_bootstrap_paired_diff(y, pb, pf, accuracy_metric, block_size=BLOCK_SIZE, seed=RANDOM_SEED)
-        dl, cl = block_bootstrap_paired_diff(y, pb, pf, log_loss_metric, block_size=BLOCK_SIZE, seed=RANDOM_SEED)
-        p_mc = mcnemar_exact(y, pb > 0.5, pf > 0.5)
-        print(f"  Δacc={da:+.4f} CI={ca}   Δll={dl:+.5f} CI={cl}   McNemar p={p_mc:.4g}")
-        # селективный прогноз с порогом, ЗАФИКСИРОВАННЫМ на VALIDATION
-        thr_val = next(r["threshold"] for r in sel_rows if r["coverage"] == 0.5)
+        payload["test"] = {"phase9": t_base, "phase12": t_final}
+
+        if keep:
+            show("Phase 12 финальный набор", t_final, t_base)
+            da, ca = block_bootstrap_paired_diff(y, pb, pf, accuracy_metric, block_size=BLOCK_SIZE, seed=RANDOM_SEED)
+            dl, cl = block_bootstrap_paired_diff(y, pb, pf, log_loss_metric, block_size=BLOCK_SIZE, seed=RANDOM_SEED)
+            p_mc = mcnemar_exact(y, pb > 0.5, pf > 0.5)
+            print(f"  Δacc={da:+.4f} CI={ca}   Δll={dl:+.5f} CI={cl}   McNemar p={p_mc:.4g}")
+            payload["test"].update({"delta_accuracy": da, "ci_accuracy": list(ca),
+                                    "delta_log_loss": dl, "ci_log_loss": list(cl),
+                                    "mcnemar_p": p_mc})
+        else:
+            # Ни один признак Phase 12 не прошёл отбор, поэтому финальная модель
+            # ТОЖДЕСТВЕННА Phase 9. Парное сравнение модели с самой собой
+            # вырождено (Δ ровно 0, McNemar не определён) — печатать его как
+            # результат было бы имитацией эксперимента.
+            print("  Признаки Phase 12 отвергнуты на VALIDATION => финальная модель = Phase 9.")
+            print("  Парное сравнение не проводится: модель сравнивалась бы сама с собой.")
+            payload["test"]["paired_comparison"] = "не проводилось: набор признаков не изменился"
+
+        section("H8 на TEST — пороги ЗАФИКСИРОВАНЫ на VALIDATION")
         confT = np.abs(pf - 0.5)
-        selT = confT >= thr_val
-        accT = float((y[selT] == (pf[selT] > 0.5)).mean()) if selT.sum() else float("nan")
-        print(f"  селективно (порог с VAL={thr_val:.4f}): покрытие={selT.mean()*100:.1f}% acc={accT:.4f}")
-        payload["test"] = {
-            "phase9": t_base, "phase12": t_final,
-            "delta_accuracy": da, "ci_accuracy": list(ca),
-            "delta_log_loss": dl, "ci_log_loss": list(cl),
-            "mcnemar_p": p_mc,
-            "selective": {"threshold_from_val": thr_val,
-                          "coverage": float(selT.mean()), "accuracy": accT},
-        }
+        sel_test = []
+        for r in sel_rows:
+            thr = r["threshold"]
+            selT = confT >= thr
+            n = int(selT.sum())
+            accT = float((y[selT] == (pf[selT] > 0.5)).mean()) if n else float("nan")
+            cov = float(selT.mean())
+            sel_test.append({"coverage_val": r["coverage"], "threshold_from_val": thr,
+                             "coverage_test": cov, "n": n, "accuracy": accT})
+            print(f"  порог с VAL {thr:.4f} (VAL покрытие {r['coverage']*100:5.1f}%)"
+                  f"  ->  TEST покрытие={cov*100:5.1f}%  n={n:6d}  acc={accT:.4f}")
+        payload["test"]["selective"] = sel_test
+
+        ece_t = (sum(n * abs(mp - my) for _, _, n, mp, my in calibration_table(y, pf))
+                 / len(y))
+        print(f"\n  ECE на TEST (10 бинов) = {ece_t:.5f}")
+        payload["test"]["calibration_ece"] = ece_t
         payload["test_accesses"] = TEST_ACCESS["n"]
 
     out = os.path.join(EXPERIMENTS_DIR, "phase12.json")
