@@ -178,13 +178,25 @@ DS_COLS = ["denied_comfort_diff", "denied_comfort_top_diff",
            "lane_balance_diff", "lane_prior_entropy_diff"]
 
 
+CACHE_DIR = os.path.join(EXPERIMENTS_DIR, "cache")
+
+
 def draft_frame(matches, reveal: Optional[int]) -> pd.DataFrame:
+    """Кэш на диске: один walk-forward проход по 110k матчей стоит минуты,
+    а информационная кривая H6 требует их семь. Кэш инвалидируется вручную
+    при изменении draft_state.py (файл лежит в reports/experiments/cache)."""
+    os.makedirs(CACHE_DIR, exist_ok=True)
+    path = os.path.join(CACHE_DIR, f"draft_state_reveal_{'full' if reveal is None else reveal}.csv")
+    if os.path.exists(path):
+        return pd.read_csv(path)
     rows = build_draft_state_features(matches, reveal=reveal)
-    return pd.DataFrame([{
+    df = pd.DataFrame([{
         "match_id": r.match_id,
         "draft_format": r.draft_format,
         **{c: getattr(r, c) for c in DS_COLS},
     } for r in rows])
+    df.to_csv(path, index=False)
+    return df
 
 
 def split(df, tf=0.70, vf=0.15):
@@ -256,6 +268,17 @@ def main(argv=None) -> int:
     print(f"TRAIN {len(train)} | VAL {len(val)} | TEST {len(test)}")
     print(f"VAL форматы: {dict(val['draft_format'].value_counts())}")
     print(f"TEST форматы: {dict(test['draft_format'].value_counts())}")
+
+    section("Диагностика признаков (TRAIN+VAL, TEST не затрагивается)")
+    diag = pd.concat([train, val], ignore_index=True)
+    print(f"  {'признак':38s} {'std':>10s} {'доля!=0':>9s} {'corr с исходом':>15s}")
+    for c in DS_COLS:
+        v = diag[c].to_numpy(dtype=float)
+        nz = float((np.abs(v) > 1e-12).mean())
+        sd = float(v.std())
+        corr = float(np.corrcoef(v, diag["target"].to_numpy(dtype=float))[0, 1]) if sd > 0 else float("nan")
+        print(f"  {c:38s} {sd:10.5f} {nz:9.3f} {corr:+15.4f}")
+    print("  (нулевая std или доля!=0 == 0 означала бы дефект признака, а не отсутствие сигнала)")
 
     section("Эксперименты на VALIDATION (H1-H4)")
     EXP: Dict[str, List[str]] = {
@@ -340,7 +363,7 @@ def main(argv=None) -> int:
         show(f"raскрыто действий: {k if k is not None else 'весь драфт'}", r, ref)
 
     section("H7 — калибровка (VALIDATION)")
-    p_val = mdl_final.predict_proba(val)
+    p_val = mdl_final.predict_proba(val)[:, 1]
     y_val = val["target"].to_numpy()
     print("  bin        n     ср.прогноз   факт")
     for lo, hi, n, mp, my in calibration_table(y_val, p_val):
@@ -380,8 +403,8 @@ def main(argv=None) -> int:
         show("Phase 9 (контроль)", t_base)
         show("Phase 12 финальный набор", t_final, t_base)
         y = test["target"].to_numpy()
-        pb = base_mdl.predict_proba(test)
-        pf = mdl_final.predict_proba(test)
+        pb = base_mdl.predict_proba(test)[:, 1]
+        pf = mdl_final.predict_proba(test)[:, 1]
         da, ca = block_bootstrap_paired_diff(y, pb, pf, accuracy_metric, block_size=BLOCK_SIZE, seed=RANDOM_SEED)
         dl, cl = block_bootstrap_paired_diff(y, pb, pf, log_loss_metric, block_size=BLOCK_SIZE, seed=RANDOM_SEED)
         p_mc = mcnemar_exact(y, pb > 0.5, pf > 0.5)
