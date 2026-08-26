@@ -1,6 +1,6 @@
 {
   "phase": 14,
-  "git_commit": "988298c2942b5f4823986ad16ac8219853c55fb4",
+  "git_commit": "f80c782b4ce3418b31d85ad4ec0cc2ee13a94e3c",
   "part_a_val": {
     "n": 16463,
     "accuracy": 0.6047500455567029,
@@ -1562,6 +1562,22 @@
       "mce": 0.05452772711310511,
       "slope": 1.0143016265131044,
       "intercept": 0.010992884958045665
+    },
+    "paired_ece": {
+      "point_diff": -0.012857492872796514,
+      "ci_low": -0.015298300580490698,
+      "ci_high": -0.00316560672813521,
+      "n_blocks": 824,
+      "block_size": 20,
+      "n_bootstrap": 2000
+    },
+    "paired_log_loss": {
+      "point_diff": -0.0006198849850843624,
+      "ci_low": -0.00127760140008171,
+      "ci_high": 4.283427646027569e-05,
+      "n_blocks": 824,
+      "block_size": 20,
+      "n_bootstrap": 2000
     },
     "ll_ci_raw": {
       "point": 0.6389935970062302,
