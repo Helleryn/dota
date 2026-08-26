@@ -165,7 +165,14 @@ def main(argv=None) -> int:
     df = load_common_set()
     engine = make_engine(load_settings())
     df = df.merge(load_league_info(engine), on="match_id", how="left")
-    df["ts"] = pd.to_datetime(df["as_of_timestamp"], utc=True).astype("int64") / 1e9
+    # ВНИМАНИЕ: .astype("int64") на datetime зависит от разрешения столбца.
+    # После чтения кэша оно микросекундное, и деление на 1e9 давало время в
+    # 1000 раз меньше настоящего — все разности дат схлопывались почти в ноль,
+    # а экспоненциальное затухание переставало работать (веса при half-life
+    # 7 дней выходили практически единичными). Разность от эпохи от
+    # разрешения не зависит.
+    df["ts"] = (pd.to_datetime(df["as_of_timestamp"], utc=True)
+                - pd.Timestamp("1970-01-01", tz="UTC")).dt.total_seconds()
     df["patch_bucket"] = bucket_patch_age(df["days_since_patch"].to_numpy(dtype=float))
     df["elo_decile"] = pd.qcut(df["elo_difference"].abs().rank(method="first"),
                                10, labels=False)
@@ -321,20 +328,32 @@ def main(argv=None) -> int:
     print("  Гипотеза задания: патч меняет не сигнал, а ОТОБРАЖЕНИЕ")
     print("  сырой вероятности в фактическую. Проверка — калибровка по окнам")
     print("  патча ПОСЛЕ применения выбранного слоя:")
-    print(f"  {'окно':>8s} {'n':>7s} {'ECE сырая':>10s} {'ECE калибр.':>12s} "
-          f"{'slope сырая':>12s} {'slope калибр.':>14s}")
+    # Сравниваются несколько ведущих вариантов, а не только победитель по
+    # общему ECE: вопрос фазы — чинится ли ИМЕННО переход патча, и здесь
+    # победитель в среднем может проигрывать патч-локальному слою.
+    f_variants = {"сырая": p_val, f"победитель ({best_name})": p_cal_val}
+    for nm in ("D: патч-локальная / platt", "E: затухание 30д / platt",
+               "B: глобальная / platt"):
+        if nm in calibrated:
+            f_variants[nm] = calibrated[nm]
     part_f = []
+    header = "  " + f"{'окно':>8s} {'n':>7s}" + "".join(
+        f" {k[:22]:>22s}" for k in f_variants)
+    print(header)
     for b in BUCKET_ORDER:
         sel = (val["patch_bucket"] == b).to_numpy()
         if sel.sum() < 100:
             continue
-        r0 = calibration_report(y_val[sel], p_val[sel])
-        r1 = calibration_report(y_val[sel], p_cal_val[sel])
-        part_f.append({"bucket": b, "n": r0["n"], "ece_raw": r0["ece"],
-                       "ece_cal": r1["ece"], "slope_raw": r0["slope"],
-                       "slope_cal": r1["slope"]})
-        print(f"  {b:>8s} {r0['n']:7d} {r0['ece']:10.5f} {r1['ece']:12.5f} "
-              f"{r0['slope']:12.3f} {r1['slope']:14.3f}")
+        row = {"bucket": b, "n": int(sel.sum())}
+        line = f"  {b:>8s} {sel.sum():7d}"
+        for k, pp in f_variants.items():
+            r = calibration_report(y_val[sel], pp[sel])
+            row[f"ece::{k}"] = r["ece"]
+            row[f"slope::{k}"] = r["slope"]
+            line += f" {r['ece']:10.5f}/{r['slope']:<11.3f}"
+        part_f.append(row)
+        print(line)
+    print("  (в каждой ячейке: ECE / calibration slope)")
     payload["part_f"] = part_f
 
     # =================== PART G ===================
@@ -400,8 +419,8 @@ def main(argv=None) -> int:
     off_b, hero_b = offset_and_hero(val_b)
     p_d = _sigmoid(off_b + beta_d[0] + beta_d[1] * hero_b)
     opt["D: переобучение hero-части"] = metrics_row(y_b, p_d)
-    print(f"  Коэффициент при hero_exp_decay_diff: {coef[hero_idx]:+.4f} (заморожен) -> "
-          f"{beta_d[1]:+.4f} (переобучен)\n")
+    print(f"  Коэффициент при hero_exp_decay_diff: {coef[hero_idx]:+.6f} (заморожен) -> "
+          f"{beta_d[1]:+.6f} (переобучен)\n")
 
     for k, v in opt.items():
         show(k, v, opt["A: ничего"])
