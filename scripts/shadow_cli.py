@@ -170,25 +170,36 @@ def cmd_resolve_finished(args) -> int:
     s = load_settings()
     engine = make_engine(s)
     _section("PART F — разрешение завершённых матчей")
-    with engine.connect() as conn:
-        pending = repo.list_unresolved(conn, source=args.source)
-    ids = [r.match_id for r in pending if r.match_id is not None]
-    print(f"  неразрешённых снимков: {len(pending)} (с match_id: {len(ids)})")
-    if not ids:
-        return 0
-    outcomes = {}
-    with engine.connect() as conn:
-        rows = conn.execute(text(
-            "SELECT match_id, radiant_win, start_time FROM matches "
-            "WHERE match_id = ANY(:ids) AND radiant_win IS NOT NULL"),
-            {"ids": ids}).fetchall()
-    for r in rows:
-        st = r.start_time if r.start_time.tzinfo else r.start_time.replace(tzinfo=timezone.utc)
-        outcomes[r.match_id] = (bool(r.radiant_win), st)
-    print(f"  исходов найдено: {len(outcomes)}")
-    with engine.begin() as conn:
-        st = pipeline.resolve(conn, outcomes, source=args.source)
-    print(f"  результат: {st}")
+    # Разрешение идёт партиями: чтение неразрешённых ограничено сверху,
+    # и одного прохода не хватает. Цикл до исчерпания, иначе часть потока
+    # молча осталась бы неразрешённой (первый прогон так и вышел: 5000 из
+    # 14944, и это было видно только по несовпадению чисел).
+    total = {"resolved": 0, "skipped_no_outcome": 0, "skipped_invalid": 0,
+             "duplicate": 0, "mismatched_start": 0}
+    while True:
+        with engine.connect() as conn:
+            pending = repo.list_unresolved(conn, source=args.source)
+        ids = [r.match_id for r in pending if r.match_id is not None]
+        if not ids:
+            break
+        with engine.connect() as conn:
+            rows = conn.execute(text(
+                "SELECT match_id, radiant_win, start_time FROM matches "
+                "WHERE match_id = ANY(:ids) AND radiant_win IS NOT NULL"),
+                {"ids": ids}).fetchall()
+        outcomes = {}
+        for r in rows:
+            st_ = r.start_time if r.start_time.tzinfo else r.start_time.replace(tzinfo=timezone.utc)
+            outcomes[r.match_id] = (bool(r.radiant_win), st_)
+        with engine.begin() as conn:
+            st = pipeline.resolve(conn, outcomes, source=args.source)
+        for k, v in st.items():
+            total[k] += v
+        print(f"  партия: неразрешённых={len(pending)} исходов={len(outcomes)} -> {st}",
+              flush=True)
+        if st["resolved"] == 0:
+            break          # дальше двигаться нечем
+    print(f"  итого: {total}")
     return 0
 
 
@@ -276,8 +287,17 @@ def cmd_calibration_status(args) -> int:
         print(f"    {k:22s} {v}")
     with engine.connect() as conn:
         print(f"\n  Снимки по состояниям: {repo.counts_by_state(conn)}")
-        rows = repo.list_snapshots(conn, source=args.source)
+        total_n = conn.execute(text(
+            "SELECT count(*) FROM prediction_snapshots"
+            + (" WHERE source = :s" if args.source else "")),
+            ({"s": args.source} if args.source else {})).scalar()
+        # Лимит выставляется по фактическому числу снимков: с настройкой по
+        # умолчанию аудит молча проверял 10 000 из 14 969, и это было видно
+        # только при сверке с числом состояний.
+        rows = repo.list_snapshots(conn, source=args.source, limit=int(total_n) + 1)
     audit = cutoff_mod.audit_rows(rows)
+    if audit["total"] != total_n:
+        print(f"  ВНИМАНИЕ: проверено {audit['total']} из {total_n} снимков")
     print(f"\n  Проверка NO DATA AFTER prediction_timestamp:")
     print(f"    всего снимков: {audit['total']}")
     print(f"    чистых:        {audit['clean']}")
