@@ -45,7 +45,11 @@ EXPERIMENTS_DIR = os.path.join(os.path.dirname(__file__), "..", "reports", "expe
 HORIZON = timedelta(hours=24)
 T1 = ["elo_difference", "form_3_difference", "elo_mean_diff", "five_vs_team_elo_diff"]
 T2 = ["elo_difference", "form_3_difference"]
-ALPHAS = [0.0, 0.5, 1.0, 2.0, 4.0]
+# Сетка расширена после первого прогона: лучшая alpha оказалась на её
+# ГРАНИЦЕ (4.0), то есть оптимум мог лежать за пределами сетки. Это
+# расширение поиска на VALIDATION, а не подгонка под результат: критерий
+# отбора (Δlog loss > 1e-4) не менялся.
+ALPHAS = [0.0, 0.5, 1.0, 2.0, 4.0, 8.0, 16.0, 32.0]
 
 
 def truncate(rp: RosterProvider, k: int) -> RosterProvider:
@@ -94,7 +98,11 @@ def show(name, r, ref=None):
           f"ll={r['log_loss']:.4f} ECE={r['ece']:.5f}{d}", flush=True)
 
 
-def main() -> int:
+def main(argv=None) -> int:
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--final-test", action="store_true")
+    args = ap.parse_args(argv)
     section("PHASE 18 — сила состава при неполном знании (VALIDATION)")
     print(f"git commit: {git_commit_sha()}")
     print("Горизонт 24 ч. Порог отбора Δlog loss > 1e-4, объявлен заранее.\n")
@@ -183,13 +191,51 @@ def main() -> int:
     payload["hypotheses"]["L2"] = {"best_alpha": best[0], "gain": gain2, "verdict": verdict2}
     payload["l2"] = l2
 
+    # --- единственное обращение к TEST ---
+    if args.final_test:
+        section("ЕДИНСТВЕННОЕ обращение к TEST")
+        alpha = best[0]
+        print(f"  Конфигурация зафиксирована на VALIDATION: усадка alpha={alpha}\n")
+        def build(a):
+            recs = []
+            for mid in ids:
+                k = assign[mid]
+                row = by_k[k].loc[mid].to_dict()
+                w = k / (k + a) if (k + a) else 1.0
+                row["match_id"] = mid; row["k_known"] = k
+                for c in ("elo_mean_diff", "five_vs_team_elo_diff"):
+                    v = row.get(c)
+                    row[c] = float(v) * w if v is not None and v == v else v
+                recs.append(row)
+            return pd.DataFrame(recs).sort_values(
+                ["as_of_timestamp", "match_id"]).reset_index(drop=True)
+        from src.evaluation.statistics import (block_bootstrap_paired_diff,
+                                               log_loss_metric)
+        f0, fa = build(0.0), build(alpha)
+        tr0, _, te0 = split(f0)
+        tra, _, tea = split(fa)
+        y_te = te0["target"].to_numpy()
+        p0 = np.asarray(fit(T1, tr0).predict_proba(te0))[:, 1]
+        pa = np.asarray(fit(T1, tra).predict_proba(tea))[:, 1]
+        p2 = np.asarray(fit(T2, tr0).predict_proba(te0))[:, 1]
+        show("T2 (без состава)", ev(y_te, p2))
+        show("T1 частичный, без усадки", ev(y_te, p0))
+        show(f"T1 частичный, усадка alpha={alpha}", ev(y_te, pa), ev(y_te, p0))
+        d = block_bootstrap_paired_diff(y_te, pa, p0, log_loss_metric, block_size=20, seed=RANDOM_SEED)
+        print(f"\n  Δlog loss (усадка минус без): {d['point_diff']:+.5f}  "
+              f"95% CI [{d['ci_low']:+.5f}, {d['ci_high']:+.5f}]")
+        print("  " + ("ЗНАЧИМО лучше" if d["ci_high"] < 0 else "интервал включает 0"))
+        payload["test"] = {"alpha": alpha, "t2": ev(y_te, p2), "no_shrink": ev(y_te, p0),
+                           "shrink": ev(y_te, pa), "paired_log_loss": d}
+        payload["test_accesses"] = 1
+
     os.makedirs(EXPERIMENTS_DIR, exist_ok=True)
     out = os.path.join(EXPERIMENTS_DIR, "phase18_partial_lineup.json")
     with open(out, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2, default=str)
-    print(f"\nОбращений к TEST: 0\nРезультаты: {out}")
+    print(f"\nОбращений к TEST: {payload.get('test_accesses', 0)}\nРезультаты: {out}")
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(main(sys.argv[1:]))
