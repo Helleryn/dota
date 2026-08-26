@@ -262,3 +262,79 @@ ingestion_runs = Table(
     Column("error", Text, nullable=True),
     Index("idx_ingestion_runs_source_status", "source", "status", "started_at"),
 )
+
+
+# =====================================================================
+# PHASE 15 — shadow validation. Снимок прогноза и запись разрешения.
+#
+# Два раздельных объекта — это не удобство, а требование фазы: результат
+# матча НЕ ДОЛЖЕН иметь возможности изменить прогноз задним числом.
+# Снимок неизменяем (триггер в миграции разрешает менять только `state`
+# и только вперёд по разрешённому порядку), исход живёт отдельно.
+# =====================================================================
+
+prediction_snapshots = Table(
+    "prediction_snapshots",
+    metadata,
+    # Детерминированный идентификатор: хеш от (match_key, prediction_timestamp,
+    # версии). Повторный запуск с теми же входами даёт тот же id, поэтому
+    # дубликат отсекается первичным ключом, а не тихо создаётся.
+    Column("prediction_id", Text, primary_key=True),
+    Column("match_id", BigInteger, nullable=True),          # у fixture-режима неизвестен
+    Column("match_key", Text, nullable=False),              # стабильный ключ матча
+    Column("prediction_timestamp", DateTime(timezone=True), nullable=False),
+    Column("match_start_time", DateTime(timezone=True), nullable=True),
+    Column("radiant_team_id", BigInteger, nullable=True),
+    Column("dire_team_id", BigInteger, nullable=True),
+    Column("radiant_team_name", Text, nullable=True),
+    Column("dire_team_name", Text, nullable=True),
+    Column("patch_id", Integer, nullable=True),
+    Column("patch_name", Text, nullable=True),
+    Column("league_id", BigInteger, nullable=True),
+    Column("tournament", Text, nullable=True),
+    Column("features", JSONB, nullable=False),
+    Column("raw_probability", Float, nullable=True),
+    Column("calibrated_probability", Float, nullable=True),
+    Column("confidence", Float, nullable=True),
+    Column("decision", Text, nullable=True),                # PREDICT | ABSTAIN
+    Column("state", Text, nullable=False),
+    Column("invalid_reason", Text, nullable=True),
+    Column("source", Text, nullable=False),                 # live_draft | replay | fixture
+    Column("model_version", Text, nullable=False),
+    Column("feature_version", Text, nullable=False),
+    Column("calibration_version", Text, nullable=False),
+    Column("prediction_version", Text, nullable=False),
+    # --- отметки среза данных (PART C) ---
+    Column("data_cutoff", DateTime(timezone=True), nullable=False),
+    Column("feature_data_cutoff", DateTime(timezone=True), nullable=True),
+    Column("rating_state_timestamp", DateTime(timezone=True), nullable=True),
+    Column("roster_state_timestamp", DateTime(timezone=True), nullable=True),
+    Column("hero_meta_state_timestamp", DateTime(timezone=True), nullable=True),
+    Column("created_at", DateTime(timezone=True), nullable=False),
+    Index("idx_pred_snapshots_match", "match_id"),
+    Index("idx_pred_snapshots_state", "state", "prediction_timestamp"),
+    Index("idx_pred_snapshots_source", "source", "prediction_timestamp"),
+)
+
+prediction_resolutions = Table(
+    "prediction_resolutions",
+    metadata,
+    Column("prediction_id", Text,
+           ForeignKey("prediction_snapshots.prediction_id", ondelete="RESTRICT"),
+           primary_key=True),
+    Column("match_id", BigInteger, nullable=False),
+    Column("resolved_at", DateTime(timezone=True), nullable=False),
+    Column("radiant_win", Boolean, nullable=False),
+    Column("actual_start_time", DateTime(timezone=True), nullable=True),
+    Column("correct_raw", Boolean, nullable=True),
+    Column("correct_calibrated", Boolean, nullable=True),
+    Column("log_loss_raw", Float, nullable=True),
+    Column("log_loss_calibrated", Float, nullable=True),
+    Column("brier_raw", Float, nullable=True),
+    Column("brier_calibrated", Float, nullable=True),
+    Column("calibration_error_raw", Float, nullable=True),
+    Column("calibration_error_calibrated", Float, nullable=True),
+    Column("confidence_bucket", Text, nullable=True),
+    Column("resolution_version", Text, nullable=False),
+    Index("idx_pred_resolutions_match", "match_id"),
+)

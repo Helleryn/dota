@@ -1,0 +1,36 @@
+{
+  "checked_at": "2026-08-26T09:38:12.356790+00:00",
+  "results": {
+    "/health": {
+      "ok": true,
+      "size": 45
+    },
+    "/proMatches": {
+      "ok": true,
+      "size": 100
+    },
+    "/live": {
+      "ok": true,
+      "size": 100
+    },
+    "/scheduledMatches": {
+      "ok": false,
+      "error": "HTTP 404 для /scheduledMatches"
+    },
+    "/upcomingMatches": {
+      "ok": false,
+      "error": "HTTP 404 для /upcomingMatches"
+    },
+    "/schedule": {
+      "ok": false,
+      "error": "HTTP 404 для /schedule"
+    },
+    "/fixtures": {
+      "ok": false,
+      "error": "HTTP 404 для /fixtures"
+    },
+    "future_matches_in_opendota": 0,
+    "live_league_matches": 0,
+    "live_in_draft": 0
+  }
+}
