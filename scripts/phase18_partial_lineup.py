@@ -140,23 +140,41 @@ def main() -> int:
     section("L2 — усадка признаков состава при малом k")
     print("  Признаки состава умножаются на k/(k+alpha): при малом k величина")
     print("  тянется к нулю, то есть к «разница неизвестна», а не к «нулевая».\n")
+    # Каждому матчу назначается СВОЁ k — так же, как в реальности, где у
+    # разных матчей известно разное число игроков. Первая версия склеивала
+    # один и тот же матч при всех пяти k, из-за чего match_id дублировались
+    # и хронологический сплит переставал быть хронологическим (упал assert).
+    # Назначение детерминированное по match_id: воспроизводимо и не зависит
+    # от seed.
+    print("  Каждому матчу назначено своё k (детерминированно по match_id).")
+    print("  Это СИМУЛЯЦИЯ неполноты: реальный отбор известных игроков смещён")
+    print("  к более заметным, здесь же он равномерный. Ограничение названо.\n")
+    by_k = {k: frames[k].set_index("match_id") for k in frames}
+    ids = frames[5]["match_id"].tolist()
+    assign = {mid: (mid % 5) + 1 for mid in ids}
+    from collections import Counter as _C
+    print(f"  распределение k: {dict(sorted(_C(assign.values()).items()))}")
+
     best = None
     l2 = []
     for alpha in ALPHAS:
-        parts = []
-        for k in (1, 2, 3, 4, 5):
-            fk = frames[k].copy()
+        recs = []
+        for mid in ids:
+            k = assign[mid]
+            row = by_k[k].loc[mid].to_dict()
             w = k / (k + alpha) if (k + alpha) else 1.0
-            fk["elo_mean_diff"] = fk["elo_mean_diff"].astype(float) * w
-            fk["five_vs_team_elo_diff"] = fk["five_vs_team_elo_diff"].astype(float) * w
-            fk["k_known"] = k
-            parts.append(fk)
-        mix = pd.concat(parts, ignore_index=True).sort_values(
-            ["as_of_timestamp", "match_id", "k_known"]).reset_index(drop=True)
+            row["match_id"] = mid
+            row["k_known"] = k
+            for c in ("elo_mean_diff", "five_vs_team_elo_diff"):
+                v = row.get(c)
+                row[c] = float(v) * w if v is not None and v == v else v
+            recs.append(row)
+        mix = pd.DataFrame(recs).sort_values(
+            ["as_of_timestamp", "match_id"]).reset_index(drop=True)
         trm, vam, _ = split(mix)
         r = ev(vam["target"].to_numpy(), np.asarray(fit(T1, trm).predict_proba(vam))[:, 1])
         l2.append({"alpha": alpha, **r})
-        show(f"  alpha={alpha}", r, l2[0] if l2 else None)
+        show(f"  alpha={alpha}", r, l2[0])
         if best is None or r["log_loss"] < best[1]["log_loss"]:
             best = (alpha, r)
     gain2 = l2[0]["log_loss"] - best[1]["log_loss"]
