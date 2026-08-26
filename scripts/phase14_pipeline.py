@@ -638,17 +638,22 @@ def main(argv=None) -> int:
             return expected_calibration_error(yy, pp)
 
         from src.evaluation.statistics import block_bootstrap_paired_diff
-        d_ece, ci_ece = block_bootstrap_paired_diff(
-            y_test, p_test, p_cal_test, _ece_metric,
+        # Порядок аргументов: функция считает metric(A) - metric(B),
+        # поэтому калиброванная идёт первой — разница должна читаться как
+        # "калиброванная минус сырая", и отрицательное значение = лучше.
+        b_ece = block_bootstrap_paired_diff(
+            y_test, p_cal_test, p_test, _ece_metric,
             block_size=BLOCK_SIZE, seed=RANDOM_SEED)
-        d_ll, ci_ll = block_bootstrap_paired_diff(
-            y_test, p_test, p_cal_test, log_loss_metric,
+        b_ll = block_bootstrap_paired_diff(
+            y_test, p_cal_test, p_test, log_loss_metric,
             block_size=BLOCK_SIZE, seed=RANDOM_SEED)
         print(f"\n  Парный block bootstrap (калиброванная минус сырая):")
-        print(f"    ΔECE      = {d_ece:+.5f}  95% CI [{ci_ece[0]:+.5f}, {ci_ece[1]:+.5f}]")
-        print(f"    Δlog loss = {d_ll:+.5f}  95% CI [{ci_ll[0]:+.5f}, {ci_ll[1]:+.5f}]")
-        print(f"    ECE: {'ЗНАЧИМО лучше' if ci_ece[1] < 0 else 'интервал включает 0'}")
-        print(f"    log loss: {'значимо лучше' if ci_ll[1] < 0 else 'интервал включает 0'}")
+        print(f"    ΔECE      = {b_ece['point_diff']:+.5f}  "
+              f"95% CI [{b_ece['ci_low']:+.5f}, {b_ece['ci_high']:+.5f}]")
+        print(f"    Δlog loss = {b_ll['point_diff']:+.5f}  "
+              f"95% CI [{b_ll['ci_low']:+.5f}, {b_ll['ci_high']:+.5f}]")
+        print(f"    ECE: {'ЗНАЧИМО лучше' if b_ece['ci_high'] < 0 else 'интервал включает 0'}")
+        print(f"    log loss: {'значимо лучше' if b_ll['ci_high'] < 0 else 'интервал включает 0'}")
 
         bt_raw = block_bootstrap_metric(y_test, p_test, log_loss_metric,
                                         block_size=BLOCK_SIZE, seed=RANDOM_SEED)
@@ -700,8 +705,7 @@ def main(argv=None) -> int:
               f"  ->  калиброванная {np.mean(y_test[und_t]-p_cal_test[und_t]):+.4f}")
 
         payload["test"] = {"raw": r_raw_t, "calibrated": r_cal_t,
-                           "delta_ece": d_ece, "ci_ece": list(ci_ece),
-                           "delta_log_loss": d_ll, "ci_log_loss": list(ci_ll),
+                           "paired_ece": b_ece, "paired_log_loss": b_ll,
                            "ll_ci_raw": bt_raw, "ll_ci_cal": bt_cal,
                            "patch_buckets": part_t_patch, "selective": sel_t,
                            "underdog_bias_raw": float(np.mean(y_test[und_t]-p_test[und_t])),
