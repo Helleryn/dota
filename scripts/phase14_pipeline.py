@@ -309,18 +309,41 @@ def main(argv=None) -> int:
     print()
     show("NEG: перемешанные метки (контроль)", results["NEG: перемешанные метки"], ref_a)
 
+    # Гибрид. PART F показывает разделение труда: патч-локальный слой лучше
+    # в первые дни патча, скользящее окно — в стабильный период. Правило
+    # переключения использует ТОЛЬКО возраст патча, который известен до
+    # матча, поэтому гибрид не нарушает walk-forward.
+    best_pure = min((k for k in results if not k.startswith(("A:", "NEG"))),
+                    key=lambda k: results[k]["ece"])
+    HYBRID_DAYS = 14
+    hyb_src = "D: патч-локальная / platt"
+    if hyb_src in calibrated:
+        young = (val["days_since_patch"].to_numpy(dtype=float) < HYBRID_DAYS)
+        p_hyb = np.where(young, calibrated[hyb_src], calibrated[best_pure])
+        results[f"F: гибрид (<{HYBRID_DAYS}д патч-лок., иначе {best_pure})"] = metrics_row(y_val, p_hyb)
+        calibrated[f"F: гибрид (<{HYBRID_DAYS}д патч-лок., иначе {best_pure})"] = p_hyb
+        print()
+        show(f"F: гибрид (<{HYBRID_DAYS}д патч-локальная)",
+             results[f"F: гибрид (<{HYBRID_DAYS}д патч-лок., иначе {best_pure})"], ref_a)
+        print(f"    доля матчей под патч-локальным слоем: {young.mean()*100:.1f}%")
+
     best_name = min((k for k in results if not k.startswith(("A:", "NEG"))),
                     key=lambda k: results[k]["ece"])
-    best_kw = dict(next(kw for n, kw in configs if n == best_name))
+    is_hybrid = best_name.startswith("F:")
+    best_kw = ({} if is_hybrid
+               else dict(next(kw for n, kw in configs if n == best_name)))
     print(f"\n  >>> ВЫБРАНО по VALIDATION (минимум ECE): {best_name}")
     payload["part_cdem"] = {"all": results, "best": best_name, "best_kw": best_kw}
 
     # честная проверка выбранной конфигурации без разрежения пересчёта
-    pc_exact = run_walk_forward(*ev, refit_every=1, **warm, **best_kw)
-    r_exact = metrics_row(y_val, pc_exact)
-    print("  Проверка выбранной конфигурации при пересчёте после КАЖДОГО матча:")
-    show("    refit_every=1", r_exact, results[best_name])
-    payload["part_cdem"]["exact_refit"] = r_exact
+    if not is_hybrid:
+        pc_exact = run_walk_forward(*ev, refit_every=1, **warm, **best_kw)
+        r_exact = metrics_row(y_val, pc_exact)
+        print("  Проверка выбранной конфигурации при пересчёте после КАЖДОГО матча:")
+        show("    refit_every=1", r_exact, results[best_name])
+        payload["part_cdem"]["exact_refit"] = r_exact
+    payload["part_cdem"]["is_hybrid"] = is_hybrid
+    payload["part_cdem"]["best_pure"] = best_pure
     p_cal_val = calibrated[best_name]
 
     # =================== PART F ===================
@@ -530,8 +553,11 @@ def main(argv=None) -> int:
           f"{auc(err, -np.abs(p_val - 0.5)):.4f}")
     print(f"    то же после калибровки:                        "
           f"{auc(err, -np.abs(p_cal_val - 0.5)):.4f}")
-    print("    (калибровка — монотонное преобразование, поэтому изменение")
-    print("     ранжирования означало бы ошибку в коде)")
+    print("    Онлайн-слой меняется во времени, поэтому он монотонен для")
+    print("    КАЖДОГО момента, но не как единое преобразование всей выборки —")
+    print("    отсюда крошечное расхождение AUC. Заметное расхождение означало")
+    print("    бы ошибку; проверка неизменности AUC при замороженном слое —")
+    print("    в tests/calibration.")
     payload["part_op"] = {"raw": raw_curve, "calibrated": cal_curve}
 
     # =================== PART R ===================
@@ -593,7 +619,15 @@ def main(argv=None) -> int:
                                                  val["patch_name"].to_numpy(dtype=object)]))
         ev_t = (p_test, y_test, test["ts"].to_numpy(),
                 test["patch_name"].to_numpy(dtype=object))
-        p_cal_test = run_walk_forward(*ev_t, refit_every=REFIT_EVERY, **warm_t, **best_kw)
+        if is_hybrid:
+            kw_pure = dict(next(kw for n, kw in configs if n == best_pure))
+            kw_patch = dict(next(kw for n, kw in configs if n == hyb_src))
+            p_pure_t = run_walk_forward(*ev_t, refit_every=REFIT_EVERY, **warm_t, **kw_pure)
+            p_patch_t = run_walk_forward(*ev_t, refit_every=REFIT_EVERY, **warm_t, **kw_patch)
+            young_t = test["days_since_patch"].to_numpy(dtype=float) < HYBRID_DAYS
+            p_cal_test = np.where(young_t, p_patch_t, p_pure_t)
+        else:
+            p_cal_test = run_walk_forward(*ev_t, refit_every=REFIT_EVERY, **warm_t, **best_kw)
         r_cal_t = metrics_row(y_test, p_cal_test)
         show(f"CANDIDATE: {best_name}", r_cal_t, r_raw_t)
 
