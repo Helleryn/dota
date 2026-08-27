@@ -1,0 +1,185 @@
+{
+  "phase": 21,
+  "commit": "25c0805d79a25bf074715fee3e88ecb9fda2cd1e",
+  "threshold": 0.0001,
+  "test_accesses": 0,
+  "coverage": {
+    "oas_diff_7": 0.8024126683309948,
+    "oas_diff_14": 0.8545201086065201,
+    "oas_diff_30": 0.8977349344898592,
+    "recent_n_min_7": 1.0,
+    "recent_n_min_14": 1.0,
+    "recent_n_min_30": 1.0,
+    "recent_winrate_diff_30": 0.8977349344898592,
+    "common_opponent_delta": 0.7594074020081273,
+    "common_opponent_count": 1.0,
+    "h2h_residual_decayed": 0.6641306922754524,
+    "h2h_winrate_decayed": 0.6641306922754524,
+    "h2h_matches_decayed": 1.0,
+    "h2h_days_since_last": 0.6641306922754524,
+    "h2h_roster_overlap": 0.6641306922754524,
+    "h2h_residual_roster": 0.6534522659766386
+  },
+  "missing": {
+    "common_none": 0.24059259799187274,
+    "h2h_none": 0.33586930772454765
+  },
+  "bases": {
+    "B0": {
+      "n": 16463,
+      "accuracy": 0.5979469112555428,
+      "roc_auc": 0.6424857111593066,
+      "log_loss": 0.6578381689241773,
+      "brier": 0.2332478184831263,
+      "ece": 0.008844160135766006
+    },
+    "B1": {
+      "n": 16463,
+      "accuracy": 0.6003158598068395,
+      "roc_auc": 0.6484182584621312,
+      "log_loss": 0.6536707862261881,
+      "brier": 0.23147909726754745,
+      "ece": 0.007914057967151448
+    },
+    "B2": {
+      "n": 16463,
+      "accuracy": 0.6000728907246553,
+      "roc_auc": 0.6493537370778927,
+      "log_loss": 0.6533147267991224,
+      "brier": 0.23130829914328996,
+      "ece": 0.007990393488131691
+    }
+  },
+  "ablation": {
+    "H2 opponent-adjusted": {
+      "gain_over_B2": 4.504372149261027e-05,
+      "passed": false,
+      "features": [
+        "oas_diff_7",
+        "oas_diff_14",
+        "oas_diff_30",
+        "recent_n_min_7",
+        "recent_n_min_14",
+        "recent_n_min_30"
+      ],
+      "n": 16463,
+      "accuracy": 0.5986758185020956,
+      "roc_auc": 0.649365204930226,
+      "log_loss": 0.6532696830776298,
+      "brier": 0.2312903599846999,
+      "ece": 0.009927181606378255,
+      "gain_over_B1": 4.5053890757484893e-05
+    },
+    "H3 общие соперники": {
+      "gain_over_B2": -6.35077665179784e-05,
+      "passed": false,
+      "features": [
+        "common_opponent_delta",
+        "common_opponent_count"
+      ],
+      "n": 16463,
+      "accuracy": 0.6018344165704914,
+      "roc_auc": 0.6490478834049137,
+      "log_loss": 0.6533782345656404,
+      "brier": 0.23134829773630108,
+      "ece": 0.006174773959622525,
+      "gain_over_B1": -6.346488218489377e-05
+    },
+    "H4 H2H residual": {
+      "gain_over_B2": 3.8973506328754404e-05,
+      "passed": false,
+      "features": [
+        "h2h_residual_decayed",
+        "h2h_matches_decayed",
+        "h2h_days_since_last"
+      ],
+      "n": 16463,
+      "accuracy": 0.5991617566664642,
+      "roc_auc": 0.6492267051537828,
+      "log_loss": 0.6532757532927936,
+      "brier": 0.23129571796700846,
+      "ece": 0.008531000989120048,
+      "gain_over_B1": 3.7190686804744466e-05
+    },
+    "H5 H2H winrate (decay)": {
+      "gain_over_B2": 7.71373777875839e-05,
+      "passed": false,
+      "features": [
+        "h2h_winrate_decayed",
+        "h2h_matches_decayed"
+      ],
+      "n": 16463,
+      "accuracy": 0.6002551175362935,
+      "roc_auc": 0.6496264417208318,
+      "log_loss": 0.6532375894213348,
+      "brier": 0.2312654042052882,
+      "ece": 0.009183768699008124,
+      "gain_over_B1": 8.919892695580245e-07
+    },
+    "H6 roster-aware H2H": {
+      "gain_over_B2": 3.739023722459933e-05,
+      "passed": false,
+      "features": [
+        "h2h_residual_roster",
+        "h2h_roster_overlap",
+        "h2h_matches_decayed"
+      ],
+      "n": 16463,
+      "accuracy": 0.5992832412075564,
+      "roc_auc": 0.649307614763167,
+      "log_loss": 0.6532773365618978,
+      "brier": 0.23129525154838249,
+      "ece": 0.008041113893671362,
+      "gain_over_B1": 3.435407562102366e-05
+    },
+    "H7 сырой winrate (контроль)": {
+      "gain_over_B2": -0.00018598242962220013,
+      "passed": false,
+      "features": [
+        "recent_winrate_diff_30"
+      ],
+      "n": 16463,
+      "accuracy": 0.5999514061835631,
+      "roc_auc": 0.6489262090488823,
+      "log_loss": 0.6535007092287446,
+      "brier": 0.2313890984081363,
+      "ece": 0.008259786479920829,
+      "gain_over_B1": -0.00018295233784970666
+    }
+  },
+  "form_vs_context": {
+    "A: без формы вообще": {
+      "n": 16463,
+      "accuracy": 0.5978254267144506,
+      "roc_auc": 0.642731288501617,
+      "log_loss": 0.6576776764707336,
+      "brier": 0.23317806910407599,
+      "ece": 0.008176537557577777
+    },
+    "B: + форма (это и есть B0)": {
+      "n": 16463,
+      "accuracy": 0.5979469112555428,
+      "roc_auc": 0.6424857111593066,
+      "log_loss": 0.6578381689241773,
+      "brier": 0.2332478184831263,
+      "ece": 0.008844160135766006
+    },
+    "C: + OAS вместо формы": {
+      "n": 16463,
+      "accuracy": 0.5982506226082731,
+      "roc_auc": 0.6421765661979488,
+      "log_loss": 0.6579452645902777,
+      "brier": 0.23329322257421364,
+      "ece": 0.009209659686802223
+    },
+    "D: + обе": {
+      "n": 16463,
+      "accuracy": 0.5984328494199113,
+      "roc_auc": 0.6423206670682924,
+      "log_loss": 0.6578618163068396,
+      "brier": 0.23325612410370575,
+      "ece": 0.009846984342348573
+    }
+  },
+  "M5": null
+}

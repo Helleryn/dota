@@ -24,6 +24,7 @@ LEVEL 1, pre-match слой.
 
 from __future__ import annotations
 
+from bisect import bisect_left
 from collections import defaultdict
 from dataclasses import dataclass
 from datetime import datetime, timedelta
@@ -113,6 +114,10 @@ class _Ctx:
     def __init__(self):
         self.elo: Dict[int, float] = {}
         self.played: Dict[int, List[_Played]] = defaultdict(list)
+        # параллельный список меток времени: списки пополняются строго по
+        # возрастанию, поэтому окно ищется бинарным поиском, а не сканом.
+        # Без этого проход по 117 тыс. матчей был бы квадратичным.
+        self._ts: Dict[int, List[float]] = defaultdict(list)
         self.h2h: Dict[Tuple[int, int], List[_Played]] = defaultdict(list)
 
     def team_elo(self, t: int) -> float:
@@ -120,8 +125,13 @@ class _Ctx:
 
     # ---------- H2 / H7 ----------
     def recent(self, team: int, now: float, window_days: int) -> List[_Played]:
-        lo = now - window_days * DAY
-        return [p for p in self.played.get(team, ()) if lo <= p.ts < now]
+        ts = self._ts.get(team)
+        if not ts:
+            return []
+        ms = self.played[team]
+        lo = bisect_left(ts, now - window_days * DAY)
+        hi = bisect_left(ts, now)          # строго `< now`: PREDICT раньше UPDATE
+        return ms[lo:hi]
 
     def oas(self, team: int, now: float, window_days: int
             ) -> Tuple[Optional[float], int]:
@@ -149,9 +159,11 @@ class _Ctx:
         return sum(1.0 for p in ms if p.won) / len(ms)
 
     # ---------- H3 ----------
-    def _perf_vs(self, team: int, opp: int, now: float, window_days: int
-                 ) -> Optional[float]:
-        ms = [p for p in self.recent(team, now, window_days) if p.opponent == opp]
+    @staticmethod
+    def _perf_from(ms: Sequence["_Played"], now: float) -> Optional[float]:
+        """Residual по УЖЕ отобранному окну. Отдельный метод, чтобы
+        `common_opponents` не пересканировал историю на каждого общего
+        соперника."""
         if not ms:
             return None
         num = den = 0.0
@@ -169,14 +181,19 @@ class _Ctx:
         и «обе проиграли B» неотличимы от того, насколько сильна была
         сама B в тот момент.
         """
-        sa = {p.opponent for p in self.recent(a, now, window_days)}
-        sb = {p.opponent for p in self.recent(b, now, window_days)}
-        common = (sa & sb) - {a, b}
+        ga: Dict[int, List[_Played]] = defaultdict(list)
+        gb: Dict[int, List[_Played]] = defaultdict(list)
+        for p in self.recent(a, now, window_days):
+            ga[p.opponent].append(p)
+        for p in self.recent(b, now, window_days):
+            gb[p.opponent].append(p)
+        common = (set(ga) & set(gb)) - {a, b}
         if not common:
             return None, 0
         deltas = []
         for o in common:
-            pa, pb = self._perf_vs(a, o, now, window_days), self._perf_vs(b, o, now, window_days)
+            pa = self._perf_from(ga[o], now)
+            pb = self._perf_from(gb[o], now)
             if pa is not None and pb is not None:
                 deltas.append(pa - pb)
         if not deltas:
@@ -227,6 +244,8 @@ class _Ctx:
         pd_ = _Played(ts, m.radiant_team_id, not m.radiant_win, d_pre, r_pre, m.dire_roster)
         self.played[m.radiant_team_id].append(pr)
         self.played[m.dire_team_id].append(pd_)
+        self._ts[m.radiant_team_id].append(ts)
+        self._ts[m.dire_team_id].append(ts)
         key = (m.radiant_team_id, m.dire_team_id)
         key = key if key[0] < key[1] else (key[1], key[0])
         self.h2h[key].extend((pr, pd_))
