@@ -1,0 +1,1091 @@
+{
+  "phase": 19,
+  "commit": "8a09f465f0195aae0a9a933bb388a192c8bde40f",
+  "moments": {
+    "T-72ч": {
+      "t": "2026-08-20 06:15:57+00:00",
+      "patch": "7.41",
+      "patch_age_days": 149,
+      "teams": {
+        "Team Spirit": {
+          "team_id": 7119388,
+          "team_elo": 1328.578465599423,
+          "player_team_elo": 1328.211026132476,
+          "mean_player_elo": 1530.7915873304728,
+          "median_player_elo": 1608.6939842519878,
+          "five_vs_team_elo": 202.58056119799676,
+          "known_players": 5,
+          "roster_completeness": 1.0,
+          "lineup_spread": 467.11534425485,
+          "min_matches_before_T": 365,
+          "team_matches_before_T": 1394,
+          "players": [
+            {
+              "nick": "Yatoro",
+              "account_id": 321580662,
+              "player_elo": 1608.6939842519878,
+              "matches_before_T": 1289,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.652630476968993,
+              "days_since_last_match": 0.09,
+              "hero_pool_size": 126,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "Larl",
+              "account_id": 106305042,
+              "player_elo": 1668.178898999131,
+              "matches_before_T": 1217,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.652630476968993,
+              "days_since_last_match": 0.09,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "Collapse",
+              "account_id": 302214028,
+              "player_elo": 1701.4533608242969,
+              "matches_before_T": 1269,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.652630476968993,
+              "days_since_last_match": 0.09,
+              "hero_pool_size": 126,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "not_me",
+              "account_id": 218231587,
+              "player_elo": 1234.3380165694468,
+              "matches_before_T": 365,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.652630476968993,
+              "days_since_last_match": 0.09,
+              "hero_pool_size": 122,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "rue",
+              "account_id": 847565596,
+              "player_elo": 1441.2936760075017,
+              "matches_before_T": 828,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.652630476968993,
+              "days_since_last_match": 0.09,
+              "hero_pool_size": 126,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            }
+          ]
+        },
+        "TEAM VISION": {
+          "team_id": 9572001,
+          "team_elo": 1437.5052254106033,
+          "player_team_elo": 1443.7165619592422,
+          "mean_player_elo": 1662.9129775470524,
+          "median_player_elo": 1690.3968787249112,
+          "five_vs_team_elo": 219.19641558781018,
+          "known_players": 5,
+          "roster_completeness": 1.0,
+          "lineup_spread": 317.5587567918569,
+          "min_matches_before_T": 820,
+          "team_matches_before_T": 502,
+          "players": [
+            {
+              "nick": "Satanic",
+              "account_id": 1044002267,
+              "player_elo": 1603.004798347902,
+              "matches_before_T": 820,
+              "confidence": "высокая",
+              "elo_volatility_20": 6.58675082703341,
+              "days_since_last_match": 0.02,
+              "hero_pool_size": 125,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "No[o]ne-",
+              "account_id": 106573901,
+              "player_elo": 1743.9869687311955,
+              "matches_before_T": 1000,
+              "confidence": "высокая",
+              "elo_volatility_20": 6.58675082703341,
+              "days_since_last_match": 0.02,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "Noticed",
+              "account_id": 195108598,
+              "player_elo": 1690.3968787249112,
+              "matches_before_T": 962,
+              "confidence": "высокая",
+              "elo_volatility_20": 6.58675082703341,
+              "days_since_last_match": 0.02,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "9Class",
+              "account_id": 164199202,
+              "player_elo": 1797.3674993615548,
+              "matches_before_T": 981,
+              "confidence": "высокая",
+              "elo_volatility_20": 6.58675082703341,
+              "days_since_last_match": 0.02,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "Dukalis",
+              "account_id": 73401082,
+              "player_elo": 1479.8087425696979,
+              "matches_before_T": 1217,
+              "confidence": "высокая",
+              "elo_volatility_20": 6.58675082703341,
+              "days_since_last_match": 0.02,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            }
+          ]
+        }
+      },
+      "diff": {
+        "team_elo": -108.92675981118032,
+        "mean_player_elo": -132.12139021657958,
+        "median_player_elo": -81.70289447292339,
+        "five_vs_team_elo": -16.61585438981342
+      }
+    },
+    "T-24ч": {
+      "t": "2026-08-22 06:15:57+00:00",
+      "patch": "7.41",
+      "patch_age_days": 151,
+      "teams": {
+        "Team Spirit": {
+          "team_id": 7119388,
+          "team_elo": 1343.3496675253577,
+          "player_team_elo": 1343.3258238084443,
+          "mean_player_elo": 1547.452468460181,
+          "median_player_elo": 1625.3548653816958,
+          "five_vs_team_elo": 204.1266446517368,
+          "known_players": 5,
+          "roster_completeness": 1.0,
+          "lineup_spread": 467.11534425485,
+          "min_matches_before_T": 370,
+          "team_matches_before_T": 1399,
+          "players": [
+            {
+              "nick": "Yatoro",
+              "account_id": 321580662,
+              "player_elo": 1625.3548653816958,
+              "matches_before_T": 1294,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.688026507223523,
+              "days_since_last_match": 0.11,
+              "hero_pool_size": 126,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "Larl",
+              "account_id": 106305042,
+              "player_elo": 1684.839780128839,
+              "matches_before_T": 1222,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.688026507223523,
+              "days_since_last_match": 0.11,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "Collapse",
+              "account_id": 302214028,
+              "player_elo": 1718.114241954005,
+              "matches_before_T": 1274,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.688026507223523,
+              "days_since_last_match": 0.11,
+              "hero_pool_size": 126,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "not_me",
+              "account_id": 218231587,
+              "player_elo": 1250.998897699155,
+              "matches_before_T": 370,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.688026507223523,
+              "days_since_last_match": 0.11,
+              "hero_pool_size": 122,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "rue",
+              "account_id": 847565596,
+              "player_elo": 1457.9545571372098,
+              "matches_before_T": 833,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.688026507223523,
+              "days_since_last_match": 0.11,
+              "hero_pool_size": 126,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            }
+          ]
+        },
+        "TEAM VISION": {
+          "team_id": 9572001,
+          "team_elo": 1433.1927265101356,
+          "player_team_elo": 1438.7504827098055,
+          "mean_player_elo": 1656.950221419646,
+          "median_player_elo": 1684.434122597505,
+          "five_vs_team_elo": 218.1997387098404,
+          "known_players": 5,
+          "roster_completeness": 1.0,
+          "lineup_spread": 317.5587567918569,
+          "min_matches_before_T": 825,
+          "team_matches_before_T": 507,
+          "players": [
+            {
+              "nick": "Satanic",
+              "account_id": 1044002267,
+              "player_elo": 1597.0420422204957,
+              "matches_before_T": 825,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.2651458069481,
+              "days_since_last_match": 0.74,
+              "hero_pool_size": 125,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "No[o]ne-",
+              "account_id": 106573901,
+              "player_elo": 1738.0242126037892,
+              "matches_before_T": 1005,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.2651458069481,
+              "days_since_last_match": 0.74,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "Noticed",
+              "account_id": 195108598,
+              "player_elo": 1684.434122597505,
+              "matches_before_T": 967,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.2651458069481,
+              "days_since_last_match": 0.74,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "9Class",
+              "account_id": 164199202,
+              "player_elo": 1791.4047432341486,
+              "matches_before_T": 986,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.2651458069481,
+              "days_since_last_match": 0.74,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "Dukalis",
+              "account_id": 73401082,
+              "player_elo": 1473.8459864422916,
+              "matches_before_T": 1222,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.2651458069481,
+              "days_since_last_match": 0.74,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            }
+          ]
+        }
+      },
+      "diff": {
+        "team_elo": -89.84305898477783,
+        "mean_player_elo": -109.49775295946483,
+        "median_player_elo": -59.07925721580909,
+        "five_vs_team_elo": -14.073094058103607
+      },
+      "meta": {
+        "n_heroes": 126,
+        "top": [
+          {
+            "hero_id": 83,
+            "strength": 0.08790059637729264,
+            "games": 245.73460527833524
+          },
+          {
+            "hero_id": 80,
+            "strength": 0.06756384627328249,
+            "games": 128.4092457088018
+          },
+          {
+            "hero_id": 90,
+            "strength": 0.06457861414167976,
+            "games": 282.67143863389146
+          },
+          {
+            "hero_id": 107,
+            "strength": 0.05292155429973533,
+            "games": 255.9947206144709
+          },
+          {
+            "hero_id": 62,
+            "strength": 0.05024373862008791,
+            "games": 73.06937918193029
+          },
+          {
+            "hero_id": 3,
+            "strength": 0.04149588696284978,
+            "games": 343.14737360431195
+          },
+          {
+            "hero_id": 89,
+            "strength": 0.0360758501777364,
+            "games": 93.8459635423964
+          },
+          {
+            "hero_id": 53,
+            "strength": 0.03297628491651328,
+            "games": 286.96954924960716
+          },
+          {
+            "hero_id": 33,
+            "strength": 0.03292079266773329,
+            "games": 124.2874840395428
+          },
+          {
+            "hero_id": 4,
+            "strength": 0.03218531224621135,
+            "games": 27.00218833839061
+          }
+        ],
+        "bottom": [
+          {
+            "hero_id": 103,
+            "strength": -0.032685735804011073,
+            "games": 46.8543132529732
+          },
+          {
+            "hero_id": 119,
+            "strength": -0.03319363918276774,
+            "games": 331.44245253328893
+          },
+          {
+            "hero_id": 94,
+            "strength": -0.038402417556600954,
+            "games": 116.60407687735494
+          },
+          {
+            "hero_id": 108,
+            "strength": -0.03917571039841161,
+            "games": 315.1539925554578
+          },
+          {
+            "hero_id": 126,
+            "strength": -0.0422544909218211,
+            "games": 285.5704488780956
+          },
+          {
+            "hero_id": 101,
+            "strength": -0.044954923951455505,
+            "games": 156.17708716476227
+          },
+          {
+            "hero_id": 63,
+            "strength": -0.04626675093865873,
+            "games": 147.4393885930041
+          },
+          {
+            "hero_id": 43,
+            "strength": -0.04827606429235348,
+            "games": 75.40454657694617
+          },
+          {
+            "hero_id": 6,
+            "strength": -0.04937094119617563,
+            "games": 201.9392191991966
+          },
+          {
+            "hero_id": 76,
+            "strength": -0.04941754158067857,
+            "games": 34.3840718296202
+          }
+        ]
+      }
+    },
+    "T-6ч": {
+      "t": "2026-08-23 00:15:57+00:00",
+      "patch": "7.41",
+      "patch_age_days": 151,
+      "teams": {
+        "Team Spirit": {
+          "team_id": 7119388,
+          "team_elo": 1350.5958779510277,
+          "player_team_elo": 1350.563598715031,
+          "mean_player_elo": 1555.2642826010624,
+          "median_player_elo": 1633.1666795225772,
+          "five_vs_team_elo": 204.70068388603136,
+          "known_players": 5,
+          "roster_completeness": 1.0,
+          "lineup_spread": 467.11534425485,
+          "min_matches_before_T": 371,
+          "team_matches_before_T": 1400,
+          "players": [
+            {
+              "nick": "Yatoro",
+              "account_id": 321580662,
+              "player_elo": 1633.1666795225772,
+              "matches_before_T": 1295,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.773107510186138,
+              "days_since_last_match": 0.46,
+              "hero_pool_size": 126,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "Larl",
+              "account_id": 106305042,
+              "player_elo": 1692.6515942697204,
+              "matches_before_T": 1223,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.773107510186138,
+              "days_since_last_match": 0.46,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "Collapse",
+              "account_id": 302214028,
+              "player_elo": 1725.9260560948862,
+              "matches_before_T": 1275,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.773107510186138,
+              "days_since_last_match": 0.46,
+              "hero_pool_size": 126,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "not_me",
+              "account_id": 218231587,
+              "player_elo": 1258.8107118400362,
+              "matches_before_T": 371,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.773107510186138,
+              "days_since_last_match": 0.46,
+              "hero_pool_size": 122,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "rue",
+              "account_id": 847565596,
+              "player_elo": 1465.7663712780911,
+              "matches_before_T": 834,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.773107510186138,
+              "days_since_last_match": 0.46,
+              "hero_pool_size": 126,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            }
+          ]
+        },
+        "TEAM VISION": {
+          "team_id": 9572001,
+          "team_elo": 1435.8029037755186,
+          "player_team_elo": 1440.949732284973,
+          "mean_player_elo": 1659.080092568563,
+          "median_player_elo": 1686.5639937464218,
+          "five_vs_team_elo": 218.1303602835901,
+          "known_players": 5,
+          "roster_completeness": 1.0,
+          "lineup_spread": 317.5587567918569,
+          "min_matches_before_T": 828,
+          "team_matches_before_T": 510,
+          "players": [
+            {
+              "nick": "Satanic",
+              "account_id": 1044002267,
+              "player_elo": 1599.1719133694126,
+              "matches_before_T": 828,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.275883582490528,
+              "days_since_last_match": 0.53,
+              "hero_pool_size": 125,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "No[o]ne-",
+              "account_id": 106573901,
+              "player_elo": 1740.1540837527061,
+              "matches_before_T": 1008,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.275883582490528,
+              "days_since_last_match": 0.53,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "Noticed",
+              "account_id": 195108598,
+              "player_elo": 1686.5639937464218,
+              "matches_before_T": 970,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.275883582490528,
+              "days_since_last_match": 0.53,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "9Class",
+              "account_id": 164199202,
+              "player_elo": 1793.5346143830654,
+              "matches_before_T": 989,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.275883582490528,
+              "days_since_last_match": 0.53,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "Dukalis",
+              "account_id": 73401082,
+              "player_elo": 1475.9758575912085,
+              "matches_before_T": 1225,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.275883582490528,
+              "days_since_last_match": 0.53,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            }
+          ]
+        }
+      },
+      "diff": {
+        "team_elo": -85.20702582449098,
+        "mean_player_elo": -103.81580996750063,
+        "median_player_elo": -53.39731422384466,
+        "five_vs_team_elo": -13.429676397558751
+      }
+    },
+    "T-3ч": {
+      "t": "2026-08-23 03:15:57+00:00",
+      "patch": "7.41",
+      "patch_age_days": 152,
+      "teams": {
+        "Team Spirit": {
+          "team_id": 7119388,
+          "team_elo": 1358.6463549043353,
+          "player_team_elo": 1358.6008270764808,
+          "mean_player_elo": 1563.5880700161533,
+          "median_player_elo": 1641.490466937668,
+          "five_vs_team_elo": 204.98724293967257,
+          "known_players": 5,
+          "roster_completeness": 1.0,
+          "lineup_spread": 467.11534425485,
+          "min_matches_before_T": 372,
+          "team_matches_before_T": 1401,
+          "players": [
+            {
+              "nick": "Yatoro",
+              "account_id": 321580662,
+              "player_elo": 1641.490466937668,
+              "matches_before_T": 1296,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.784497032510518,
+              "days_since_last_match": 0.05,
+              "hero_pool_size": 126,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "Larl",
+              "account_id": 106305042,
+              "player_elo": 1700.9753816848113,
+              "matches_before_T": 1224,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.784497032510518,
+              "days_since_last_match": 0.05,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "Collapse",
+              "account_id": 302214028,
+              "player_elo": 1734.2498435099772,
+              "matches_before_T": 1276,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.784497032510518,
+              "days_since_last_match": 0.05,
+              "hero_pool_size": 126,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "not_me",
+              "account_id": 218231587,
+              "player_elo": 1267.1344992551271,
+              "matches_before_T": 372,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.784497032510518,
+              "days_since_last_match": 0.05,
+              "hero_pool_size": 122,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "rue",
+              "account_id": 847565596,
+              "player_elo": 1474.090158693182,
+              "matches_before_T": 835,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.784497032510518,
+              "days_since_last_match": 0.05,
+              "hero_pool_size": 126,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            }
+          ]
+        },
+        "TEAM VISION": {
+          "team_id": 9572001,
+          "team_elo": 1435.8029037755186,
+          "player_team_elo": 1440.949732284973,
+          "mean_player_elo": 1659.080092568563,
+          "median_player_elo": 1686.5639937464218,
+          "five_vs_team_elo": 218.1303602835901,
+          "known_players": 5,
+          "roster_completeness": 1.0,
+          "lineup_spread": 317.5587567918569,
+          "min_matches_before_T": 828,
+          "team_matches_before_T": 510,
+          "players": [
+            {
+              "nick": "Satanic",
+              "account_id": 1044002267,
+              "player_elo": 1599.1719133694126,
+              "matches_before_T": 828,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.275883582490528,
+              "days_since_last_match": 0.66,
+              "hero_pool_size": 125,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "No[o]ne-",
+              "account_id": 106573901,
+              "player_elo": 1740.1540837527061,
+              "matches_before_T": 1008,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.275883582490528,
+              "days_since_last_match": 0.66,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "Noticed",
+              "account_id": 195108598,
+              "player_elo": 1686.5639937464218,
+              "matches_before_T": 970,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.275883582490528,
+              "days_since_last_match": 0.66,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "9Class",
+              "account_id": 164199202,
+              "player_elo": 1793.5346143830654,
+              "matches_before_T": 989,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.275883582490528,
+              "days_since_last_match": 0.66,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "Dukalis",
+              "account_id": 73401082,
+              "player_elo": 1475.9758575912085,
+              "matches_before_T": 1225,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.275883582490528,
+              "days_since_last_match": 0.66,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            }
+          ]
+        }
+      },
+      "diff": {
+        "team_elo": -77.1565488711833,
+        "mean_player_elo": -95.49202255240971,
+        "median_player_elo": -45.07352680875374,
+        "five_vs_team_elo": -13.143117343917538
+      }
+    },
+    "T-1ч": {
+      "t": "2026-08-23 05:15:57+00:00",
+      "patch": "7.41",
+      "patch_age_days": 152,
+      "teams": {
+        "Team Spirit": {
+          "team_id": 7119388,
+          "team_elo": 1366.3262653372979,
+          "player_team_elo": 1366.268119678272,
+          "mean_player_elo": 1571.5287109167361,
+          "median_player_elo": 1649.4311078382511,
+          "five_vs_team_elo": 205.26059123846426,
+          "known_players": 5,
+          "roster_completeness": 1.0,
+          "lineup_spread": 467.11534425485,
+          "min_matches_before_T": 373,
+          "team_matches_before_T": 1402,
+          "players": [
+            {
+              "nick": "Yatoro",
+              "account_id": 321580662,
+              "player_elo": 1649.4311078382511,
+              "matches_before_T": 1297,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.7947062882834315,
+              "days_since_last_match": 0.08,
+              "hero_pool_size": 126,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "Larl",
+              "account_id": 106305042,
+              "player_elo": 1708.9160225853943,
+              "matches_before_T": 1225,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.7947062882834315,
+              "days_since_last_match": 0.08,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "Collapse",
+              "account_id": 302214028,
+              "player_elo": 1742.1904844105602,
+              "matches_before_T": 1277,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.7947062882834315,
+              "days_since_last_match": 0.08,
+              "hero_pool_size": 126,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "not_me",
+              "account_id": 218231587,
+              "player_elo": 1275.0751401557102,
+              "matches_before_T": 373,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.7947062882834315,
+              "days_since_last_match": 0.08,
+              "hero_pool_size": 122,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "rue",
+              "account_id": 847565596,
+              "player_elo": 1482.030799593765,
+              "matches_before_T": 836,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.7947062882834315,
+              "days_since_last_match": 0.08,
+              "hero_pool_size": 126,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            }
+          ]
+        },
+        "TEAM VISION": {
+          "team_id": 9572001,
+          "team_elo": 1435.8029037755186,
+          "player_team_elo": 1440.949732284973,
+          "mean_player_elo": 1659.080092568563,
+          "median_player_elo": 1686.5639937464218,
+          "five_vs_team_elo": 218.1303602835901,
+          "known_players": 5,
+          "roster_completeness": 1.0,
+          "lineup_spread": 317.5587567918569,
+          "min_matches_before_T": 828,
+          "team_matches_before_T": 510,
+          "players": [
+            {
+              "nick": "Satanic",
+              "account_id": 1044002267,
+              "player_elo": 1599.1719133694126,
+              "matches_before_T": 828,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.275883582490528,
+              "days_since_last_match": 0.74,
+              "hero_pool_size": 125,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "No[o]ne-",
+              "account_id": 106573901,
+              "player_elo": 1740.1540837527061,
+              "matches_before_T": 1008,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.275883582490528,
+              "days_since_last_match": 0.74,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "Noticed",
+              "account_id": 195108598,
+              "player_elo": 1686.5639937464218,
+              "matches_before_T": 970,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.275883582490528,
+              "days_since_last_match": 0.74,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "9Class",
+              "account_id": 164199202,
+              "player_elo": 1793.5346143830654,
+              "matches_before_T": 989,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.275883582490528,
+              "days_since_last_match": 0.74,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "Dukalis",
+              "account_id": 73401082,
+              "player_elo": 1475.9758575912085,
+              "matches_before_T": 1225,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.275883582490528,
+              "days_since_last_match": 0.74,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            }
+          ]
+        }
+      },
+      "diff": {
+        "team_elo": -69.47663843822079,
+        "mean_player_elo": -87.55138165182689,
+        "median_player_elo": -37.13288590817069,
+        "five_vs_team_elo": -12.86976904512585
+      }
+    },
+    "T-30м": {
+      "t": "2026-08-23 05:45:57+00:00",
+      "patch": "7.41",
+      "patch_age_days": 152,
+      "teams": {
+        "Team Spirit": {
+          "team_id": 7119388,
+          "team_elo": 1366.3262653372979,
+          "player_team_elo": 1366.268119678272,
+          "mean_player_elo": 1571.5287109167361,
+          "median_player_elo": 1649.4311078382511,
+          "five_vs_team_elo": 205.26059123846426,
+          "known_players": 5,
+          "roster_completeness": 1.0,
+          "lineup_spread": 467.11534425485,
+          "min_matches_before_T": 373,
+          "team_matches_before_T": 1402,
+          "players": [
+            {
+              "nick": "Yatoro",
+              "account_id": 321580662,
+              "player_elo": 1649.4311078382511,
+              "matches_before_T": 1297,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.7947062882834315,
+              "days_since_last_match": 0.1,
+              "hero_pool_size": 126,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "Larl",
+              "account_id": 106305042,
+              "player_elo": 1708.9160225853943,
+              "matches_before_T": 1225,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.7947062882834315,
+              "days_since_last_match": 0.1,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "Collapse",
+              "account_id": 302214028,
+              "player_elo": 1742.1904844105602,
+              "matches_before_T": 1277,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.7947062882834315,
+              "days_since_last_match": 0.1,
+              "hero_pool_size": 126,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "not_me",
+              "account_id": 218231587,
+              "player_elo": 1275.0751401557102,
+              "matches_before_T": 373,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.7947062882834315,
+              "days_since_last_match": 0.1,
+              "hero_pool_size": 122,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "rue",
+              "account_id": 847565596,
+              "player_elo": 1482.030799593765,
+              "matches_before_T": 836,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.7947062882834315,
+              "days_since_last_match": 0.1,
+              "hero_pool_size": 126,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            }
+          ]
+        },
+        "TEAM VISION": {
+          "team_id": 9572001,
+          "team_elo": 1435.8029037755186,
+          "player_team_elo": 1440.949732284973,
+          "mean_player_elo": 1659.080092568563,
+          "median_player_elo": 1686.5639937464218,
+          "five_vs_team_elo": 218.1303602835901,
+          "known_players": 5,
+          "roster_completeness": 1.0,
+          "lineup_spread": 317.5587567918569,
+          "min_matches_before_T": 828,
+          "team_matches_before_T": 510,
+          "players": [
+            {
+              "nick": "Satanic",
+              "account_id": 1044002267,
+              "player_elo": 1599.1719133694126,
+              "matches_before_T": 828,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.275883582490528,
+              "days_since_last_match": 0.76,
+              "hero_pool_size": 125,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "No[o]ne-",
+              "account_id": 106573901,
+              "player_elo": 1740.1540837527061,
+              "matches_before_T": 1008,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.275883582490528,
+              "days_since_last_match": 0.76,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "Noticed",
+              "account_id": 195108598,
+              "player_elo": 1686.5639937464218,
+              "matches_before_T": 970,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.275883582490528,
+              "days_since_last_match": 0.76,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "9Class",
+              "account_id": 164199202,
+              "player_elo": 1793.5346143830654,
+              "matches_before_T": 989,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.275883582490528,
+              "days_since_last_match": 0.76,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            },
+            {
+              "nick": "Dukalis",
+              "account_id": 73401082,
+              "player_elo": 1475.9758575912085,
+              "matches_before_T": 1225,
+              "confidence": "высокая",
+              "elo_volatility_20": 7.275883582490528,
+              "days_since_last_match": 0.76,
+              "hero_pool_size": 127,
+              "role": "UNKNOWN",
+              "role_confidence": "UNKNOWN_ROLE"
+            }
+          ]
+        }
+      },
+      "diff": {
+        "team_elo": -69.47663843822079,
+        "mean_player_elo": -87.55138165182689,
+        "median_player_elo": -37.13288590817069,
+        "five_vs_team_elo": -12.86976904512585
+      }
+    }
+  }
+}
