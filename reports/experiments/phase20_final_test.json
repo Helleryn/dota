@@ -1,0 +1,56 @@
+{
+  "phase": 20,
+  "commit": "e50721903ebf5ae8f1146507a9080d7a5fd0a801",
+  "final_features": [
+    "elo_difference",
+    "form_3_difference",
+    "elo_mean_diff",
+    "five_vs_team_elo_diff",
+    "rd_mean_diff",
+    "rd_max_diff",
+    "elo_mean_diff_attenuated",
+    "elo_mean_decayed_diff",
+    "recency_gap",
+    "days_since_last_max_diff"
+  ],
+  "m0": {
+    "n": 16464,
+    "accuracy": 0.6179543245869776,
+    "roc_auc": 0.6682594933366247,
+    "log_loss": 0.645959928630061,
+    "brier": 0.22761547461461776,
+    "ece": 0.016958901139845908
+  },
+  "m0_h1": {
+    "n": 16464,
+    "accuracy": 0.6180758017492711,
+    "roc_auc": 0.6739021317290502,
+    "log_loss": 0.6420599841101432,
+    "brier": 0.22595343406415877,
+    "ece": 0.01666902640070312
+  },
+  "final": {
+    "n": 16464,
+    "accuracy": 0.6184402332361516,
+    "roc_auc": 0.6747520342165119,
+    "log_loss": 0.6417598746963886,
+    "brier": 0.22579251984720264,
+    "ece": 0.016728006457753897
+  },
+  "paired_log_loss": {
+    "point_diff": -0.0042000539336723985,
+    "ci_low": -0.0058636662809940345,
+    "ci_high": -0.0026072732994601427,
+    "n_blocks": 824,
+    "block_size": 20,
+    "n_bootstrap": 2000
+  },
+  "mcnemar": {
+    "a_correct_b_wrong": 403,
+    "b_correct_a_wrong": 395,
+    "n_discordant": 798,
+    "p_value": 0.8043100625256716
+  },
+  "verdict": "KEEP",
+  "test_accesses": 1
+}

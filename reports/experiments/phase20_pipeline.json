@@ -1,0 +1,284 @@
+{
+  "phase": 20,
+  "commit": "e50721903ebf5ae8f1146507a9080d7a5fd0a801",
+  "threshold": 0.0001,
+  "test_accesses": 0,
+  "coverage": {
+    "rd_mean_diff": 1.0,
+    "rd_max_diff": 1.0,
+    "elo_mean_diff_attenuated": 1.0,
+    "pos_diff_1": 0.9421615613098384,
+    "pos_diff_2": 0.9493959217887276,
+    "pos_diff_3": 0.9294422071177361,
+    "pos_diff_4": 0.9340798513038249,
+    "pos_diff_5": 0.9172330848989558,
+    "pos_bottleneck": 0.9862784044317291,
+    "pos_best": 0.9862784044317291,
+    "pos_imbalance": 0.9862784044317291,
+    "elo_mean_decayed_diff": 1.0,
+    "recency_gap": 1.0,
+    "days_since_last_max_diff": 1.0,
+    "pair_games_mean_diff": 1.0,
+    "pair_games_min_diff": 1.0,
+    "core3_games_diff": 1.0,
+    "synergy_residual_diff": 1.0,
+    "returning_players_diff": 1.0,
+    "core_continuity_diff": 1.0,
+    "lineup_novelty_diff": 1.0,
+    "days_since_lineup_diff": 1.0
+  },
+  "pos_full": 0.7938025037811833,
+  "ablation": {
+    "M0": {
+      "n": 16463,
+      "accuracy": 0.5979469112555428,
+      "roc_auc": 0.6424857111593066,
+      "log_loss": 0.6578381689241773,
+      "brier": 0.2332478184831263,
+      "ece": 0.008844160135766006
+    },
+    "groups": {
+      "H1 неопределённость": {
+        "gain": 0.004167382697989219,
+        "passed": true,
+        "features": [
+          "rd_mean_diff",
+          "rd_max_diff",
+          "elo_mean_diff_attenuated"
+        ],
+        "n": 16463,
+        "accuracy": 0.6003158598068395,
+        "roc_auc": 0.6484182584621312,
+        "log_loss": 0.6536707862261881,
+        "brier": 0.23147909726754745,
+        "ece": 0.007914057967151476
+      },
+      "H2 позиции": {
+        "gain": 7.217898404232592e-05,
+        "passed": false,
+        "features": [
+          "pos_diff_1",
+          "pos_diff_2",
+          "pos_diff_3",
+          "pos_diff_4",
+          "pos_diff_5",
+          "pos_bottleneck",
+          "pos_best",
+          "pos_imbalance"
+        ],
+        "n": 16463,
+        "accuracy": 0.5996476948308328,
+        "roc_auc": 0.6422471517884049,
+        "log_loss": 0.657765989940135,
+        "brier": 0.2332283828406038,
+        "ece": 0.008467764750928636
+      },
+      "H3 актуальность": {
+        "gain": 0.0011254998277689943,
+        "passed": true,
+        "features": [
+          "elo_mean_decayed_diff",
+          "recency_gap",
+          "days_since_last_max_diff"
+        ],
+        "n": 16463,
+        "accuracy": 0.5979469112555428,
+        "roc_auc": 0.6445349219127811,
+        "log_loss": 0.6567126690964084,
+        "brier": 0.23274543651613,
+        "ece": 0.007739988393956692
+      },
+      "H4 сыгранность": {
+        "gain": 0.00012262304380306066,
+        "passed": true,
+        "features": [
+          "pair_games_mean_diff",
+          "pair_games_min_diff",
+          "core3_games_diff",
+          "synergy_residual_diff"
+        ],
+        "n": 16463,
+        "accuracy": 0.5982506226082731,
+        "roc_auc": 0.6427153264909367,
+        "log_loss": 0.6577155458803743,
+        "brier": 0.23316425856457101,
+        "ece": 0.0072496571721286825
+      },
+      "H5 новизна": {
+        "gain": 0.00048037353113639103,
+        "passed": true,
+        "features": [
+          "returning_players_diff",
+          "core_continuity_diff",
+          "lineup_novelty_diff",
+          "days_since_lineup_diff"
+        ],
+        "n": 16463,
+        "accuracy": 0.5977039421733584,
+        "roc_auc": 0.6432155580470953,
+        "log_loss": 0.657357795393041,
+        "brier": 0.2330375860051432,
+        "ece": 0.007039084259880814
+      }
+    }
+  },
+  "redundancy": {
+    "rd_mean_diff": {
+      "elo_mean_diff": -0.21753105543493662,
+      "elo_difference": -0.16270574137106994,
+      "form_3_difference": -0.09466834740606739,
+      "target": -0.12998994939237427
+    },
+    "rd_max_diff": {
+      "elo_mean_diff": -0.21899462471001138,
+      "elo_difference": -0.16929799584473004,
+      "form_3_difference": -0.08848403785903139,
+      "target": -0.10377228976401934
+    },
+    "elo_mean_diff_attenuated": {
+      "elo_mean_diff": 0.9947447892998796,
+      "elo_difference": 0.8190971263569083,
+      "form_3_difference": 0.32352896935657877,
+      "target": 0.24304268774524837
+    },
+    "pos_diff_1": {
+      "elo_mean_diff": 0.6769415992461745,
+      "elo_difference": 0.5361433608941766,
+      "form_3_difference": 0.2181098416336259,
+      "target": 0.17137055721015715
+    },
+    "pos_diff_2": {
+      "elo_mean_diff": 0.6776862022912821,
+      "elo_difference": 0.5543629889153917,
+      "form_3_difference": 0.22782754606570962,
+      "target": 0.16891817405011544
+    },
+    "pos_diff_3": {
+      "elo_mean_diff": 0.6694845105052983,
+      "elo_difference": 0.5572771984144947,
+      "form_3_difference": 0.2199700701838581,
+      "target": 0.16419483310762387
+    },
+    "pos_diff_4": {
+      "elo_mean_diff": 0.6808561652893796,
+      "elo_difference": 0.5625722217097968,
+      "form_3_difference": 0.22822335309385047,
+      "target": 0.17223258374269967
+    },
+    "pos_diff_5": {
+      "elo_mean_diff": 0.6981349053519776,
+      "elo_difference": 0.5929663551238347,
+      "form_3_difference": 0.2331795916735082,
+      "target": 0.17037062099514183
+    },
+    "pos_bottleneck": {
+      "elo_mean_diff": 0.7064170655322407,
+      "elo_difference": 0.574312031366408,
+      "form_3_difference": 0.23375836239501607,
+      "target": 0.17327258244604693
+    },
+    "pos_best": {
+      "elo_mean_diff": 0.7077685127719295,
+      "elo_difference": 0.5776308633994737,
+      "form_3_difference": 0.23602996250286282,
+      "target": 0.18070180773854919
+    },
+    "pos_imbalance": {
+      "elo_mean_diff": 0.001852471714963813,
+      "elo_difference": 0.003168891367565491,
+      "form_3_difference": 0.0020417073113720274,
+      "target": 0.005770518885147941
+    },
+    "elo_mean_decayed_diff": {
+      "elo_mean_diff": 0.9931382852208225,
+      "elo_difference": 0.8187772223751985,
+      "form_3_difference": 0.3359959724432502,
+      "target": 0.24575978830565307
+    },
+    "recency_gap": {
+      "elo_mean_diff": -0.23705863391795753,
+      "elo_difference": -0.16564017374134693,
+      "form_3_difference": -0.005061451188670849,
+      "target": -0.07438039184814682
+    },
+    "days_since_last_max_diff": {
+      "elo_mean_diff": -0.08173901877494534,
+      "elo_difference": -0.061686193620356586,
+      "form_3_difference": -0.05278425084231078,
+      "target": -0.057638567234082554
+    },
+    "pair_games_mean_diff": {
+      "elo_mean_diff": 0.3072483521924885,
+      "elo_difference": 0.27739799330258436,
+      "form_3_difference": 0.07008913544174661,
+      "target": 0.07945944135880634
+    },
+    "pair_games_min_diff": {
+      "elo_mean_diff": 0.20361792527003988,
+      "elo_difference": 0.18815066212004258,
+      "form_3_difference": 0.04638821143744107,
+      "target": 0.0504105579478834
+    },
+    "core3_games_diff": {
+      "elo_mean_diff": 0.26399921520358943,
+      "elo_difference": 0.24685649106832175,
+      "form_3_difference": 0.05940044165796463,
+      "target": 0.06638838637237075
+    },
+    "synergy_residual_diff": {
+      "elo_mean_diff": -0.1720627461407624,
+      "elo_difference": -0.09372832950266609,
+      "form_3_difference": 0.20379152501213035,
+      "target": -0.010661588327519024
+    },
+    "returning_players_diff": {
+      "elo_mean_diff": 0.11508178002622267,
+      "elo_difference": 0.10207844431125891,
+      "form_3_difference": 0.10833040237550573,
+      "target": 0.05083542544653468
+    },
+    "core_continuity_diff": {
+      "elo_mean_diff": 0.15022771235402343,
+      "elo_difference": 0.12636139153874884,
+      "form_3_difference": 0.1181831125992918,
+      "target": 0.06731812551746706
+    },
+    "lineup_novelty_diff": {
+      "elo_mean_diff": -0.15022771235402402,
+      "elo_difference": -0.126361391538749,
+      "form_3_difference": -0.11818311259928882,
+      "target": -0.0673181255174694
+    },
+    "days_since_lineup_diff": {
+      "elo_mean_diff": 0.10848029789404988,
+      "elo_difference": 0.11255561117538118,
+      "form_3_difference": 0.012713924732393704,
+      "target": 0.031311345734792606
+    }
+  },
+  "M6": {
+    "features": [
+      "rd_mean_diff",
+      "rd_max_diff",
+      "elo_mean_diff_attenuated",
+      "elo_mean_decayed_diff",
+      "recency_gap",
+      "days_since_last_max_diff",
+      "pair_games_mean_diff",
+      "pair_games_min_diff",
+      "core3_games_diff",
+      "synergy_residual_diff",
+      "returning_players_diff",
+      "core_continuity_diff",
+      "lineup_novelty_diff",
+      "days_since_lineup_diff"
+    ],
+    "n": 16463,
+    "accuracy": 0.6020773856526757,
+    "roc_auc": 0.6484293868542282,
+    "log_loss": 0.6536026469922223,
+    "brier": 0.231462423154233,
+    "ece": 0.007670624944182878,
+    "gain": 0.0042355219319550885
+  }
+}
