@@ -1,0 +1,209 @@
+{
+  "phase": 20,
+  "commit": "6726b8ea400e384043c28a208d3f336c3088a40a",
+  "games": {
+    "8960577698": {
+      "p_spirit_M0": 0.36271908648741874,
+      "spirit_radiant": true,
+      "features": {
+        "elo_difference": -89.84305898477783,
+        "elo_mean_diff": -109.49775295946506,
+        "five_vs_team_elo_diff": -14.073094058103834,
+        "rd_mean_diff": 1.7143336911757316,
+        "rd_max_diff": 4.059878722062528,
+        "elo_mean_diff_attenuated": -96.64293687372937,
+        "pos_diff_1": 7.422617904588378,
+        "pos_diff_2": -55.31802725689772,
+        "pos_diff_3": 59.24421024016124,
+        "pos_diff_4": -332.78180196152994,
+        "pos_diff_5": -212.20511908653884,
+        "pos_bottleneck": -332.78180196152994,
+        "pos_best": 59.24421024016124,
+        "pos_imbalance": 392.0260122016912,
+        "elo_mean_decayed_diff": -103.49038770974812,
+        "recency_gap": 3.23723632229553,
+        "days_since_last_max_diff": -0.6264351851851852,
+        "pair_games_mean_diff": -6.050116462472019,
+        "pair_games_min_diff": 0.37620008859749277,
+        "core3_games_diff": -5.798205273227367,
+        "synergy_residual_diff": -0.06602435433783588,
+        "returning_players_diff": 0.0,
+        "core_continuity_diff": 0.0,
+        "lineup_novelty_diff": 0.0,
+        "days_since_lineup_diff": 0.16496527777776748
+      }
+    },
+    "8960655084": {
+      "p_spirit_M0": 0.3627518546615086,
+      "spirit_radiant": false,
+      "features": {
+        "elo_difference": -89.84305898477783,
+        "elo_mean_diff": -109.49775295946506,
+        "five_vs_team_elo_diff": -14.073094058103834,
+        "rd_mean_diff": 1.7146886108757258,
+        "rd_max_diff": 4.060716175391505,
+        "elo_mean_diff_attenuated": -96.63902410543922,
+        "pos_diff_1": 7.422617904588378,
+        "pos_diff_2": -55.31802725689772,
+        "pos_diff_3": 59.24421024016124,
+        "pos_diff_4": -332.78180196152994,
+        "pos_diff_5": -212.20511908653884,
+        "pos_bottleneck": 59.24421024016124,
+        "pos_best": -332.78180196152994,
+        "pos_imbalance": -392.0260122016912,
+        "elo_mean_decayed_diff": -103.44606156439545,
+        "recency_gap": 3.2815624676482003,
+        "days_since_last_max_diff": -0.6264351851851853,
+        "pair_games_mean_diff": -6.047525126719478,
+        "pair_games_min_diff": 0.3760389576926997,
+        "core3_games_diff": -5.795721833988068,
+        "synergy_residual_diff": -0.06602435433783577,
+        "returning_players_diff": -0.0,
+        "core_continuity_diff": -0.0,
+        "lineup_novelty_diff": -0.0,
+        "days_since_lineup_diff": 0.1649652777777817
+      }
+    },
+    "8960762254": {
+      "p_spirit_M0": 0.3553079454736363,
+      "spirit_radiant": true,
+      "features": {
+        "elo_difference": -96.08112289714177,
+        "elo_mean_diff": -115.56813788307772,
+        "five_vs_team_elo_diff": -14.048880965158105,
+        "rd_mean_diff": 1.8873645720877619,
+        "rd_max_diff": 4.264917748421119,
+        "elo_mean_diff_attenuated": -102.22124339826341,
+        "pos_diff_1": 1.3075037773730855,
+        "pos_diff_2": -61.433141384113014,
+        "pos_diff_3": 53.129096112945945,
+        "pos_diff_4": -338.89691608874523,
+        "pos_diff_5": -218.32023321375414,
+        "pos_bottleneck": -338.89691608874523,
+        "pos_best": 53.129096112945945,
+        "pos_imbalance": 392.0260122016912,
+        "elo_mean_decayed_diff": -113.73519511186237,
+        "recency_gap": -0.8924569526038795,
+        "days_since_last_max_diff": 0.2157175925925926,
+        "pair_games_mean_diff": -7.044206701340713,
+        "pair_games_min_diff": -0.624013726278065,
+        "core3_games_diff": -6.792535555875702,
+        "synergy_residual_diff": -0.06865922107765582,
+        "returning_players_diff": 0.0,
+        "core_continuity_diff": 0.0,
+        "lineup_novelty_diff": 0.0,
+        "days_since_lineup_diff": 0.1649652777777817
+      }
+    },
+    "8960882635": {
+      "p_spirit_M0": 0.36761441012946494,
+      "spirit_radiant": false,
+      "features": {
+        "elo_difference": -86.0481083791633,
+        "elo_mean_diff": -105.37754101278051,
+        "five_vs_team_elo_diff": -14.026130540814165,
+        "rd_mean_diff": 2.057653690341219,
+        "rd_max_diff": 4.465960308876191,
+        "elo_mean_diff_attenuated": -93.06876378272514,
+        "pos_diff_1": 11.45607228803351,
+        "pos_diff_2": -51.28457287345259,
+        "pos_diff_3": 63.27766462360637,
+        "pos_diff_4": -328.7483475780848,
+        "pos_diff_5": -208.1716647030937,
+        "pos_bottleneck": 63.27766462360637,
+        "pos_best": -328.7483475780848,
+        "pos_imbalance": -392.0260122016912,
+        "elo_mean_decayed_diff": -103.829003259317,
+        "recency_gap": -1.1348336107184878,
+        "days_since_last_max_diff": 0.27440972222222226,
+        "pair_games_mean_diff": -8.040406984955624,
+        "pair_games_min_diff": -1.6234918308351283,
+        "core3_games_diff": -7.78886432985756,
+        "synergy_residual_diff": -0.061659440919555775,
+        "returning_players_diff": -0.0,
+        "core_continuity_diff": -0.0,
+        "lineup_novelty_diff": -0.0,
+        "days_since_lineup_diff": 0.16496527777776748
+      }
+    },
+    "8960991322": {
+      "p_spirit_M0": 0.3599482819992508,
+      "spirit_radiant": false,
+      "features": {
+        "elo_difference": -92.4532362501609,
+        "elo_mean_diff": -111.62762410838195,
+        "five_vs_team_elo_diff": -14.00371563185331,
+        "rd_mean_diff": 2.2255232332241164,
+        "rd_max_diff": 4.663748713981619,
+        "elo_mean_diff_attenuated": -98.81431954157848,
+        "pos_diff_1": 5.164588873529283,
+        "pos_diff_2": -57.57605628795682,
+        "pos_diff_3": 56.98618120910214,
+        "pos_diff_4": -335.03983099258903,
+        "pos_diff_5": -214.46314811759794,
+        "pos_bottleneck": 56.98618120910214,
+        "pos_best": -335.03983099258903,
+        "pos_imbalance": -392.0260122016912,
+        "elo_mean_decayed_diff": -110.34485003639747,
+        "recency_gap": -1.359196973294729,
+        "days_since_last_max_diff": 0.3282523148148148,
+        "pair_games_mean_diff": -9.036801735508249,
+        "pair_games_min_diff": -2.6225955701473893,
+        "core3_games_diff": -8.7853652725927,
+        "synergy_residual_diff": -0.06423206216822347,
+        "returning_players_diff": -0.0,
+        "core_continuity_diff": -0.0,
+        "lineup_novelty_diff": -0.0,
+        "days_since_lineup_diff": 0.1649652777777817
+      }
+    }
+  },
+  "m0_line": [
+    0.36271908648741874,
+    0.3627518546615086,
+    0.3553079454736363,
+    0.36761441012946494,
+    0.3599482819992508
+  ],
+  "per_group": {
+    "H1 неопределённость": [
+      0.36884454446013953,
+      0.3699584440775281,
+      0.36168592591252624,
+      0.3742996344981301,
+      0.36692210593905517
+    ],
+    "H2 позиции": [
+      0.35585939594909605,
+      0.35751575820401926,
+      0.3486646617985498,
+      0.3622035004268206,
+      0.3547471881098292
+    ],
+    "H3 актуальность": [
+      0.36282929684932286,
+      0.36302854035112164,
+      0.3607691803036405,
+      0.37330856158382153,
+      0.36611782696634365
+    ],
+    "H4 сыгранность": [
+      0.3505133122516143,
+      0.3507453243104526,
+      0.3427158568455901,
+      0.3561566921144821,
+      0.34809601079993513
+    ],
+    "H5 новизна": [
+      0.36468672770463867,
+      0.3647812739353976,
+      0.35737080924792874,
+      0.3695806472355031,
+      0.36201374511565143
+    ]
+  },
+  "actual": {
+    "spirit_wins": 3,
+    "m0_accuracy": 0.4
+  }
+}
